@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.social.service.dao.ReviewMapper">
+  <resultMap id="BaseResultMap" type="com.social.service.domain.Review">
+    <constructor>
+      <idArg column="reviewId" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="publicId" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="reviewText" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    reviewId, publicId, reviewText
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from social_review
+    where reviewId = #{reviewid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from social_review
+    where reviewId = #{reviewid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.social.service.domain.Review">
+    insert into social_review (reviewId, publicId, reviewText
+      )
+    values (#{reviewid,jdbcType=VARCHAR}, #{publicid,jdbcType=VARCHAR}, #{reviewtext,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.social.service.domain.Review">
+    insert into social_review
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="reviewid != null">
+        reviewId,
+      </if>
+      <if test="publicid != null">
+        publicId,
+      </if>
+      <if test="reviewtext != null">
+        reviewText,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="reviewid != null">
+        #{reviewid,jdbcType=VARCHAR},
+      </if>
+      <if test="publicid != null">
+        #{publicid,jdbcType=VARCHAR},
+      </if>
+      <if test="reviewtext != null">
+        #{reviewtext,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.social.service.domain.Review">
+    update social_review
+    <set>
+      <if test="publicid != null">
+        publicId = #{publicid,jdbcType=VARCHAR},
+      </if>
+      <if test="reviewtext != null">
+        reviewText = #{reviewtext,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where reviewId = #{reviewid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.social.service.domain.Review">
+    update social_review
+    set publicId = #{publicid,jdbcType=VARCHAR},
+      reviewText = #{reviewtext,jdbcType=VARCHAR}
+    where reviewId = #{reviewid,jdbcType=VARCHAR}
+  </update>
+</mapper>

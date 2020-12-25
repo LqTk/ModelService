@@ -14,7 +14,7 @@ public class FileService implements IFileService {
     public String upload(MultipartFile file, String uploadPath) {
         String originalFileName = file.getOriginalFilename();
         String extendName = originalFileName.substring(originalFileName.lastIndexOf(".")+1);
-        String fileName = UUID.randomUUID().toString()+"."+extendName;
+        String fileName = UUID.randomUUID().toString().replaceAll("-", "")+"."+extendName;
         File uploadDir = new File(uploadPath);
         if (!uploadDir.exists()){
             uploadDir.setWritable(true);
@@ -23,7 +23,7 @@ public class FileService implements IFileService {
         File uploadFile = new File(uploadDir,fileName);
         try {
             file.transferTo(uploadFile);//上传文件到Tomcat服务器
-            uploadFile.delete();//删除上传的文件
+//            uploadFile.delete();//删除上传的文件
             return uploadFile.getAbsolutePath();
         } catch (IOException e) {
             e.printStackTrace();

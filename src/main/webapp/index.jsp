@@ -71,7 +71,7 @@
     }
     function logind() {
       $.ajax({
-        url:"http://192.168.2.162:8080/SocialService/user/login",
+        url:"http://192.168.2.196:8080/SocialService/user/login",
         type:"POST",
         data:JSON.stringify($(document.getElementById('login')).serializeObject()),
         contentType:"application/json",  //缺失会出现URL编码，无法转成json对象

@@ -4,13 +4,13 @@ import com.social.service.domain.User;
 import org.apache.ibatis.annotations.Param;
 
 public interface UserMapper {
-    int deleteByPrimaryKey(Integer id);
+    int deleteByPrimaryKey(String id);
 
     int insert(User record);
 
     int insertSelective(User record);
 
-    User selectByPrimaryKey(Integer id);
+    User selectByPrimaryKey(String id);
 
     int updateByPrimaryKeySelective(User record);
 
@@ -22,5 +22,5 @@ public interface UserMapper {
 
     int updatePasswordByUsername(@Param("name") String name, @Param("password") String password);
 
-    int updatePasswordByUserPhone(@Param("phone") String phone);
+    int updataResigtrationId(@Param("userId")String userId, @Param("registrationId")String registrationId);
 }

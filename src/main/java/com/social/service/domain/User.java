@@ -3,58 +3,74 @@ package com.social.service.domain;
 import java.util.Date;
 
 public class User {
-    private Integer id;
+    private String id;
+
+    private String registrationid;
 
     private String name;
 
     private String password;
 
+    private String img;
+
+    private Integer sex;
+
+    private Integer age;
+
     private String phone;
 
+    private Date createTime;
+
+    private Date updateTime;
+
     private String des;
-
-    private Date create_time;
-
-    private Date update_time;
 
     public User(String name, String password) {
         this.name = name;
         this.password = password;
     }
 
-    public User(String name, String password, String phone, String des) {
+    public User(String id, String name, String img, Integer sex, Integer age, String phone, String des) {
+        this.id = id;
         this.name = name;
-        this.password = password;
+        this.img = img;
+        this.sex = sex;
+        this.age = age;
         this.phone = phone;
         this.des = des;
     }
 
-    public User(Integer id, String name, String phone, String des) {
+    public User(String id, String registrationid, String name, String password, String img, Integer sex, Integer age, String phone, Date createTime, Date updateTime, String des) {
         this.id = id;
+        this.registrationid = registrationid;
         this.name = name;
+        this.password = password;
+        this.img = img;
+        this.sex = sex;
+        this.age = age;
         this.phone = phone;
+        this.createTime = createTime;
+        this.updateTime = updateTime;
         this.des = des;
     }
 
-    public User(Integer id, String name, String password, String phone, Date create_time, Date update_time, String des) {
-        this.id = id;
-        this.name = name;
-        this.password = password;
-        this.phone = phone;
-        this.create_time = create_time;
-        this.update_time = update_time;
-        this.des = des;
+    public String getRegistrationid() {
+        return registrationid;
+    }
+
+    public void setRegistrationid(String registrationid) {
+        this.registrationid = registrationid;
     }
 
     public User() {
         super();
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -74,6 +90,30 @@ public class User {
         this.password = password == null ? null : password.trim();
     }
 
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img == null ? null : img.trim();
+    }
+
+    public Integer getSex() {
+        return sex;
+    }
+
+    public void setSex(Integer sex) {
+        this.sex = sex;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
     public String getPhone() {
         return phone;
     }
@@ -82,27 +122,27 @@ public class User {
         this.phone = phone == null ? null : phone.trim();
     }
 
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
+    }
+
     public String getDes() {
         return des;
     }
 
     public void setDes(String des) {
         this.des = des == null ? null : des.trim();
-    }
-
-    public Date getCreate_time() {
-        return create_time;
-    }
-
-    public void setCreate_time(Date create_time) {
-        this.create_time = create_time;
-    }
-
-    public Date getUpdate_time() {
-        return update_time;
-    }
-
-    public void setUpdate_time(Date update_time) {
-        this.update_time = update_time;
     }
 }

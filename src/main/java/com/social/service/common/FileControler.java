@@ -22,8 +22,9 @@ public class FileControler {
 
     @RequestMapping("uploadImg")
     public ServiceResponse uploadImg(@RequestParam(value = "img",required = false)MultipartFile file,
-                                     HttpSession session, HttpServletRequest request){
-        String uploadDir = request.getSession().getServletContext().getRealPath("uploadImg");
+                                     HttpSession session, HttpServletRequest request,@RequestParam("userId") String userId){
+//        String uploadDir = request.getSession().getServletContext().getRealPath("uploadImg");
+        String uploadDir = "D:\\tomact\\apache-tomcat-9.0.21\\proDir\\"+"social/headImg";
         String uploadUrl = iFileService.upload(file, uploadDir);
         File uploadFile = new File(uploadUrl);
         HashMap map = new HashMap();
@@ -33,7 +34,7 @@ public class FileControler {
             return ServiceResponse.createBySuccessData(map);
         }
         map.put("success",true);
-        map.put("url",uploadUrl);
+        map.put("url","social/headImg/"+uploadFile.getName());
         map.put("uri",uploadFile.getName());
         return ServiceResponse.createBySuccessData(map);
     }

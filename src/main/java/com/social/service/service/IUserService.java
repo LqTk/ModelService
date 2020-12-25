@@ -13,7 +13,11 @@ public interface IUserService {
 
     public ServiceResponse update(User user);
 
-    public ServiceResponse getUserInformation(Integer userId);
+    public ServiceResponse getUserInformation(String userId);
 
-    public ServiceResponse resetPassword(String password, String newPassword, Integer userId);
+    public ServiceResponse resetPassword(String password, String newPassword, String userId);
+
+    public ServiceResponse updateUserInfo(User user);
+
+    public ServiceResponse updateUserRegistrationId(String userId, String registrationId);
 }

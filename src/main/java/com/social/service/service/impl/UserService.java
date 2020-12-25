@@ -10,6 +10,9 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
+import java.util.UUID;
+
 @Service("iUserService")
 public class UserService implements IUserService {
 
@@ -26,7 +29,15 @@ public class UserService implements IUserService {
         if (null == user){
             return ServiceResponse.createByErrorMessage("密码错误");
         }
-        return ServiceResponse.createBySuccessData(user);
+        HashMap map = new HashMap();
+        map.put("userId",user.getId());
+        map.put("userName",user.getName());
+        map.put("headImg",user.getImg());
+        map.put("sex",user.getSex());
+        map.put("age",user.getAge());
+        map.put("phone",user.getPhone());
+        map.put("des",user.getDes());
+        return ServiceResponse.createBySuccessData(map);
     }
 
     public ServiceResponse register(User user) {
@@ -38,7 +49,11 @@ public class UserService implements IUserService {
         if (!validResponse.isSuccess()){
             return validResponse;
         }
+        user.setId(UUID.randomUUID().toString().replaceAll("-", ""));
         user.setPassword(EncryptUtil.encoderUTF8(user.getPassword()));
+        user.setAge(0);
+        user.setSex(1);
+        user.setDes("欢迎使用！");
         int rowCount = userMapper.insert(user);
         if (rowCount>0){
             return ServiceResponse.createBySuccessMessage("注册成功");
@@ -73,7 +88,7 @@ public class UserService implements IUserService {
         return null;
     }
 
-    public ServiceResponse getUserInformation(Integer userId) {
+    public ServiceResponse getUserInformation(String userId) {
         User user = userMapper.selectByPrimaryKey(userId);
         if (null == user){
             return ServiceResponse.createByErrorMessage("找不到该用户的信息");
@@ -82,7 +97,7 @@ public class UserService implements IUserService {
         return ServiceResponse.createBySuccessData(user);
     }
 
-    public ServiceResponse resetPassword(String password, String newPassword, Integer userId) {
+    public ServiceResponse resetPassword(String password, String newPassword, String userId) {
         User user = userMapper.selectByPrimaryKey(userId);
         if (null == user){
             return ServiceResponse.createByErrorMessage("无法找到当前用户的个人信息");
@@ -97,5 +112,35 @@ public class UserService implements IUserService {
             return ServiceResponse.createBySuccessMessage("重置密码成功");
         }
         return ServiceResponse.createByErrorMessage("重置密码失败");
+    }
+
+    @Override
+    public ServiceResponse updateUserInfo(User user) {
+        if (user==null || user.getId()==null){
+            return ServiceResponse.createByIllegalArgument();
+        }
+        User user1 = userMapper.selectByPrimaryKey(user.getId());
+        if (user1==null){
+            return ServiceResponse.createByErrorMessage("未查询到用户信息");
+        }
+        user.setCreateTime(user1.getCreateTime());
+        int i = userMapper.updateByPrimaryKeySelective(user);
+        if (i>0){
+            return ServiceResponse.createBySuccessMessage("用户信息更新成功");
+        }
+        return ServiceResponse.createByErrorMessage("用户信息更新失败");
+    }
+
+    @Override
+    public ServiceResponse updateUserRegistrationId(String userId, String registrationId) {
+        if (StringUtils.isBlank(userId))
+            return ServiceResponse.createByErrorMessage("未找到用户");
+        if (userMapper.selectByPrimaryKey(userId)==null)
+            return ServiceResponse.createByErrorMessage("未找到用户");
+        int i = userMapper.updataResigtrationId(userId, registrationId);
+        if (i>0){
+            return ServiceResponse.createBySuccessMessage("更新成功");
+        }
+        return ServiceResponse.createByErrorMessage("更新失败");
     }
 }

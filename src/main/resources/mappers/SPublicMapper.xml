@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.social.service.dao.SPublicMapper">
+  <resultMap id="BaseResultMap" type="com.social.service.domain.SPublic">
+    <constructor>
+      <idArg column="shareId" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="userId" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="userName" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="userHead" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="userSex" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="shareName" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="shareUrl" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="shareText" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="isPublic" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="goodsCount" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="reviewCount" javaType="java.lang.Integer" jdbcType="INTEGER" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    shareId, userId, userName, userHead, userSex, shareName, shareUrl, shareText, isPublic,
+    goodsCount, reviewCount
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from social_public
+    where shareId = #{shareid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from social_public
+    where shareId = #{shareid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.social.service.domain.SPublic">
+    insert into social_public (shareId, userId, userName,
+      userHead, userSex, shareName,
+      shareUrl, shareText, isPublic,
+      goodsCount, reviewCount)
+    values (#{shareid,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR},
+      #{userhead,jdbcType=VARCHAR}, #{usersex,jdbcType=INTEGER}, #{sharename,jdbcType=VARCHAR},
+      #{shareurl,jdbcType=VARCHAR}, #{sharetext,jdbcType=VARCHAR}, #{ispublic,jdbcType=INTEGER},
+      #{goodscount,jdbcType=INTEGER}, #{reviewcount,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.social.service.domain.SPublic">
+    insert into social_public
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="shareid != null">
+        shareId,
+      </if>
+      <if test="userid != null">
+        userId,
+      </if>
+      <if test="username != null">
+        userName,
+      </if>
+      <if test="userhead != null">
+        userHead,
+      </if>
+      <if test="usersex != null">
+        userSex,
+      </if>
+      <if test="sharename != null">
+        shareName,
+      </if>
+      <if test="shareurl != null">
+        shareUrl,
+      </if>
+      <if test="sharetext != null">
+        shareText,
+      </if>
+      <if test="ispublic != null">
+        isPublic,
+      </if>
+      <if test="goodscount != null">
+        goodsCount,
+      </if>
+      <if test="reviewcount != null">
+        reviewCount,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="shareid != null">
+        #{shareid,jdbcType=VARCHAR},
+      </if>
+      <if test="userid != null">
+        #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="userhead != null">
+        #{userhead,jdbcType=VARCHAR},
+      </if>
+      <if test="usersex != null">
+        #{usersex,jdbcType=INTEGER},
+      </if>
+      <if test="sharename != null">
+        #{sharename,jdbcType=VARCHAR},
+      </if>
+      <if test="shareurl != null">
+        #{shareurl,jdbcType=VARCHAR},
+      </if>
+      <if test="sharetext != null">
+        #{sharetext,jdbcType=VARCHAR},
+      </if>
+      <if test="ispublic != null">
+        #{ispublic,jdbcType=INTEGER},
+      </if>
+      <if test="goodscount != null">
+        #{goodscount,jdbcType=INTEGER},
+      </if>
+      <if test="reviewcount != null">
+        #{reviewcount,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.social.service.domain.SPublic">
+    update social_public
+    <set>
+      <if test="userid != null">
+        userId = #{userid,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        userName = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="userhead != null">
+        userHead = #{userhead,jdbcType=VARCHAR},
+      </if>
+      <if test="usersex != null">
+        userSex = #{usersex,jdbcType=INTEGER},
+      </if>
+      <if test="sharename != null">
+        shareName = #{sharename,jdbcType=VARCHAR},
+      </if>
+      <if test="shareurl != null">
+        shareUrl = #{shareurl,jdbcType=VARCHAR},
+      </if>
+      <if test="sharetext != null">
+        shareText = #{sharetext,jdbcType=VARCHAR},
+      </if>
+      <if test="ispublic != null">
+        isPublic = #{ispublic,jdbcType=INTEGER},
+      </if>
+      <if test="goodscount != null">
+        goodsCount = #{goodscount,jdbcType=INTEGER},
+      </if>
+      <if test="reviewcount != null">
+        reviewCount = #{reviewcount,jdbcType=INTEGER},
+      </if>
+    </set>
+    where shareId = #{shareid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.social.service.domain.SPublic">
+    update social_public
+    set userId = #{userid,jdbcType=VARCHAR},
+      userName = #{username,jdbcType=VARCHAR},
+      userHead = #{userhead,jdbcType=VARCHAR},
+      userSex = #{usersex,jdbcType=INTEGER},
+      shareName = #{sharename,jdbcType=VARCHAR},
+      shareUrl = #{shareurl,jdbcType=VARCHAR},
+      shareText = #{sharetext,jdbcType=VARCHAR},
+      isPublic = #{ispublic,jdbcType=INTEGER},
+      goodsCount = #{goodscount,jdbcType=INTEGER},
+      reviewCount = #{reviewcount,jdbcType=INTEGER}
+    where shareId = #{shareid,jdbcType=VARCHAR}
+  </update>
+
+  <update id="addReviewCount" parameterType="map">
+    update social_public
+    set reviewCount = #{count}
+    where shareId = #{shareId}
+  </update>
+
+  <update id="addGoodsCount" parameterType="map">
+    update social_public
+    set goodsCount = #{count}
+    where shareId = #{shareId}
+  </update>
+
+  <select id="getSocialPublicSize" resultMap="BaseResultMap">
+    select * from social_public order by rand() limit 10
+  </select>
+
+  <select id="getSocialByUserId" parameterType="map" resultMap="BaseResultMap">
+    select * from social_public where userId=#{userId} limit #{start},#{end}
+  </select>
+
+  <update id="updataHeadImg" parameterType="map">
+    update social_public
+    set userHead = #{imghead}
+    where userId = #{userId}
+  </update>
+</mapper>

@@ -58,7 +58,15 @@
             <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>
 
-        <table tableName="social_user" domainObjectName="User" enableCountByExample="false" enableUpdateByExample="false"
+        <!--<table tableName="social_user" domainObjectName="User" enableCountByExample="false" enableUpdateByExample="false"
+        enableDeleteByExample="false" enableSelectByExample="fasle" selectByExampleQueryId="fasle"/>-->
+        <!--<table tableName="social_public" domainObjectName="SPublic" enableCountByExample="false" enableUpdateByExample="false"
+        enableDeleteByExample="false" enableSelectByExample="fasle" selectByExampleQueryId="fasle"/>-->
+        <!--<table tableName="social_review" domainObjectName="Review" enableCountByExample="false" enableUpdateByExample="false"
+        enableDeleteByExample="false" enableSelectByExample="fasle" selectByExampleQueryId="fasle"/>-->
+        <!--<table tableName="social_goods" domainObjectName="Goods" enableCountByExample="false" enableUpdateByExample="false"
+        enableDeleteByExample="false" enableSelectByExample="fasle" selectByExampleQueryId="fasle"/>-->
+        <table tableName="social_partner" domainObjectName="Partner" enableCountByExample="false" enableUpdateByExample="false"
         enableDeleteByExample="false" enableSelectByExample="fasle" selectByExampleQueryId="fasle"/>
     </context>
 </generatorConfiguration>
