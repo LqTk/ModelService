@@ -7,44 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7783714a-5c1b-4c2c-842b-c648836bef44" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__cn_jpush_api_jiguang_common_1_1_10.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__cn_jpush_api_jpush_client_3_4_8.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_9.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_all_4_1_6_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__log4j_log4j_1_2_17.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_5_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_6.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_bouncycastle_bcpkix_jdk15on_1_60.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_bouncycastle_bcprov_jdk15on_1_60.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_log4j12_1_7_7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/socialsql.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/social/service/people/socialpublic/SocialPublic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/social/service/service/IPartnerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/social/service/service/IPublicService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/social/service/service/impl/PartnerService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/social/service/service/impl/PublicService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/social/service/util/JPushClientUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/log4j.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/SocialService_war_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/SocialService_war_exploded.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SocialService.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SocialService.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/SocialService_war_exploded/SocialService_war exploded.war" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SocialService_war_exploded/SocialService_war exploded.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/social/service/common/FileControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social/service/common/FileControler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/social/service/dao/UserMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social/service/dao/UserMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/social/service/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social/service/domain/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/social/service/people/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social/service/people/user/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/social/service/service/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social/service/service/IUserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/social/service/service/impl/FileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social/service/service/impl/FileService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/social/service/service/impl/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social/service/service/impl/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/UserMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/social/service/common/FileControler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/social/service/common/FileControler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/social/service/dao/UserMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/social/service/dao/UserMapper.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/social/service/domain/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/social/service/domain/User.class" afterDir="false" />
@@ -145,8 +109,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/service/impl/PartnerService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="427">
-              <caret line="34" column="97" selection-start-line="34" selection-start-column="97" selection-end-line="34" selection-end-column="97" />
+            <state relative-caret-position="337">
+              <caret line="34" column="37" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -161,6 +125,21 @@
               <caret line="26" column="116" lean-forward="true" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="116" />
               <folding>
                 <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/util/JPushClientUtil.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="282">
+              <caret line="205" column="53" selection-start-line="205" selection-start-column="53" selection-end-line="205" selection-end-column="53" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#buildPushObject_android_and_ios#0;class#JPushClientUtil#0" />
+                <element signature="method#buildPushObject_android_all_alertWithTitle#0;class#JPushClientUtil#0" />
+                <element signature="method#buildPushObject_ios_all_alterWithTitle#0;class#JPushClientUtil#0" />
               </folding>
             </state>
           </provider>
@@ -183,18 +162,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="4412">
               <caret line="155" column="17" selection-start-line="155" selection-start-column="17" selection-end-line="155" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/service/IUserService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -284,7 +251,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/social/service/dao/UserMapper.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mappers/UserMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/social/service/service/IUserService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/social/service/util/JPushClientUtil.java" />
         <option value="$PROJECT_DIR$/src/main/resources/log4j.properties" />
         <option value="$PROJECT_DIR$/src/main/java/com/social/service/service/impl/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" />
@@ -293,6 +259,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/social/service/service/IPartnerService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/social/service/people/user/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/social/service/service/impl/PartnerService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/social/service/util/JPushClientUtil.java" />
       </list>
     </option>
   </component>
@@ -380,84 +347,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SocialService" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SocialService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SocialService" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SocialService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="domain" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SocialService" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SocialService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="people" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SocialService" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SocialService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="people" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SocialService" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SocialService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SocialService" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SocialService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SocialService" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SocialService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SocialService" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SocialService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="mappers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SocialService" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SocialService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -717,7 +606,7 @@
       <workItem from="1608600243554" duration="10799000" />
       <workItem from="1608694133038" duration="598000" />
       <workItem from="1608777805101" duration="8379000" />
-      <workItem from="1608860822653" duration="10614000" />
+      <workItem from="1608860822653" duration="10922000" />
     </task>
     <task id="LOCAL-00001" summary="服务器模板搭建">
       <created>1607934807583</created>
@@ -726,17 +615,24 @@
       <option name="project" value="LOCAL" />
       <updated>1607934807583</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="代码提交">
+      <created>1608887221878</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1608887221878</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="159538000" />
+    <option name="totallyTimeSpent" value="159846000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.17004265" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17004265" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -746,7 +642,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.14253898" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.33407572" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.24832962" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -813,7 +709,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="服务器模板搭建" />
-    <option name="LAST_COMMIT_MESSAGE" value="服务器模板搭建" />
+    <MESSAGE value="代码提交" />
+    <option name="LAST_COMMIT_MESSAGE" value="代码提交" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1108,20 +1005,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/util/JPushClientUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3690">
-          <caret line="134" column="38" selection-start-line="134" selection-start-column="22" selection-end-line="134" selection-end-column="38" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#buildPushObject_android_and_ios#0;class#JPushClientUtil#0" />
-            <element signature="method#buildPushObject_all_registrationId_alterWithTitle#0;class#JPushClientUtil#0" />
-            <element signature="method#buildPushObject_android_all_alertWithTitle#0;class#JPushClientUtil#0" />
-            <element signature="method#buildPushObject_ios_all_alterWithTitle#0;class#JPushClientUtil#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -1273,10 +1156,23 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/util/JPushClientUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="282">
+          <caret line="205" column="53" selection-start-line="205" selection-start-column="53" selection-end-line="205" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#buildPushObject_android_and_ios#0;class#JPushClientUtil#0" />
+            <element signature="method#buildPushObject_android_all_alertWithTitle#0;class#JPushClientUtil#0" />
+            <element signature="method#buildPushObject_ios_all_alterWithTitle#0;class#JPushClientUtil#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/service/impl/PartnerService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="34" column="97" selection-start-line="34" selection-start-column="97" selection-end-line="34" selection-end-column="97" />
+        <state relative-caret-position="337">
+          <caret line="34" column="37" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
