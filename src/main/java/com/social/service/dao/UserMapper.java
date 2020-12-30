@@ -18,6 +18,10 @@ public interface UserMapper {
 
     int checkExistByPhoneOrName(String name);
 
+    int clearRegistrationId(String userId);
+
+    User selectByRegistrationId(String registrationId);
+
     User selectLogin(@Param("name") String name, @Param("password") String password);
 
     int updatePasswordByUsername(@Param("name") String name, @Param("password") String password);

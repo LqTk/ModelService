@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.social.service.dao.ChatMapper">
+  <resultMap id="BaseResultMap" type="com.social.service.domain.Chat">
+    <constructor>
+      <idArg column="chatId" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="talkId" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="toId" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="msgType" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="msgContent" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="voiceTime" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="filePath" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="chatTime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    chatId, talkId, toId, msgType, msgContent, voiceTime, filePath, chatTime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from social_chat
+    where chatId = #{chatid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from social_chat
+    where chatId = #{chatid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.social.service.domain.Chat">
+    insert into social_chat (chatId, talkId, toId,
+      msgType, msgContent, voiceTime,
+      filePath, chatTime)
+    values (#{chatid,jdbcType=VARCHAR}, #{talkid,jdbcType=VARCHAR}, #{toid,jdbcType=VARCHAR},
+      #{msgtype,jdbcType=VARCHAR}, #{msgcontent,jdbcType=VARCHAR}, #{voicetime,jdbcType=VARCHAR},
+      #{filepath,jdbcType=VARCHAR}, now())
+  </insert>
+  <insert id="insertSelective" parameterType="com.social.service.domain.Chat">
+    insert into social_chat
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="chatid != null">
+        chatId,
+      </if>
+      <if test="talkid != null">
+        talkId,
+      </if>
+      <if test="toid != null">
+        toId,
+      </if>
+      <if test="msgtype != null">
+        msgType,
+      </if>
+      <if test="msgcontent != null">
+        msgContent,
+      </if>
+      <if test="voicetime != null">
+        voiceTime,
+      </if>
+      <if test="filepath != null">
+        filePath,
+      </if>
+      <if test="chattime != null">
+        chatTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="chatid != null">
+        #{chatid,jdbcType=VARCHAR},
+      </if>
+      <if test="talkid != null">
+        #{talkid,jdbcType=VARCHAR},
+      </if>
+      <if test="toid != null">
+        #{toid,jdbcType=VARCHAR},
+      </if>
+      <if test="msgtype != null">
+        #{msgtype,jdbcType=VARCHAR},
+      </if>
+      <if test="msgcontent != null">
+        #{msgcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="voicetime != null">
+        #{voicetime,jdbcType=VARCHAR},
+      </if>
+      <if test="filepath != null">
+        #{filepath,jdbcType=VARCHAR},
+      </if>
+      <if test="chattime != null">
+        now(),
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.social.service.domain.Chat">
+    update social_chat
+    <set>
+      <if test="talkid != null">
+        talkId = #{talkid,jdbcType=VARCHAR},
+      </if>
+      <if test="toid != null">
+        toId = #{toid,jdbcType=VARCHAR},
+      </if>
+      <if test="msgtype != null">
+        msgType = #{msgtype,jdbcType=VARCHAR},
+      </if>
+      <if test="msgcontent != null">
+        msgContent = #{msgcontent,jdbcType=VARCHAR},
+      </if>
+      <if test="voicetime != null">
+        voiceTime = #{voicetime,jdbcType=VARCHAR},
+      </if>
+      <if test="filepath != null">
+        filePath = #{filepath,jdbcType=VARCHAR},
+      </if>
+      <if test="chattime != null">
+        chatTime = now(),
+      </if>
+    </set>
+    where chatId = #{chatid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.social.service.domain.Chat">
+    update social_chat
+    set talkId = #{talkid,jdbcType=VARCHAR},
+      toId = #{toid,jdbcType=VARCHAR},
+      msgType = #{msgtype,jdbcType=VARCHAR},
+      msgContent = #{msgcontent,jdbcType=VARCHAR},
+      voiceTime = #{voicetime,jdbcType=VARCHAR},
+      filePath = #{filepath,jdbcType=VARCHAR},
+      chatTime = now()
+    where chatId = #{chatid,jdbcType=VARCHAR}
+  </update>
+
+  <select id="selectAllChatFromToId" parameterType="string" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+     from social_chat where toId=#{toId}
+  </select>
+
+  <select id="selectAllChatFromTalkId" parameterType="string" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+     from social_chat where talkId=#{talkId}
+  </select>
+
+</mapper>

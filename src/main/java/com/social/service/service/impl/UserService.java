@@ -49,7 +49,10 @@ public class UserService implements IUserService {
         if (!validResponse.isSuccess()){
             return validResponse;
         }
+        if (StringUtils.isBlank(user.getPassword()))
+            return ServiceResponse.createByErrorMessage("请输入密码");
         user.setId(UUID.randomUUID().toString().replaceAll("-", ""));
+        user.setRegistrationid("");
         user.setPassword(EncryptUtil.encoderUTF8(user.getPassword()));
         user.setAge(0);
         user.setSex(1);
@@ -142,5 +145,24 @@ public class UserService implements IUserService {
             return ServiceResponse.createBySuccessMessage("更新成功");
         }
         return ServiceResponse.createByErrorMessage("更新失败");
+    }
+
+    @Override
+    public User checkExistByResgitrationId(String registrationId) {
+        if (StringUtils.isBlank(registrationId))
+            return null;
+        User user = userMapper.selectByRegistrationId(registrationId);
+        return user;
+    }
+
+    @Override
+    public ServiceResponse clearRegistrationId(String userId){
+        if (StringUtils.isBlank(userId))
+            return ServiceResponse.createByErrorMessage("用户ID不能为空");
+        int i = userMapper.clearRegistrationId(userId);
+        if (i>0){
+            return ServiceResponse.createBySuccess();
+        }
+        return ServiceResponse.createByError();
     }
 }

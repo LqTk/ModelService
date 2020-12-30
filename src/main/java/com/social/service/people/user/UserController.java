@@ -1,12 +1,11 @@
 package com.social.service.people.user;
 
+import com.social.service.common.Const;
 import com.social.service.common.ServiceResponse;
+import com.social.service.domain.Chat;
 import com.social.service.domain.Partner;
 import com.social.service.domain.User;
-import com.social.service.service.IFileService;
-import com.social.service.service.IPartnerService;
-import com.social.service.service.IPublicService;
-import com.social.service.service.IUserService;
+import com.social.service.service.*;
 import com.social.service.util.JPushClientUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +32,9 @@ public class UserController {
 
     @Autowired
     private IPartnerService iPartnerService;
+
+    @Autowired
+    private IChatService iChatService;
 
     @RequestMapping(value = "login", method = RequestMethod.POST)
     public ServiceResponse login(@RequestBody User user){
@@ -120,6 +122,15 @@ public class UserController {
     public ServiceResponse updataRegisterId(@RequestBody Map map){
         String userId = (String) map.get("userId");
         String registerId = (String) map.get("registerId");
+
+        User user = iUserService.checkExistByResgitrationId(registerId);
+        if (user!=null) {
+            if (user.getId().equals(userId)) {
+                return ServiceResponse.createBySuccessMessage("已存在");
+            }else {
+                iUserService.clearRegistrationId(user.getId());
+            }
+        }
         if (StringUtils.isBlank(userId))
             return ServiceResponse.createByErrorMessage("用户Id不能为空");
         return iUserService.updateUserRegistrationId(userId,registerId);
@@ -183,5 +194,55 @@ public class UserController {
             returnList.add(hashMap);
         }
         return ServiceResponse.createBySuccessData(returnList);
+    }
+
+    @RequestMapping(value = "chat/sendMsg", method = RequestMethod.POST)
+    public ServiceResponse sendMsg(@RequestParam HashMap map, @RequestParam(value = "file",required = false) MultipartFile file){
+        if (map==null || StringUtils.isBlank((String) map.get("msgtype"))){
+            return ServiceResponse.createByErrorMessage("参数错误");
+        }
+        String msgType = (String) map.get("msgtype");
+        Chat chat = new Chat();
+        chat.setTalkid((String) map.get("talkid"));
+        chat.setToid((String) map.get("toid"));
+        chat.setMsgtype((String) map.get("msgtype"));
+        if (msgType.equals(Const.MODE_IMAGE) || msgType.equals(Const.MODE_VOICE)){
+            String saveDir =  "D:\\tomact\\apache-tomcat-9.0.21\\proDir\\";
+            String uploadDir = "";
+            if (msgType.equals(Const.MODE_IMAGE)){
+                //图片
+                uploadDir = "social/chatImg";
+            }else {
+                //语音
+                uploadDir = "social/chatVoice";
+                chat.setVoicetime((String) map.get("voicetime"));
+            }
+            String uploadUrl = iFileService.upload(file, saveDir+uploadDir);
+            File uploadFile = new File(uploadUrl);
+            if (StringUtils.isBlank(uploadUrl)){
+                return ServiceResponse.createByErrorMessage("上传文件失败");
+            }
+            chat.setFilepath(uploadDir + "/" + uploadFile.getName());
+        }else {
+            //文字
+            chat.setMsgcontent((String) map.get("msgcontent"));
+        }
+        return sendMsgResult(chat);
+    }
+
+    private ServiceResponse sendMsgResult(@RequestBody Chat chat) {
+        ServiceResponse response = iChatService.addChat(chat);
+        if (response.isSuccess()) {
+            ServiceResponse userInformation = iUserService.getUserInformation(chat.getToid());
+            if (userInformation == null) {
+                return ServiceResponse.createBySuccess();
+            }
+            User user = (User) userInformation.getData();
+            if (user != null && !StringUtils.isBlank(user.getRegistrationid()))
+            JPushClientUtil.sendMessageToAll(user.getRegistrationid(), "有新消息", "新消息", "new Message");
+            return ServiceResponse.createBySuccess();
+        }else {
+            return ServiceResponse.createByErrorMessage("消息发送失败");
+        }
     }
 }

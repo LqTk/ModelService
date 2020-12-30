@@ -20,4 +20,8 @@ public interface IUserService {
     public ServiceResponse updateUserInfo(User user);
 
     public ServiceResponse updateUserRegistrationId(String userId, String registrationId);
+
+    public User checkExistByResgitrationId(String registrationId);
+
+    public ServiceResponse clearRegistrationId(String userId);
 }

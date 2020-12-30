@@ -10,10 +10,26 @@ Target Server Type    : MYSQL
 Target Server Version : 80017
 File Encoding         : 65001
 
-Date: 2020-12-25 17:07:58
+Date: 2020-12-30 17:24:16
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for social_chat
+-- ----------------------------
+DROP TABLE IF EXISTS `social_chat`;
+CREATE TABLE `social_chat` (
+  `chatId` varchar(255) NOT NULL,
+  `talkId` varchar(255) DEFAULT NULL,
+  `toId` varchar(255) DEFAULT NULL,
+  `msgType` varchar(255) DEFAULT NULL,
+  `msgContent` varchar(255) DEFAULT NULL,
+  `voiceTime` varchar(11) DEFAULT NULL,
+  `filePath` varchar(255) DEFAULT NULL,
+  `chatTime` datetime DEFAULT NULL,
+  PRIMARY KEY (`chatId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- ----------------------------
 -- Table structure for social_goods

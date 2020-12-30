@@ -34,7 +34,7 @@
       img, sex, age, phone,
       create_time, update_time, des
       )
-    values (#{id,jdbcType=VARCHAR}, #{registrationId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+    values (#{id,jdbcType=VARCHAR}, #{registrationid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
       #{img,jdbcType=VARCHAR}, #{sex,jdbcType=INTEGER}, #{age,jdbcType=INTEGER}, #{phone,jdbcType=VARCHAR},
       #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{des,jdbcType=VARCHAR}
       )
@@ -201,5 +201,17 @@
     update social_user
     set registrationId=#{registrationId}
     where id=#{userId}
+  </update>
+
+  <select id="selectByRegistrationId" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List" />
+    from social_user
+    where registrationId=#{registrationId}
+  </select>
+
+  <update id="clearRegistrationId" parameterType="java.lang.String">
+    update social_user
+    set registrationId=null
+    where id = #{userId}
   </update>
 </mapper>
