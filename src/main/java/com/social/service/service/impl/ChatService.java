@@ -8,8 +8,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 @Service("iChatService")
 public class ChatService implements IChatService {
@@ -18,8 +17,15 @@ public class ChatService implements IChatService {
     ChatMapper chatMapper;
 
     @Override
+    public ServiceResponse selectByChatId(String chatId) {
+        if (StringUtils.isBlank(chatId))
+            return ServiceResponse.createByErrorMessage("获取失败");
+        Chat chat = chatMapper.selectByPrimaryKey(chatId);
+        return ServiceResponse.createBySuccessData(chat);
+    }
+
+    @Override
     public ServiceResponse addChat(Chat chat) {
-        chat.setChatid(UUID.randomUUID().toString().replaceAll("-",""));
         int insert = chatMapper.insert(chat);
         if (insert>0){
             return ServiceResponse.createBySuccess();
@@ -43,6 +49,7 @@ public class ChatService implements IChatService {
         if (StringUtils.isBlank(toId))
             return ServiceResponse.createByIllegalArgument();
         List<Chat> chats = chatMapper.selectAllChatFromToId(toId);
+
         if (chats!=null){
             return ServiceResponse.createBySuccessData(chats);
         }
@@ -51,6 +58,17 @@ public class ChatService implements IChatService {
 
     @Override
     public ServiceResponse selectAllFromTalkId(String talkId) {
+        if (StringUtils.isBlank(talkId))
+            return ServiceResponse.createByIllegalArgument();
+        List<Chat> chats = chatMapper.selectAllChatFromTalkId(talkId);
+        if (chats!=null){
+            return ServiceResponse.createBySuccessData(chats);
+        }
+        return ServiceResponse.createByErrorMessage("获取失败");
+    }
+
+    @Override
+    public ServiceResponse selectCurrentChat(String talkId, String userId) {
         if (StringUtils.isBlank(talkId))
             return ServiceResponse.createByIllegalArgument();
         List<Chat> chats = chatMapper.selectAllChatFromTalkId(talkId);

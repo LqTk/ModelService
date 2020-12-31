@@ -131,13 +131,19 @@
   <select id="selectAllChatFromToId" parameterType="string" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
-     from social_chat where toId=#{toId}
+     from social_chat where toId=#{toId} group by talkId
   </select>
 
   <select id="selectAllChatFromTalkId" parameterType="string" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
      from social_chat where talkId=#{talkId}
+  </select>
+
+  <select id="selectCurrentChat" parameterType="map" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+     from social_chat where talkId=#{talkId} and toId=#{userId}
   </select>
 
 </mapper>

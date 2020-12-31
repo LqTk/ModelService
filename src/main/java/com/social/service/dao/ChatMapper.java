@@ -1,7 +1,9 @@
 package com.social.service.dao;
 
 import com.social.service.domain.Chat;
+import org.apache.ibatis.annotations.Param;
 
+import java.util.HashMap;
 import java.util.List;
 
 public interface ChatMapper {
@@ -20,4 +22,6 @@ public interface ChatMapper {
     List<Chat> selectAllChatFromToId(String toId);
 
     List<Chat> selectAllChatFromTalkId(String talkId);
+
+    List<Chat> selectCurrentChat(@Param("talkId") String talkId, @Param("userId")String userId);
 }

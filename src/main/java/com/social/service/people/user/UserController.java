@@ -3,6 +3,7 @@ package com.social.service.people.user;
 import com.social.service.common.Const;
 import com.social.service.common.ServiceResponse;
 import com.social.service.domain.Chat;
+import com.social.service.domain.ChatEntity;
 import com.social.service.domain.Partner;
 import com.social.service.domain.User;
 import com.social.service.service.*;
@@ -231,6 +232,7 @@ public class UserController {
     }
 
     private ServiceResponse sendMsgResult(@RequestBody Chat chat) {
+        chat.setChatid(UUID.randomUUID().toString().replaceAll("-",""));
         ServiceResponse response = iChatService.addChat(chat);
         if (response.isSuccess()) {
             ServiceResponse userInformation = iUserService.getUserInformation(chat.getToid());
@@ -240,9 +242,88 @@ public class UserController {
             User user = (User) userInformation.getData();
             if (user != null && !StringUtils.isBlank(user.getRegistrationid()))
             JPushClientUtil.sendMessageToAll(user.getRegistrationid(), "有新消息", "新消息", "new Message");
-            return ServiceResponse.createBySuccess();
+            return ServiceResponse.createBySuccessData(chatToMsg((Chat) iChatService.selectByChatId(chat.getChatid()).getData()));
         }else {
             return ServiceResponse.createByErrorMessage("消息发送失败");
         }
+    }
+
+    @RequestMapping(value = "chat/getAllChat/{userId}",method = RequestMethod.GET)
+    public ServiceResponse getAllMsg(@PathVariable String userId){
+        if (StringUtils.isBlank(userId)){
+            return ServiceResponse.createByErrorMessage("获取失败");
+        }
+        ServiceResponse response = iChatService.selectAllFromToId(userId);
+        if (!response.isSuccess()){
+            return response;
+        }
+        List<Chat> listChats = (List<Chat>) response.getData();
+
+        List<ChatEntity> returnList = new ArrayList<>();
+        for (int i=0;i<listChats.size();i++) {
+            Chat chat = listChats.get(i);
+            listChatToMsg(returnList, chat);
+        }
+        return ServiceResponse.createBySuccessData(returnList);
+    }
+
+    private ChatEntity chatToMsg(Chat chat){
+        User user = (User) iUserService.getUserInformation(chat.getTalkid()).getData();
+        ChatEntity chatEntity = new ChatEntity();
+        chatEntity.msgType = chat.getMsgtype();
+        chatEntity.chatid = chat.getChatid();
+        chatEntity.chattime = chat.getChattime().getTime();
+        chatEntity.senderId = chat.getTalkid();
+        if (chat.getMsgtype().equals(Const.MODE_TEXT)) {
+            chatEntity.msgContent = chat.getMsgcontent();
+        }else{
+            if (chat.getMsgtype().equals(Const.MODE_VOICE)){
+                chatEntity.voicetime = chat.getVoicetime();
+            }
+            chatEntity.msgContent = chat.getFilepath();
+        }
+        if (user!=null) {
+            chatEntity.senderName = user.getName();
+            chatEntity.senderAvatar = user.getImg();
+        }else {
+            chatEntity.senderAvatar = "";
+        }
+        return chatEntity;
+    }
+
+    private void listChatToMsg(List<ChatEntity> returnList, Chat chat) {
+        returnList.add(chatToMsg(chat));
+    }
+
+    @RequestMapping(value = "chat/getSelectChat",method = RequestMethod.GET)
+    public ServiceResponse getChatMsg(@RequestParam HashMap map){
+        if (map==null){
+            return ServiceResponse.createByErrorMessage("获取失败");
+        }
+        String userId = (String) map.get("userId");
+        String partnerId = (String) map.get("partnerId");
+        if (StringUtils.isBlank(userId) || StringUtils.isBlank(partnerId)){
+            return ServiceResponse.createByErrorMessage("请求参数错误");
+        }
+        ServiceResponse response = iChatService.selectCurrentChat(partnerId, userId);
+        if (response.isSuccess()) {
+            List<Chat> chats = (List<Chat>) response.getData();
+            for (Chat chat:chats){
+                iChatService.deleteChat(chat.getChatid());
+            }
+        }
+        return getChatResponse(response);
+    }
+
+    private ServiceResponse getChatResponse(ServiceResponse response) {
+        if (!response.isSuccess()){
+            return response;
+        }
+        List<Chat> chats = (List<Chat>) response.getData();
+        List<ChatEntity> chatEntities = new ArrayList<>();
+        for (Chat chat:chats){
+            listChatToMsg(chatEntities, chat);
+        }
+        return ServiceResponse.createBySuccessData(chatEntities);
     }
 }
