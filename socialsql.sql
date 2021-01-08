@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80017
 File Encoding         : 65001
 
-Date: 2020-12-30 17:24:16
+Date: 2021-01-08 17:21:58
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -37,7 +37,7 @@ CREATE TABLE `social_chat` (
 DROP TABLE IF EXISTS `social_goods`;
 CREATE TABLE `social_goods` (
   `goodsId` varchar(32) NOT NULL,
-  `userId` varchar(32) NOT NULL,
+  `peopleId` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `publicId` varchar(32) NOT NULL,
   `peopleName` varchar(255) DEFAULT NULL,
   `peopleHead` varchar(255) DEFAULT NULL,
@@ -68,6 +68,7 @@ CREATE TABLE `social_public` (
   `shareName` varchar(255) DEFAULT NULL,
   `shareUrl` varchar(255) DEFAULT NULL,
   `shareText` varchar(255) DEFAULT NULL,
+  `createTime` datetime DEFAULT NULL,
   `isPublic` int(1) DEFAULT '0',
   `goodsCount` int(11) DEFAULT '0',
   `reviewCount` int(11) DEFAULT NULL,
@@ -80,6 +81,7 @@ CREATE TABLE `social_public` (
 DROP TABLE IF EXISTS `social_review`;
 CREATE TABLE `social_review` (
   `reviewId` varchar(32) NOT NULL,
+  `peopleId` varchar(32) NOT NULL,
   `publicId` varchar(32) NOT NULL,
   `reviewText` varchar(255) NOT NULL,
   PRIMARY KEY (`reviewId`)
@@ -96,6 +98,7 @@ CREATE TABLE `social_user` (
   `password` varchar(255) NOT NULL,
   `img` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `sex` int(1) DEFAULT '1',
+  `birthday` varchar(255) DEFAULT NULL,
   `age` int(3) DEFAULT '0',
   `phone` varchar(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
