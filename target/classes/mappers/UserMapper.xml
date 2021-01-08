@@ -9,6 +9,7 @@
       <arg column="password" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="img" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="sex" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="birthday" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="age" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="phone" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="create_time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
@@ -17,7 +18,8 @@
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
-    id, registrationId, name, password, img, sex, age, phone, create_time, update_time, des
+    id, registrationId, name, password, img, sex, birthday, age, phone, create_time,
+    update_time, des
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select
@@ -30,13 +32,15 @@
     where id = #{id,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.social.service.domain.User">
-    insert into social_user (id, registrationId, name, password,
-      img, sex, age, phone,
+    insert into social_user (id, registrationId, name,
+      password, img, sex,
+      birthday, age, phone,
       create_time, update_time, des
       )
-    values (#{id,jdbcType=VARCHAR}, #{registrationid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
-      #{img,jdbcType=VARCHAR}, #{sex,jdbcType=INTEGER}, #{age,jdbcType=INTEGER}, #{phone,jdbcType=VARCHAR},
-      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{des,jdbcType=VARCHAR}
+    values (#{id,jdbcType=VARCHAR}, #{registrationid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
+      #{password,jdbcType=VARCHAR}, #{img,jdbcType=VARCHAR}, #{sex,jdbcType=INTEGER},
+      #{birthday,jdbcType=VARCHAR}, #{age,jdbcType=INTEGER}, #{phone,jdbcType=VARCHAR},
+      now(), now(), #{des,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.social.service.domain.User">
@@ -59,6 +63,9 @@
       </if>
       <if test="sex != null">
         sex,
+      </if>
+      <if test="birthday != null">
+        birthday,
       </if>
       <if test="age != null">
         age,
@@ -95,6 +102,9 @@
       <if test="sex != null">
         #{sex,jdbcType=INTEGER},
       </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=VARCHAR},
+      </if>
       <if test="age != null">
         #{age,jdbcType=INTEGER},
       </if>
@@ -105,7 +115,7 @@
         #{createTime,jdbcType=TIMESTAMP},
       </if>
       <if test="updateTime != null">
-        #{updateTime,jdbcType=TIMESTAMP},
+        now(),
       </if>
       <if test="des != null">
         #{des,jdbcType=VARCHAR},
@@ -115,11 +125,11 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.social.service.domain.User">
     update social_user
     <set>
-      <if test="name != null">
-        name = #{name,jdbcType=VARCHAR},
-      </if>
       <if test="registrationid != null">
         registrationId = #{registrationid,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
       </if>
       <if test="password != null">
         password = #{password,jdbcType=VARCHAR},
@@ -129,6 +139,9 @@
       </if>
       <if test="sex != null">
         sex = #{sex,jdbcType=INTEGER},
+      </if>
+      <if test="birthday != null">
+        birthday = #{birthday,jdbcType=VARCHAR},
       </if>
       <if test="age != null">
         age = #{age,jdbcType=INTEGER},
@@ -146,35 +159,39 @@
         des = #{des,jdbcType=VARCHAR},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.social.service.domain.User">
     update social_user
-    set name = #{name,jdbcType=VARCHAR},
-      registrationId = #{registrationid,jdbcType=VARCHAR},
+    set registrationId = #{registrationid,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR},
       img = #{img,jdbcType=VARCHAR},
       sex = #{sex,jdbcType=INTEGER},
+      birthday = #{birthday,jdbcType=VARCHAR},
       age = #{age,jdbcType=INTEGER},
       phone = #{phone,jdbcType=VARCHAR},
       create_time = #{createTime,jdbcType=TIMESTAMP},
       update_time = now(),
       des = #{des,jdbcType=VARCHAR}
-    where id = #{id,jdbcType=INTEGER}
+    where id = #{id,jdbcType=VARCHAR}
   </update>
+
+
   <resultMap id="selectMap" type="com.social.service.domain.User">
     <constructor>
       <idArg column="id" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="name" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="img" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="sex" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="birthday" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="age" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="phone" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="des" javaType="java.lang.String" jdbcType="VARCHAR" />
     </constructor>
   </resultMap>
   <sql id="select_Column_List">
-    id, name, img, sex, age, phone, des
+    id, name, img, sex, birthday, age, phone, des
   </sql>
 
   <select id="checkExistByPhoneOrName" parameterType="string" resultType="int">
@@ -187,7 +204,7 @@
     select
     <include refid="select_Column_List" />
     from social_user
-    where name = #{name} or phone = #{name}
+    where (name = #{name} or phone = #{name})
     and password = #{password}
   </select>
 

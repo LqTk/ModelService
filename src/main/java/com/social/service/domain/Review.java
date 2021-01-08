@@ -3,12 +3,15 @@ package com.social.service.domain;
 public class Review {
     private String reviewid;
 
+    private String peopleid;
+
     private String publicid;
 
     private String reviewtext;
 
-    public Review(String reviewid, String publicid, String reviewtext) {
+    public Review(String reviewid, String peopleid, String publicid, String reviewtext) {
         this.reviewid = reviewid;
+        this.peopleid = peopleid;
         this.publicid = publicid;
         this.reviewtext = reviewtext;
     }
@@ -23,6 +26,14 @@ public class Review {
 
     public void setReviewid(String reviewid) {
         this.reviewid = reviewid == null ? null : reviewid.trim();
+    }
+
+    public String getPeopleid() {
+        return peopleid;
+    }
+
+    public void setPeopleid(String peopleid) {
+        this.peopleid = peopleid == null ? null : peopleid.trim();
     }
 
     public String getPublicid() {

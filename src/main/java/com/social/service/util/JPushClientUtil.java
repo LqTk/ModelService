@@ -132,10 +132,10 @@ public class JPushClientUtil {
      * @param extrasparam
      * @return 0失败 1成功
      */
-    public static int sendMessageToAll(String registerId, String msg_title, String msg_content, String extrasparam){
+    public static int sendMessageToAll(String registerId, String msg_title, String msg_content, String extraKey, String extrasparam){
         int result = 0;
         try {
-            PushPayload pushPayload = JPushClientUtil.buildPushMessage_all_registrationId_alterWithTitle(registerId,msg_title,msg_content,extrasparam);
+            PushPayload pushPayload = JPushClientUtil.buildPushMessage_all_registrationId_alterWithTitle(registerId,msg_title,msg_content,extraKey,extrasparam);
             System.out.println(pushPayload);
             PushResult pushResult = jPushClient.sendPush(pushPayload);
             System.out.println(pushResult);
@@ -228,14 +228,14 @@ public class JPushClientUtil {
                 .build();
     }
 
-    private static PushPayload buildPushMessage_all_registrationId_alterWithTitle(String registrationId, String msg_title, String msg_content, String extrasparam){
+    private static PushPayload buildPushMessage_all_registrationId_alterWithTitle(String registrationId, String msg_title, String msg_content,String extraKey, String extrasparam){
         return PushPayload.newBuilder()
                 .setPlatform(Platform.all())
                 .setAudience(Audience.registrationId(registrationId))
                 .setMessage(Message.newBuilder()
                         .setMsgContent(msg_content)
                         .setTitle(msg_title)
-                        .addExtra("extra key",extrasparam)
+                        .addExtra(extraKey,extrasparam)
                         .build())
                 .setOptions(Options.newBuilder()
                         .setApnsProduction(false)

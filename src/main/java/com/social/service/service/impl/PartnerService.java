@@ -4,6 +4,7 @@ import com.social.service.common.ServiceResponse;
 import com.social.service.dao.PartnerMapper;
 import com.social.service.dao.UserMapper;
 import com.social.service.domain.Partner;
+import com.social.service.domain.PartnerEntity;
 import com.social.service.domain.User;
 import com.social.service.service.IPartnerService;
 import com.social.service.util.JPushClientUtil;
@@ -31,7 +32,9 @@ public class PartnerService implements IPartnerService {
         if (insert>0){
             User user = userMapper.selectByPrimaryKey(partner.getUserid());
             User partnerUser = userMapper.selectByPrimaryKey(partner.getPartnerid());
+            if (user.getRegistrationid()!=null)
             JPushClientUtil.sendToRegistrationId(user.getRegistrationid(),"好友添加成功","好友添加结果","添加成功","");
+            if (partnerUser.getRegistrationid()!=null)
             JPushClientUtil.sendToRegistrationId(partnerUser.getRegistrationid(),"请求添加好友","请求添加好友",user.getName()+"请求添加好友","");
             return ServiceResponse.createBySuccessMessage("添加成功");
         }
@@ -54,7 +57,7 @@ public class PartnerService implements IPartnerService {
         if (StringUtils.isBlank(userId)){
             return ServiceResponse.createByErrorMessage("好友不能为空");
         }
-        List<Partner> partners = partnerMapper.getPartners(userId);
+        List<PartnerEntity> partners = partnerMapper.getPartners(userId);
         if (partners!=null){
             return ServiceResponse.createBySuccessData(partners);
         }

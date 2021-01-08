@@ -14,7 +14,8 @@ public class FileService implements IFileService {
     public String upload(MultipartFile file, String uploadPath) {
         String originalFileName = file.getOriginalFilename();
         String extendName = originalFileName.substring(originalFileName.lastIndexOf(".")+1);
-        String fileName = UUID.randomUUID().toString().replaceAll("-", "")+"."+extendName;
+//        String fileName = UUID.randomUUID().toString().replaceAll("-", "")+"."+extendName;
+        String fileName = originalFileName;
         File uploadDir = new File(uploadPath);
         if (!uploadDir.exists()){
             uploadDir.setWritable(true);

@@ -4,92 +4,92 @@
   <resultMap id="BaseResultMap" type="com.social.service.domain.Goods">
     <constructor>
       <idArg column="goodsId" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="userId" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="peopleId" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="publicId" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="peopleName" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="peopleHead" javaType="java.lang.String" jdbcType="VARCHAR" />
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
-    goodsId, userId, publicId, peopleName, peopleHead
+    goodsId, peopleId, publicId, peopleName, peopleHead
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from social_goods
-    where goodsId = #{goodsid,jdbcType=VARCHAR}
+    where goodsId = #{goodsId,jdbcType=VARCHAR}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from social_goods
-    where goodsId = #{goodsid,jdbcType=VARCHAR}
+    where goodsId = #{goodsId,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.social.service.domain.Goods">
-    insert into social_goods (goodsId, userId, publicId, 
+    insert into social_goods (goodsId, peopleId, publicId,
       peopleName, peopleHead)
-    values (#{goodsid,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, #{publicid,jdbcType=VARCHAR}, 
-      #{peoplename,jdbcType=VARCHAR}, #{peoplehead,jdbcType=VARCHAR})
+    values (#{goodsId,jdbcType=VARCHAR}, #{peopleId,jdbcType=VARCHAR}, #{publicId,jdbcType=VARCHAR},
+      #{peopleName,jdbcType=VARCHAR}, #{peopleHead,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.social.service.domain.Goods">
     insert into social_goods
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="goodsid != null">
+      <if test="goodsId != null">
         goodsId,
       </if>
-      <if test="userid != null">
-        userId,
+      <if test="peopleId != null">
+        peopleId,
       </if>
-      <if test="publicid != null">
+      <if test="publicId != null">
         publicId,
       </if>
-      <if test="peoplename != null">
+      <if test="peopleName != null">
         peopleName,
       </if>
-      <if test="peoplehead != null">
+      <if test="peopleHead != null">
         peopleHead,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="goodsid != null">
-        #{goodsid,jdbcType=VARCHAR},
+      <if test="goodsId != null">
+        #{goodsId,jdbcType=VARCHAR},
       </if>
-      <if test="userid != null">
-        #{userid,jdbcType=VARCHAR},
+      <if test="peopleId != null">
+        #{peopleId,jdbcType=VARCHAR},
       </if>
-      <if test="publicid != null">
-        #{publicid,jdbcType=VARCHAR},
+      <if test="publicId != null">
+        #{publicId,jdbcType=VARCHAR},
       </if>
-      <if test="peoplename != null">
-        #{peoplename,jdbcType=VARCHAR},
+      <if test="peopleName != null">
+        #{peopleName,jdbcType=VARCHAR},
       </if>
-      <if test="peoplehead != null">
-        #{peoplehead,jdbcType=VARCHAR},
+      <if test="peopleHead != null">
+        #{peopleHead,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.social.service.domain.Goods">
     update social_goods
     <set>
-      <if test="userid != null">
-        userId = #{userid,jdbcType=VARCHAR},
+      <if test="peopleId != null">
+        peopleId = #{peopleId,jdbcType=VARCHAR},
       </if>
-      <if test="publicid != null">
-        publicId = #{publicid,jdbcType=VARCHAR},
+      <if test="publicId != null">
+        publicId = #{publicId,jdbcType=VARCHAR},
       </if>
-      <if test="peoplename != null">
-        peopleName = #{peoplename,jdbcType=VARCHAR},
+      <if test="peopleName != null">
+        peopleName = #{peopleName,jdbcType=VARCHAR},
       </if>
-      <if test="peoplehead != null">
-        peopleHead = #{peoplehead,jdbcType=VARCHAR},
+      <if test="peopleHead != null">
+        peopleHead = #{peopleHead,jdbcType=VARCHAR},
       </if>
     </set>
-    where goodsId = #{goodsid,jdbcType=VARCHAR}
+    where goodsId = #{goodsId,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.social.service.domain.Goods">
     update social_goods
-    set userId = #{userid,jdbcType=VARCHAR},
-      publicId = #{publicid,jdbcType=VARCHAR},
-      peopleName = #{peoplename,jdbcType=VARCHAR},
-      peopleHead = #{peoplehead,jdbcType=VARCHAR}
-    where goodsId = #{goodsid,jdbcType=VARCHAR}
+    set peopleId = #{peopleId,jdbcType=VARCHAR},
+      publicId = #{publicId,jdbcType=VARCHAR},
+      peopleName = #{peopleName,jdbcType=VARCHAR},
+      peopleHead = #{peopleHead,jdbcType=VARCHAR}
+    where goodsId = #{goodsId,jdbcType=VARCHAR}
   </update>
 </mapper>

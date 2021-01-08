@@ -55,7 +55,7 @@ public class SocialPublic {
         if (null == goods){
             return ServiceResponse.createByIllegalArgument();
         }
-        goods.setGoodsid(UUID.randomUUID().toString().replaceAll("-",""));
+        goods.setGoodsId(UUID.randomUUID().toString().replaceAll("-",""));
         return iPublicService.addGoods(goods);
     }
 

@@ -50,19 +50,23 @@ public class UserController {
     }
 
     @RequestMapping(value = "register", method = RequestMethod.POST)
-    public ServiceResponse register(@RequestBody User user){
-        if (null == user){
+    public ServiceResponse register(@RequestBody Map map){
+        if (null == map){
             return ServiceResponse.createByIllegalArgument();
         }
+        User user = new User();
+        user.setName((String) map.get("name"));
+        user.setPassword((String) map.get("password"));
+        user.setPhone((String) map.get("phone"));
         return iUserService.register(user);
     }
 
     @RequestMapping(value = "updataInfo", method = RequestMethod.POST)
-    public ServiceResponse updateInfo(@RequestBody User user){
-        if (null == user){
+    public ServiceResponse updateInfo(@RequestBody Map map){
+        if (null == map){
             return ServiceResponse.createByIllegalArgument();
         }
-        return iUserService.updateUserInfo(user);
+        return iUserService.updateUserInfo(map);
     }
 
     @RequestMapping(value = "uploadHead", method = RequestMethod.POST)
@@ -93,7 +97,10 @@ public class UserController {
             return ServiceResponse.createByErrorMessage("上传文件失败");
         }else {
             user.setImg("social/headImg/" + uploadFile.getName());
-            ServiceResponse response = iUserService.updateUserInfo(user);
+            Map map1 = new HashMap();
+            map1.put("head",user.getImg());
+            map1.put("userId",user.getId());
+            ServiceResponse response = iUserService.updateUserInfo(map1);
             if (response.isSuccess()) {
                 map.put("success", true);
                 map.put("msg", "上传文件成功");
@@ -178,23 +185,10 @@ public class UserController {
         if (StringUtils.isBlank(userId))
             return ServiceResponse.createByErrorMessage("列表获取失败");
         ServiceResponse partners = iPartnerService.getPartners(userId);
-        if (!partners.isSuccess()){
-            return ServiceResponse.createByErrorMessage("列表获取失败");
+        if (partners.isSuccess()){
+            return partners;
         }
-        List<Partner> partnersData = (List<Partner>) partners.getData();
-        List<HashMap> returnList = new ArrayList<>();
-        for (Partner partner:partnersData){
-            HashMap hashMap = new HashMap();
-            ServiceResponse userInformation = iUserService.getUserInformation(partner.getPartnerid());
-            User user = (User) userInformation.getData();
-            hashMap.put("peopleName",user.getName());
-            hashMap.put("peopleId",user.getId());
-            hashMap.put("peopleHead",user.getImg());
-            hashMap.put("peopleSex",user.getSex());
-            hashMap.put("peopleDes",user.getDes());
-            returnList.add(hashMap);
-        }
-        return ServiceResponse.createBySuccessData(returnList);
+        return ServiceResponse.createByErrorMessage("列表获取失败");
     }
 
     @RequestMapping(value = "chat/sendMsg", method = RequestMethod.POST)
@@ -241,7 +235,7 @@ public class UserController {
             }
             User user = (User) userInformation.getData();
             if (user != null && !StringUtils.isBlank(user.getRegistrationid()))
-            JPushClientUtil.sendMessageToAll(user.getRegistrationid(), "有新消息", "新消息", "new Message");
+            JPushClientUtil.sendMessageToAll(user.getRegistrationid(), "有新消息", "新消息", "talkId", chat.getTalkid());
             return ServiceResponse.createBySuccessData(chatToMsg((Chat) iChatService.selectByChatId(chat.getChatid()).getData()));
         }else {
             return ServiceResponse.createByErrorMessage("消息发送失败");
@@ -254,31 +248,21 @@ public class UserController {
             return ServiceResponse.createByErrorMessage("获取失败");
         }
         ServiceResponse response = iChatService.selectAllFromToId(userId);
-        if (!response.isSuccess()){
-            return response;
-        }
-        List<Chat> listChats = (List<Chat>) response.getData();
-
-        List<ChatEntity> returnList = new ArrayList<>();
-        for (int i=0;i<listChats.size();i++) {
-            Chat chat = listChats.get(i);
-            listChatToMsg(returnList, chat);
-        }
-        return ServiceResponse.createBySuccessData(returnList);
+        return response;
     }
 
     private ChatEntity chatToMsg(Chat chat){
         User user = (User) iUserService.getUserInformation(chat.getTalkid()).getData();
         ChatEntity chatEntity = new ChatEntity();
         chatEntity.msgType = chat.getMsgtype();
-        chatEntity.chatid = chat.getChatid();
-        chatEntity.chattime = chat.getChattime().getTime();
+        chatEntity.chatId = chat.getChatid();
+        chatEntity.chatTime = chat.getChattime();
         chatEntity.senderId = chat.getTalkid();
         if (chat.getMsgtype().equals(Const.MODE_TEXT)) {
             chatEntity.msgContent = chat.getMsgcontent();
         }else{
             if (chat.getMsgtype().equals(Const.MODE_VOICE)){
-                chatEntity.voicetime = chat.getVoicetime();
+                chatEntity.voiceTime = chat.getVoicetime();
             }
             chatEntity.msgContent = chat.getFilepath();
         }

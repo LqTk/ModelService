@@ -1,65 +1,65 @@
 package com.social.service.domain;
 
 public class Goods {
-    private String goodsid;
+    private String goodsId;
 
-    private String userid;
+    private String peopleId;
 
-    private String publicid;
+    private String publicId;
 
-    private String peoplename;
+    private String peopleName;
 
-    private String peoplehead;
+    private String peopleHead;
 
-    public Goods(String goodsid, String userid, String publicid, String peoplename, String peoplehead) {
-        this.goodsid = goodsid;
-        this.userid = userid;
-        this.publicid = publicid;
-        this.peoplename = peoplename;
-        this.peoplehead = peoplehead;
+    public Goods(String goodsId, String peopleId, String publicId, String peopleName, String peopleHead) {
+        this.goodsId = goodsId;
+        this.peopleId = peopleId;
+        this.publicId = publicId;
+        this.peopleName = peopleName;
+        this.peopleHead = peopleHead;
     }
 
     public Goods() {
         super();
     }
 
-    public String getGoodsid() {
-        return goodsid;
+    public String getGoodsId() {
+        return goodsId;
     }
 
-    public void setGoodsid(String goodsid) {
-        this.goodsid = goodsid == null ? null : goodsid.trim();
+    public void setGoodsId(String goodsId) {
+        this.goodsId = goodsId == null ? null : goodsId.trim();
     }
 
-    public String getUserid() {
-        return userid;
+    public String getPeopleId() {
+        return peopleId;
     }
 
-    public void setUserid(String userid) {
-        this.userid = userid == null ? null : userid.trim();
+    public void setPeopleId(String peopleId) {
+        this.peopleId = peopleId == null ? null : peopleId.trim();
     }
 
-    public String getPublicid() {
-        return publicid;
+    public String getPublicId() {
+        return publicId;
     }
 
-    public void setPublicid(String publicid) {
-        this.publicid = publicid == null ? null : publicid.trim();
+    public void setPublicId(String publicId) {
+        this.publicId = publicId == null ? null : publicId.trim();
     }
 
-    public String getPeoplename() {
-        return peoplename;
+    public String getPeopleName() {
+        return peopleName;
     }
 
-    public void setPeoplename(String peoplename) {
-        this.peoplename = peoplename == null ? null : peoplename.trim();
+    public void setPeopleName(String peopleName) {
+        this.peopleName = peopleName == null ? null : peopleName.trim();
     }
 
-    public String getPeoplehead() {
-        return peoplehead;
+    public String getPeopleHead() {
+        return peopleHead;
     }
 
-    public void setPeoplehead(String peoplehead) {
-        this.peoplehead = peoplehead == null ? null : peoplehead.trim();
+    public void setPeopleHead(String peopleHead) {
+        this.peopleHead = peopleHead == null ? null : peopleHead.trim();
     }
 }

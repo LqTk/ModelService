@@ -1,6 +1,7 @@
 package com.social.service.dao;
 
 import com.social.service.domain.Partner;
+import com.social.service.domain.PartnerEntity;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
@@ -18,7 +19,7 @@ public interface PartnerMapper {
 
     int updateByPrimaryKey(Partner record);
 
-    List<Partner> getPartners(String userId);
+    List<PartnerEntity> getPartners(String userId);
 
     Partner selectByUserIdAndPartnerId(@Param("userId") String userId, @Param("partnerId") String partnerId);
 }

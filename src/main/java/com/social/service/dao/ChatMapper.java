@@ -1,9 +1,9 @@
 package com.social.service.dao;
 
 import com.social.service.domain.Chat;
+import com.social.service.domain.ChatEntity;
 import org.apache.ibatis.annotations.Param;
 
-import java.util.HashMap;
 import java.util.List;
 
 public interface ChatMapper {
@@ -19,7 +19,7 @@ public interface ChatMapper {
 
     int updateByPrimaryKey(Chat record);
 
-    List<Chat> selectAllChatFromToId(String toId);
+    List<ChatEntity> selectAllChatFromToId(String toId);
 
     List<Chat> selectAllChatFromTalkId(String talkId);
 

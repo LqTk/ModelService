@@ -1,5 +1,8 @@
 package com.social.service.domain;
 
+import org.apache.commons.lang3.StringUtils;
+
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class User {
@@ -15,6 +18,8 @@ public class User {
 
     private Integer sex;
 
+    private String birthday;
+
     private Integer age;
 
     private String phone;
@@ -25,29 +30,42 @@ public class User {
 
     private String des;
 
+    private static final SimpleDateFormat year = new SimpleDateFormat("yyyy");
+    Date date = new Date();
+
     public User(String name, String password) {
         this.name = name;
         this.password = password;
     }
 
-    public User(String id, String name, String img, Integer sex, Integer age, String phone, String des) {
+    public User(String id, String name, String img, Integer sex, String birthday, Integer age, String phone, String des) {
         this.id = id;
         this.name = name;
         this.img = img;
         this.sex = sex;
-        this.age = age;
+        this.birthday = birthday;
+        if (!StringUtils.isBlank(birthday) && birthday.contains("-")) {
+            this.age = Integer.valueOf(year.format(date)) - Integer.valueOf(birthday.split("-")[0]);
+        }else {
+            this.age = 0;
+        }
         this.phone = phone;
         this.des = des;
     }
 
-    public User(String id, String registrationid, String name, String password, String img, Integer sex, Integer age, String phone, Date createTime, Date updateTime, String des) {
+    public User(String id, String registrationid, String name, String password, String img, Integer sex, String birthday, Integer age, String phone, Date createTime, Date updateTime, String des) {
         this.id = id;
         this.registrationid = registrationid;
         this.name = name;
         this.password = password;
         this.img = img;
         this.sex = sex;
-        this.age = age;
+        this.birthday = birthday;
+        if (!StringUtils.isBlank(birthday) && birthday.contains("-")) {
+            this.age = Integer.valueOf(year.format(date)) - Integer.valueOf(birthday.split("-")[0]);
+        }else {
+            this.age = 0;
+        }
         this.phone = phone;
         this.createTime = createTime;
         this.updateTime = updateTime;
@@ -60,6 +78,14 @@ public class User {
 
     public void setRegistrationid(String registrationid) {
         this.registrationid = registrationid;
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday == null ? null : birthday.trim();
     }
 
     public User() {

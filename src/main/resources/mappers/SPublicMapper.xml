@@ -11,14 +11,15 @@
       <arg column="shareName" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="shareUrl" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="shareText" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="createTime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
       <arg column="isPublic" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="goodsCount" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="reviewCount" javaType="java.lang.Integer" jdbcType="INTEGER" />
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
-    shareId, userId, userName, userHead, userSex, shareName, shareUrl, shareText, isPublic,
-    goodsCount, reviewCount
+    shareId, userId, userName, userHead, userSex, shareName, shareUrl, shareText, createTime,
+    isPublic, goodsCount, reviewCount
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select
@@ -33,12 +34,14 @@
   <insert id="insert" parameterType="com.social.service.domain.SPublic">
     insert into social_public (shareId, userId, userName,
       userHead, userSex, shareName,
-      shareUrl, shareText, isPublic,
-      goodsCount, reviewCount)
+      shareUrl, shareText, createTime,
+      isPublic, goodsCount, reviewCount
+      )
     values (#{shareid,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR},
       #{userhead,jdbcType=VARCHAR}, #{usersex,jdbcType=INTEGER}, #{sharename,jdbcType=VARCHAR},
-      #{shareurl,jdbcType=VARCHAR}, #{sharetext,jdbcType=VARCHAR}, #{ispublic,jdbcType=INTEGER},
-      #{goodscount,jdbcType=INTEGER}, #{reviewcount,jdbcType=INTEGER})
+      #{shareurl,jdbcType=VARCHAR}, #{sharetext,jdbcType=VARCHAR}, now(),
+      #{ispublic,jdbcType=INTEGER}, #{goodscount,jdbcType=INTEGER}, #{reviewcount,jdbcType=INTEGER}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.social.service.domain.SPublic">
     insert into social_public
@@ -66,6 +69,9 @@
       </if>
       <if test="sharetext != null">
         shareText,
+      </if>
+      <if test="createtime != null">
+        createTime,
       </if>
       <if test="ispublic != null">
         isPublic,
@@ -102,6 +108,9 @@
       <if test="sharetext != null">
         #{sharetext,jdbcType=VARCHAR},
       </if>
+      <if test="createtime != null">
+        now(),
+      </if>
       <if test="ispublic != null">
         #{ispublic,jdbcType=INTEGER},
       </if>
@@ -137,6 +146,9 @@
       <if test="sharetext != null">
         shareText = #{sharetext,jdbcType=VARCHAR},
       </if>
+      <if test="createtime != null">
+        createTime = now(),
+      </if>
       <if test="ispublic != null">
         isPublic = #{ispublic,jdbcType=INTEGER},
       </if>
@@ -158,6 +170,7 @@
       shareName = #{sharename,jdbcType=VARCHAR},
       shareUrl = #{shareurl,jdbcType=VARCHAR},
       shareText = #{sharetext,jdbcType=VARCHAR},
+      createTime = now(),
       isPublic = #{ispublic,jdbcType=INTEGER},
       goodsCount = #{goodscount,jdbcType=INTEGER},
       reviewCount = #{reviewcount,jdbcType=INTEGER}
@@ -176,12 +189,64 @@
     where shareId = #{shareId}
   </update>
 
+  <resultMap id="searchPublish" type="com.social.service.domain.PublicedEntity">
+    <result column="shareId" property="shareId" jdbcType="VARCHAR" />
+    <result column="userId" property="userId" jdbcType="VARCHAR" />
+    <result column="userName" property="userName" jdbcType="VARCHAR" />
+    <result column="userHead" property="userHead" jdbcType="VARCHAR" />
+    <result column="userSex" property="juserSex" jdbcType="INTEGER" />
+    <result column="shareName" property="shareName" jdbcType="VARCHAR" />
+    <result column="shareUrl" property="shareUrl" jdbcType="VARCHAR" />
+    <result column="shareText" property="shareText" jdbcType="VARCHAR" />
+    <result column="createTime" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="isPublic" property="isPublic" jdbcType="INTEGER" />
+    <collection property="goodsList" ofType="com.social.service.domain.Goods"
+                select="findByGoodsId" column="{publishId=shareId}"/>
+    <collection property="reviewEntities" ofType="com.social.service.domain.ReviewEntity"
+                select="findByReviewId" column="{publishId=shareId}"/>
+  </resultMap>
+
+  <select id="findByGoodsId" resultType="com.social.service.domain.Goods">
+    select a.goodsId as goodsId,a.peopleId as peopleId,a.publicId as publicId, b.name as peopleName, b.img as peopleHead
+    from social_public as a join social_user as b
+    where a.publicId=#{publicId} and b.id = a.peopleId
+  </select>
+
+  <select id="findByReviewId" resultType="com.social.service.domain.ReviewEntity">
+    select a.reviewId as reviewId, a.peopleId as peopleId, a.publicId as publishId,a.reviewText as reviewText, b.name as peopleName
+    from social_review as a join social_user as b
+    where a.publicId=#{publishId} and b.id=a.peopleId
+  </select>
+
+<!--
   <select id="getSocialPublicSize" resultMap="BaseResultMap">
-    select * from social_public order by rand() limit 10
+    select
+     a.shareId,a.userId,b.name as userName, b.img as userHead, b.sex as userSex, a.shareName,a.shareUrl,
+     a.shareText,a.createTime,a.isPublic,a.goodsCount,a.reviewCount
+     from social_public as a
+     join social_user as b
+     where a.userId = b.id
+     order by rand() limit 10
+  </select>
+-->
+
+  <select id="getSocialPublicSize" resultMap="searchPublish">
+    select
+     a.shareId as shareId,a.userId as userId,b.name as userName, b.img as userHead, b.sex as userSex, a.shareName as shareName,a.shareUrl as shareUrl,
+     a.shareText as shareText,a.createTime as createTime,a.isPublic as isPublic,a.shareId as shareId, a.shareId as shareId
+     from social_public as a
+     join social_user as b
+     where a.userId = b.id
+     order by rand() limit 10
   </select>
 
   <select id="getSocialByUserId" parameterType="map" resultMap="BaseResultMap">
-    select * from social_public where userId=#{userId} limit #{start},#{end}
+    select a.shareId,a.userId,b.name as userName, b.img as userHead, b.sex as userSex, a.shareName,a.shareUrl,
+     a.shareText,a.createTime,a.isPublic,a.goodsCount,a.reviewCount
+     from social_public as a
+     join social_user as b
+      where a.userId=#{userId} and b.id=#{userId}
+      limit #{start},#{end}
   </select>
 
   <update id="updataHeadImg" parameterType="map">

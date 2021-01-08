@@ -10,7 +10,10 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 @Service("iUserService")
@@ -118,15 +121,32 @@ public class UserService implements IUserService {
     }
 
     @Override
-    public ServiceResponse updateUserInfo(User user) {
-        if (user==null || user.getId()==null){
+    public ServiceResponse updateUserInfo(Map map) {
+        if (map==null || StringUtils.isBlank((String) map.get("userId"))){
             return ServiceResponse.createByIllegalArgument();
         }
-        User user1 = userMapper.selectByPrimaryKey(user.getId());
-        if (user1==null){
-            return ServiceResponse.createByErrorMessage("未查询到用户信息");
+        User user = new User();
+        user.setId((String) map.get("userId"));
+        if (!StringUtils.isBlank((String)map.get("name"))){
+            user.setName((String)map.get("name"));
         }
-        user.setCreateTime(user1.getCreateTime());
+        if (map.get("sex")!=null){
+            user.setSex((Integer) map.get("sex"));
+        }
+        if (!StringUtils.isBlank((String)map.get("des"))){
+            user.setDes((String)map.get("des"));
+        }
+        if (!StringUtils.isBlank((String)map.get("head"))){
+            user.setImg((String)map.get("head"));
+        }
+        if (!StringUtils.isBlank((String)map.get("year"))){
+            String birthday = (String) map.get("year") + "-" + (String) map.get("month") + "-" + (String) map.get("day");
+            SimpleDateFormat year = new SimpleDateFormat("yyyy");
+            Date date = new Date();
+            int age = Integer.valueOf(year.format(date))-Integer.valueOf((String) map.get("year"));
+            user.setBirthday(birthday);
+            user.setAge(age);
+        }
         int i = userMapper.updateByPrimaryKeySelective(user);
         if (i>0){
             return ServiceResponse.createBySuccessMessage("用户信息更新成功");

@@ -6,15 +6,15 @@ import com.social.service.dao.ReviewMapper;
 import com.social.service.dao.SPublicMapper;
 import com.social.service.dao.UserMapper;
 import com.social.service.domain.Goods;
+import com.social.service.domain.PublicedEntity;
 import com.social.service.domain.Review;
 import com.social.service.domain.SPublic;
-import com.social.service.domain.User;
 import com.social.service.service.IPublicService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -39,6 +39,7 @@ public class PublicService implements IPublicService {
             return ServiceResponse.createByIllegalArgument();
         }
         pb.setShareid(UUID.randomUUID().toString().replaceAll("-", ""));
+        pb.setCreatetime(new Date());
         int insert = sPublicMapper.insert(pb);
         if (insert>0){
             return ServiceResponse.createBySuccessData(pb);
@@ -93,7 +94,7 @@ public class PublicService implements IPublicService {
         if (null == goods){
             return ServiceResponse.createByIllegalArgument();
         }
-        SPublic sPublic = sPublicMapper.selectByPrimaryKey(goods.getPublicid());
+        SPublic sPublic = sPublicMapper.selectByPrimaryKey(goods.getPublicId());
         if (sPublic!=null){
             int insert = goodsMapper.insert(goods);
             if (insert>0){
@@ -120,7 +121,8 @@ public class PublicService implements IPublicService {
 
     @Override
     public ServiceResponse getTenCounts() {
-        List<SPublic> socialPublicSize = sPublicMapper.getSocialPublicSize();
+//        List<SPublic> socialPublicSize = sPublicMapper.getSocialPublicSize();
+        List<PublicedEntity> socialPublicSize = sPublicMapper.getSocialPublicSize();
         if (socialPublicSize!=null){
             return ServiceResponse.createBySuccessData(socialPublicSize);
         }

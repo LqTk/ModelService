@@ -4,15 +4,16 @@
   <resultMap id="BaseResultMap" type="com.social.service.domain.Review">
     <constructor>
       <idArg column="reviewId" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="peopleId" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="publicId" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="reviewText" javaType="java.lang.String" jdbcType="VARCHAR" />
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
-    reviewId, publicId, reviewText
+    reviewId, peopleId, publicId, reviewText
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select 
+    select
     <include refid="Base_Column_List" />
     from social_review
     where reviewId = #{reviewid,jdbcType=VARCHAR}
@@ -22,10 +23,10 @@
     where reviewId = #{reviewid,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.social.service.domain.Review">
-    insert into social_review (reviewId, publicId, reviewText
-      )
-    values (#{reviewid,jdbcType=VARCHAR}, #{publicid,jdbcType=VARCHAR}, #{reviewtext,jdbcType=VARCHAR}
-      )
+    insert into social_review (reviewId, peopleId, publicId,
+      reviewText)
+    values (#{reviewid,jdbcType=VARCHAR}, #{peopleId,jdbcType=VARCHAR}, #{publicId,jdbcType=VARCHAR},
+      #{reviewtext,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.social.service.domain.Review">
     insert into social_review
@@ -33,7 +34,10 @@
       <if test="reviewid != null">
         reviewId,
       </if>
-      <if test="publicid != null">
+      <if test="peopleId != null">
+        peopleId,
+      </if>
+      <if test="publicId != null">
         publicId,
       </if>
       <if test="reviewtext != null">
@@ -44,8 +48,11 @@
       <if test="reviewid != null">
         #{reviewid,jdbcType=VARCHAR},
       </if>
-      <if test="publicid != null">
-        #{publicid,jdbcType=VARCHAR},
+      <if test="peopleId != null">
+        #{peopleId,jdbcType=VARCHAR},
+      </if>
+      <if test="publicId != null">
+        #{publicId,jdbcType=VARCHAR},
       </if>
       <if test="reviewtext != null">
         #{reviewtext,jdbcType=VARCHAR},
@@ -55,8 +62,11 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.social.service.domain.Review">
     update social_review
     <set>
-      <if test="publicid != null">
-        publicId = #{publicid,jdbcType=VARCHAR},
+      <if test="peopleId != null">
+        peopleId = #{peopleId,jdbcType=VARCHAR},
+      </if>
+      <if test="publicId != null">
+        publicId = #{publicId,jdbcType=VARCHAR},
       </if>
       <if test="reviewtext != null">
         reviewText = #{reviewtext,jdbcType=VARCHAR},
@@ -66,7 +76,8 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.social.service.domain.Review">
     update social_review
-    set publicId = #{publicid,jdbcType=VARCHAR},
+    set peopleId = #{peopleId,jdbcType=VARCHAR},
+      publicId = #{publicId,jdbcType=VARCHAR},
       reviewText = #{reviewtext,jdbcType=VARCHAR}
     where reviewId = #{reviewid,jdbcType=VARCHAR}
   </update>

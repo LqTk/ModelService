@@ -3,6 +3,8 @@ package com.social.service.service;
 import com.social.service.common.ServiceResponse;
 import com.social.service.domain.User;
 
+import java.util.Map;
+
 public interface IUserService {
 
     public ServiceResponse login(String name, String password);
@@ -17,7 +19,7 @@ public interface IUserService {
 
     public ServiceResponse resetPassword(String password, String newPassword, String userId);
 
-    public ServiceResponse updateUserInfo(User user);
+    public ServiceResponse updateUserInfo(Map map);
 
     public ServiceResponse updateUserRegistrationId(String userId, String registrationId);
 

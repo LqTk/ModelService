@@ -128,10 +128,24 @@
     where chatId = #{chatid,jdbcType=VARCHAR}
   </update>
 
-  <select id="selectAllChatFromToId" parameterType="string" resultMap="BaseResultMap">
-    select
-    <include refid="Base_Column_List" />
-     from social_chat where toId=#{toId} group by talkId
+
+  <resultMap id="selectMap" type="com.social.service.domain.ChatEntity">
+    <constructor>
+      <arg column="chatId" javaType="java.lang.String" jdbcType="VARCHAR"/>
+      <arg column="msgContent" javaType="java.lang.String" jdbcType="VARCHAR"/>
+      <arg column="msgType" javaType="java.lang.String" jdbcType="VARCHAR"/>
+      <arg column="voiceTime" javaType="java.lang.String" jdbcType="VARCHAR"/>
+      <arg column="senderId" javaType="java.lang.String" jdbcType="VARCHAR"/>
+      <arg column="senderAvatar" javaType="java.lang.String" jdbcType="VARCHAR"/>
+      <arg column="senderName" javaType="java.lang.String" jdbcType="VARCHAR"/>
+      <arg column="chatTime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+
+  <select id="selectAllChatFromToId" parameterType="string" resultMap="selectMap">
+    select a.chatId,a.msgContent,a.msgType,a.voiceTime,b.id as senderId,b.img as senderAvatar,b.name as senderName,a.chatTime
+    from social_chat as a join social_user as b
+    where a.toId=#{toId} and b.id=a.talkId
   </select>
 
   <select id="selectAllChatFromTalkId" parameterType="string" resultMap="BaseResultMap">

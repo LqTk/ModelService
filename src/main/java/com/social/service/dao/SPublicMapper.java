@@ -1,5 +1,6 @@
 package com.social.service.dao;
 
+import com.social.service.domain.PublicedEntity;
 import com.social.service.domain.SPublic;
 import org.apache.ibatis.annotations.Param;
 
@@ -22,7 +23,8 @@ public interface SPublicMapper {
 
     int addGoodsCount(@Param("shareId") String shareId, @Param("count") int count);
 
-    List<SPublic> getSocialPublicSize();
+//    List<SPublic> getSocialPublicSize();
+    List<PublicedEntity> getSocialPublicSize();
 
     List<SPublic> getSocialByUserId(@Param("userId") String userId, @Param("start")int start, @Param("end")int end);
 

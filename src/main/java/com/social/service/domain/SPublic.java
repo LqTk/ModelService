@@ -1,5 +1,7 @@
 package com.social.service.domain;
 
+import java.util.Date;
+
 public class SPublic {
     private String shareid;
 
@@ -17,13 +19,15 @@ public class SPublic {
 
     private String sharetext;
 
+    private Date createtime;
+
     private Integer ispublic;
 
     private Integer goodscount;
 
     private Integer reviewcount;
 
-    public SPublic(String shareid, String userid, String username, String userhead, Integer usersex, String sharename, String shareurl, String sharetext, Integer ispublic, Integer goodscount, Integer reviewcount) {
+    public SPublic(String shareid, String userid, String username, String userhead, Integer usersex, String sharename, String shareurl, String sharetext, Date createtime, Integer ispublic, Integer goodscount, Integer reviewcount) {
         this.shareid = shareid;
         this.userid = userid;
         this.username = username;
@@ -32,6 +36,7 @@ public class SPublic {
         this.sharename = sharename;
         this.shareurl = shareurl;
         this.sharetext = sharetext;
+        this.createtime = createtime;
         this.ispublic = ispublic;
         this.goodscount = goodscount;
         this.reviewcount = reviewcount;
@@ -103,6 +108,14 @@ public class SPublic {
 
     public void setSharetext(String sharetext) {
         this.sharetext = sharetext == null ? null : sharetext.trim();
+    }
+
+    public Date getCreatetime() {
+        return createtime;
+    }
+
+    public void setCreatetime(Date createtime) {
+        this.createtime = createtime;
     }
 
     public Integer getIspublic() {
