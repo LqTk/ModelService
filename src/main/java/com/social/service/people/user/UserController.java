@@ -160,6 +160,7 @@ public class UserController {
         hashMap.put("peopleHead",user.getImg());
         hashMap.put("peopleSex",user.getSex());
         hashMap.put("peopleDes",user.getDes());
+        hashMap.put("peopleAge",user.getAge());
         return ServiceResponse.createBySuccessData(hashMap);
     }
 
@@ -191,6 +192,17 @@ public class UserController {
         return ServiceResponse.createByErrorMessage("列表获取失败");
     }
 
+    @RequestMapping(value = "getConcerns/{userId}", method = RequestMethod.GET)
+    public ServiceResponse getConcerns(@PathVariable String userId){
+        if (StringUtils.isBlank(userId))
+            return ServiceResponse.createByErrorMessage("列表获取失败");
+        ServiceResponse partners = iPartnerService.getConcerns(userId);
+        if (partners.isSuccess()){
+            return partners;
+        }
+        return ServiceResponse.createByErrorMessage("列表获取失败");
+    }
+
     @RequestMapping(value = "chat/sendMsg", method = RequestMethod.POST)
     public ServiceResponse sendMsg(@RequestParam HashMap map, @RequestParam(value = "file",required = false) MultipartFile file){
         if (map==null || StringUtils.isBlank((String) map.get("msgtype"))){
@@ -198,9 +210,9 @@ public class UserController {
         }
         String msgType = (String) map.get("msgtype");
         Chat chat = new Chat();
-        chat.setTalkid((String) map.get("talkid"));
-        chat.setToid((String) map.get("toid"));
-        chat.setMsgtype((String) map.get("msgtype"));
+        chat.setTalkId((String) map.get("talkid"));
+        chat.setToId((String) map.get("toid"));
+        chat.setMsgType((String) map.get("msgtype"));
         if (msgType.equals(Const.MODE_IMAGE) || msgType.equals(Const.MODE_VOICE)){
             String saveDir =  "D:\\tomact\\apache-tomcat-9.0.21\\proDir\\";
             String uploadDir = "";
@@ -210,7 +222,7 @@ public class UserController {
             }else {
                 //语音
                 uploadDir = "social/chatVoice";
-                chat.setVoicetime((String) map.get("voicetime"));
+                chat.setVoiceTime((String) map.get("voicetime"));
             }
             String uploadUrl = iFileService.upload(file, saveDir+uploadDir);
             File uploadFile = new File(uploadUrl);
@@ -220,23 +232,23 @@ public class UserController {
             chat.setFilepath(uploadDir + "/" + uploadFile.getName());
         }else {
             //文字
-            chat.setMsgcontent((String) map.get("msgcontent"));
+            chat.setMsgContent((String) map.get("msgcontent"));
         }
         return sendMsgResult(chat);
     }
 
     private ServiceResponse sendMsgResult(@RequestBody Chat chat) {
-        chat.setChatid(UUID.randomUUID().toString().replaceAll("-",""));
+        chat.setChatId(UUID.randomUUID().toString().replaceAll("-",""));
         ServiceResponse response = iChatService.addChat(chat);
         if (response.isSuccess()) {
-            ServiceResponse userInformation = iUserService.getUserInformation(chat.getToid());
+            ServiceResponse userInformation = iUserService.getUserInformation(chat.getToId());
             if (userInformation == null) {
                 return ServiceResponse.createBySuccess();
             }
             User user = (User) userInformation.getData();
             if (user != null && !StringUtils.isBlank(user.getRegistrationid()))
-            JPushClientUtil.sendMessageToAll(user.getRegistrationid(), "有新消息", "新消息", "talkId", chat.getTalkid());
-            return ServiceResponse.createBySuccessData(chatToMsg((Chat) iChatService.selectByChatId(chat.getChatid()).getData()));
+            JPushClientUtil.sendMessageToAll(user.getRegistrationid(), "有新消息", "新消息", "talkId", chat.getTalkId());
+            return ServiceResponse.createBySuccessData(chatToMsg((Chat) iChatService.selectByChatId(chat.getChatId()).getData()));
         }else {
             return ServiceResponse.createByErrorMessage("消息发送失败");
         }
@@ -252,17 +264,17 @@ public class UserController {
     }
 
     private ChatEntity chatToMsg(Chat chat){
-        User user = (User) iUserService.getUserInformation(chat.getTalkid()).getData();
+        User user = (User) iUserService.getUserInformation(chat.getTalkId()).getData();
         ChatEntity chatEntity = new ChatEntity();
-        chatEntity.msgType = chat.getMsgtype();
-        chatEntity.chatId = chat.getChatid();
-        chatEntity.chatTime = chat.getChattime();
-        chatEntity.senderId = chat.getTalkid();
-        if (chat.getMsgtype().equals(Const.MODE_TEXT)) {
-            chatEntity.msgContent = chat.getMsgcontent();
+        chatEntity.msgType = chat.getMsgType();
+        chatEntity.chatId = chat.getChatId();
+        chatEntity.chatTime = chat.getChatTime();
+        chatEntity.senderId = chat.getTalkId();
+        if (chat.getMsgType().equals(Const.MODE_TEXT)) {
+            chatEntity.msgContent = chat.getMsgContent();
         }else{
-            if (chat.getMsgtype().equals(Const.MODE_VOICE)){
-                chatEntity.voiceTime = chat.getVoicetime();
+            if (chat.getMsgType().equals(Const.MODE_VOICE)){
+                chatEntity.voiceTime = chat.getVoiceTime();
             }
             chatEntity.msgContent = chat.getFilepath();
         }
@@ -293,7 +305,7 @@ public class UserController {
         if (response.isSuccess()) {
             List<Chat> chats = (List<Chat>) response.getData();
             for (Chat chat:chats){
-                iChatService.deleteChat(chat.getChatid());
+                iChatService.deleteChat(chat.getChatId());
             }
         }
         return getChatResponse(response);

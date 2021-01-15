@@ -1,6 +1,7 @@
 package com.social.service.service;
 
 import com.social.service.common.ServiceResponse;
+import com.social.service.domain.ChatReview;
 import com.social.service.domain.Goods;
 import com.social.service.domain.Review;
 import com.social.service.domain.SPublic;
@@ -13,6 +14,10 @@ public interface IPublicService {
     public ServiceResponse deleteReview(String reviewId);
 
     public ServiceResponse addReview(Review review);
+
+    public ServiceResponse addReviewChat(ChatReview chatReview);
+
+    public ServiceResponse deleteChatReview(String chatId);
 
     public ServiceResponse addGoods(Goods goods);
 

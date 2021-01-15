@@ -3,83 +3,83 @@ package com.social.service.domain;
 import java.util.Date;
 
 public class Chat {
-    private String chatid;
+    private String chatId;
 
-    private String talkid;
+    private String talkId;
 
-    private String toid;
+    private String toId;
 
-    private String msgtype;
+    private String msgType;
 
-    private String msgcontent;
+    private String msgContent;
 
-    private String voicetime;
+    private String voiceTime;
 
     private String filepath;
 
-    private Date chattime;
+    private Date chatTime;
 
-    public Chat(String chatid, String talkid, String toid, String msgtype, String msgcontent, String voicetime, String filepath, Date chattime) {
-        this.chatid = chatid;
-        this.talkid = talkid;
-        this.toid = toid;
-        this.msgtype = msgtype;
-        this.msgcontent = msgcontent;
-        this.voicetime = voicetime;
+    public Chat(String chatId, String talkId, String toId, String msgType, String msgContent, String voiceTime, String filepath, Date chatTime) {
+        this.chatId = chatId;
+        this.talkId = talkId;
+        this.toId = toId;
+        this.msgType = msgType;
+        this.msgContent = msgContent;
+        this.voiceTime = voiceTime;
         this.filepath = filepath;
-        this.chattime = chattime;
+        this.chatTime = chatTime;
     }
 
     public Chat() {
         super();
     }
 
-    public String getChatid() {
-        return chatid;
+    public String getChatId() {
+        return chatId;
     }
 
-    public void setChatid(String chatid) {
-        this.chatid = chatid == null ? null : chatid.trim();
+    public void setChatId(String chatId) {
+        this.chatId = chatId == null ? null : chatId.trim();
     }
 
-    public String getTalkid() {
-        return talkid;
+    public String getTalkId() {
+        return talkId;
     }
 
-    public void setTalkid(String talkid) {
-        this.talkid = talkid == null ? null : talkid.trim();
+    public void setTalkId(String talkId) {
+        this.talkId = talkId == null ? null : talkId.trim();
     }
 
-    public String getToid() {
-        return toid;
+    public String getToId() {
+        return toId;
     }
 
-    public void setToid(String toid) {
-        this.toid = toid == null ? null : toid.trim();
+    public void setToId(String toId) {
+        this.toId = toId == null ? null : toId.trim();
     }
 
-    public String getMsgtype() {
-        return msgtype;
+    public String getMsgType() {
+        return msgType;
     }
 
-    public void setMsgtype(String msgtype) {
-        this.msgtype = msgtype == null ? null : msgtype.trim();
+    public void setMsgType(String msgType) {
+        this.msgType = msgType == null ? null : msgType.trim();
     }
 
-    public String getMsgcontent() {
-        return msgcontent;
+    public String getMsgContent() {
+        return msgContent;
     }
 
-    public void setMsgcontent(String msgcontent) {
-        this.msgcontent = msgcontent == null ? null : msgcontent.trim();
+    public void setMsgContent(String msgContent) {
+        this.msgContent = msgContent == null ? null : msgContent.trim();
     }
 
-    public String getVoicetime() {
-        return voicetime;
+    public String getVoiceTime() {
+        return voiceTime;
     }
 
-    public void setVoicetime(String voicetime) {
-        this.voicetime = voicetime;
+    public void setVoiceTime(String voiceTime) {
+        this.voiceTime = voiceTime;
     }
 
     public String getFilepath() {
@@ -90,11 +90,11 @@ public class Chat {
         this.filepath = filepath == null ? null : filepath.trim();
     }
 
-    public Date getChattime() {
-        return chattime;
+    public Date getChatTime() {
+        return chatTime;
     }
 
-    public void setChattime(Date chattime) {
-        this.chattime = chattime;
+    public void setChatTime(Date chatTime) {
+        this.chatTime = chatTime;
     }
 }

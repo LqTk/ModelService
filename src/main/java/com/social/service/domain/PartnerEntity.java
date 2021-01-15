@@ -1,18 +1,22 @@
 package com.social.service.domain;
 
+import java.util.Date;
+
 public class PartnerEntity {
     String peopleName;
     String peopleId;
     String peopleHead;
     Integer peopleSex;
     String peopleDes;
+    Date time;
 
-    public PartnerEntity(String peopleName, String peopleId, String peopleHead, Integer peopleSex, String peopleDes) {
+    public PartnerEntity(String peopleName, String peopleId, String peopleHead, Integer peopleSex, String peopleDes, Date time) {
         this.peopleName = peopleName;
         this.peopleId = peopleId;
         this.peopleHead = peopleHead;
         this.peopleSex = peopleSex;
         this.peopleDes = peopleDes;
+        this.time = time;
     }
 
     public String getPeopleName() {
@@ -53,5 +57,13 @@ public class PartnerEntity {
 
     public void setPeopleDes(String peopleDes) {
         this.peopleDes = peopleDes;
+    }
+
+    public Date getTime() {
+        return time;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
     }
 }

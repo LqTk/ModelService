@@ -1,14 +1,8 @@
 package com.social.service.service.impl;
 
 import com.social.service.common.ServiceResponse;
-import com.social.service.dao.GoodsMapper;
-import com.social.service.dao.ReviewMapper;
-import com.social.service.dao.SPublicMapper;
-import com.social.service.dao.UserMapper;
-import com.social.service.domain.Goods;
-import com.social.service.domain.PublicedEntity;
-import com.social.service.domain.Review;
-import com.social.service.domain.SPublic;
+import com.social.service.dao.*;
+import com.social.service.domain.*;
 import com.social.service.service.IPublicService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,6 +27,9 @@ public class PublicService implements IPublicService {
     @Autowired
     UserMapper userMapper;
 
+    @Autowired
+    ChatReviewMapper chatReviewMapper;
+
     @Override
     public ServiceResponse insert(SPublic pb) {
         if (pb == null){
@@ -52,6 +49,16 @@ public class PublicService implements IPublicService {
         if (StringUtils.isBlank(pbId)){
             return ServiceResponse.createByIllegalArgument();
         }
+        PublicedEntity publicedEntity = sPublicMapper.selectByPrimaryKey(pbId);
+        List<Review> reviews = reviewMapper.selectByPbId(pbId);
+        if (reviews!=null && reviews.size()>0){
+            for (Review review:reviews){
+                deleteReview(review.getReviewId());
+            }
+        }
+        goodsMapper.deleteByPbulishId(pbId);
+
+
         int i = sPublicMapper.deleteByPrimaryKey(pbId);
         if (i>0){
             return ServiceResponse.createBySuccessMessage("删除成功");
@@ -64,6 +71,7 @@ public class PublicService implements IPublicService {
         if (StringUtils.isBlank(reviewId)){
             return ServiceResponse.createByIllegalArgument();
         }
+        chatReviewMapper.deleteByReviewId(reviewId);
         int i = reviewMapper.deleteByPrimaryKey(reviewId);
         if (i>0){
             return ServiceResponse.createBySuccessMessage("删除成功");
@@ -76,13 +84,13 @@ public class PublicService implements IPublicService {
         if (null == review){
             return ServiceResponse.createByIllegalArgument();
         }
-        SPublic sPublic = sPublicMapper.selectByPrimaryKey(review.getPublicid());
+        PublicedEntity sPublic = sPublicMapper.selectByShareId(review.getPublicId());
         if (sPublic!=null){
             int insert = reviewMapper.insert(review);
             if (insert>0){
-                sPublic.setReviewcount(sPublic.getReviewcount()+1);
-                sPublicMapper.addGoodsCount(sPublic.getShareid(),sPublic.getReviewcount());
-                return ServiceResponse.createBySuccessData(review);
+                ReviewEntity reviewEntity = reviewMapper.selectByReviewId(review.getReviewId());
+                if (reviewEntity!=null)
+                    return ServiceResponse.createBySuccessData(reviewEntity);
             }
             return ServiceResponse.createByErrorMessage("评论失败");
         }
@@ -90,16 +98,36 @@ public class PublicService implements IPublicService {
     }
 
     @Override
+    public ServiceResponse addReviewChat(ChatReview chatReview) {
+        chatReview.setReviewChatId(UUID.randomUUID().toString().replaceAll("-",""));
+        int insert = chatReviewMapper.insert(chatReview);
+        if (insert>0){
+            ChatReviewEntity chatReview1 = chatReviewMapper.findChatReview(chatReview.getReviewChatId());
+            if (chatReview1!=null)
+                return ServiceResponse.createBySuccessData(chatReview1);
+        }
+        return ServiceResponse.createByErrorMessage("回复失败");
+    }
+
+    @Override
+    public ServiceResponse deleteChatReview(String chatId) {
+        if (StringUtils.isBlank(chatId))
+            return ServiceResponse.createByIllegalArgument();
+        int i = chatReviewMapper.deleteByPrimaryKey(chatId);
+        if (i>0)
+            return ServiceResponse.createBySuccessMessage("删除成功");
+        return ServiceResponse.createByErrorMessage("删除失败");
+    }
+
+    @Override
     public ServiceResponse addGoods(Goods goods) {
         if (null == goods){
             return ServiceResponse.createByIllegalArgument();
         }
-        SPublic sPublic = sPublicMapper.selectByPrimaryKey(goods.getPublicId());
+        PublicedEntity sPublic = sPublicMapper.selectByShareId(goods.getPublicId());
         if (sPublic!=null){
             int insert = goodsMapper.insert(goods);
             if (insert>0){
-                sPublic.setGoodscount(sPublic.getReviewcount()+1);
-                sPublicMapper.addGoodsCount(sPublic.getShareid(),sPublic.getGoodscount());
                 return ServiceResponse.createBySuccessData(goods);
             }
             return ServiceResponse.createByErrorMessage("点赞失败");
@@ -121,7 +149,6 @@ public class PublicService implements IPublicService {
 
     @Override
     public ServiceResponse getTenCounts() {
-//        List<SPublic> socialPublicSize = sPublicMapper.getSocialPublicSize();
         List<PublicedEntity> socialPublicSize = sPublicMapper.getSocialPublicSize();
         if (socialPublicSize!=null){
             return ServiceResponse.createBySuccessData(socialPublicSize);
@@ -133,7 +160,7 @@ public class PublicService implements IPublicService {
     public ServiceResponse getByUserId(String userId, int page) {
         if (StringUtils.isBlank(userId))
             return ServiceResponse.createByErrorMessage("未找到用户");
-        List<SPublic> socialPublicSize = sPublicMapper.getSocialByUserId(userId, page*10, (page+1)*10);
+        List<PublicedEntity> socialPublicSize = sPublicMapper.getSocialByUserId(userId, page*10, (page+1)*10);
         if (socialPublicSize!=null){
             return ServiceResponse.createBySuccessData(socialPublicSize);
         }
@@ -144,7 +171,7 @@ public class PublicService implements IPublicService {
     public ServiceResponse getByShareId(String shareId) {
         if (StringUtils.isBlank(shareId))
             return ServiceResponse.createByErrorMessage("未查询到信息");
-        SPublic sPublic = sPublicMapper.selectByPrimaryKey(shareId);
+        PublicedEntity sPublic = sPublicMapper.selectByShareId(shareId);
         if (sPublic==null)
             return ServiceResponse.createByErrorMessage("未查询到信息");
         return ServiceResponse.createBySuccessData(sPublic);

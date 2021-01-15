@@ -30,82 +30,80 @@
     insert into social_chat (chatId, talkId, toId,
       msgType, msgContent, voiceTime,
       filePath, chatTime)
-    values (#{chatid,jdbcType=VARCHAR}, #{talkid,jdbcType=VARCHAR}, #{toid,jdbcType=VARCHAR},
-      #{msgtype,jdbcType=VARCHAR}, #{msgcontent,jdbcType=VARCHAR}, #{voicetime,jdbcType=VARCHAR},
+    values (#{chatId,jdbcType=VARCHAR}, #{talkId,jdbcType=VARCHAR}, #{toId,jdbcType=VARCHAR},
+      #{msgType,jdbcType=VARCHAR}, #{msgContent,jdbcType=VARCHAR}, #{voiceTime,jdbcType=VARCHAR},
       #{filepath,jdbcType=VARCHAR}, now())
   </insert>
   <insert id="insertSelective" parameterType="com.social.service.domain.Chat">
     insert into social_chat
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="chatid != null">
+      <if test="chatId != null">
         chatId,
       </if>
-      <if test="talkid != null">
+      <if test="talkId != null">
         talkId,
       </if>
-      <if test="toid != null">
+      <if test="toId != null">
         toId,
       </if>
-      <if test="msgtype != null">
+      <if test="msgType != null">
         msgType,
       </if>
-      <if test="msgcontent != null">
+      <if test="msgContent != null">
         msgContent,
       </if>
-      <if test="voicetime != null">
+      <if test="voiceTime != null">
         voiceTime,
       </if>
       <if test="filepath != null">
         filePath,
       </if>
-      <if test="chattime != null">
+      <if test="chatTime != null">
         chatTime,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="chatid != null">
-        #{chatid,jdbcType=VARCHAR},
+      <if test="chatId != null">
+        #{chatId,jdbcType=VARCHAR},
       </if>
-      <if test="talkid != null">
-        #{talkid,jdbcType=VARCHAR},
+      <if test="talkId != null">
+        #{talkId,jdbcType=VARCHAR},
       </if>
-      <if test="toid != null">
-        #{toid,jdbcType=VARCHAR},
+      <if test="toId != null">
+        #{toId,jdbcType=VARCHAR},
       </if>
-      <if test="msgtype != null">
-        #{msgtype,jdbcType=VARCHAR},
+      <if test="msgType != null">
+        #{msgType,jdbcType=VARCHAR},
       </if>
-      <if test="msgcontent != null">
-        #{msgcontent,jdbcType=VARCHAR},
+      <if test="msgContent != null">
+        #{msgContent,jdbcType=VARCHAR},
       </if>
-      <if test="voicetime != null">
-        #{voicetime,jdbcType=VARCHAR},
+      <if test="voiceTime != null">
+        #{voiceTime,jdbcType=VARCHAR},
       </if>
       <if test="filepath != null">
         #{filepath,jdbcType=VARCHAR},
       </if>
-      <if test="chattime != null">
-        now(),
-      </if>
+      now(),
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.social.service.domain.Chat">
     update social_chat
     <set>
-      <if test="talkid != null">
-        talkId = #{talkid,jdbcType=VARCHAR},
+      <if test="talkId != null">
+        talkId = #{talkId,jdbcType=VARCHAR},
       </if>
-      <if test="toid != null">
-        toId = #{toid,jdbcType=VARCHAR},
+      <if test="toId != null">
+        toId = #{toId,jdbcType=VARCHAR},
       </if>
-      <if test="msgtype != null">
-        msgType = #{msgtype,jdbcType=VARCHAR},
+      <if test="msgType != null">
+        msgType = #{msgType,jdbcType=VARCHAR},
       </if>
-      <if test="msgcontent != null">
-        msgContent = #{msgcontent,jdbcType=VARCHAR},
+      <if test="msgContent != null">
+        msgContent = #{msgContent,jdbcType=VARCHAR},
       </if>
-      <if test="voicetime != null">
-        voiceTime = #{voicetime,jdbcType=VARCHAR},
+      <if test="voiceTime != null">
+        voiceTime = #{voiceTime,jdbcType=VARCHAR},
       </if>
       <if test="filepath != null">
         filePath = #{filepath,jdbcType=VARCHAR},
@@ -118,11 +116,11 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.social.service.domain.Chat">
     update social_chat
-    set talkId = #{talkid,jdbcType=VARCHAR},
-      toId = #{toid,jdbcType=VARCHAR},
-      msgType = #{msgtype,jdbcType=VARCHAR},
-      msgContent = #{msgcontent,jdbcType=VARCHAR},
-      voiceTime = #{voicetime,jdbcType=VARCHAR},
+    set talkId = #{talkId,jdbcType=VARCHAR},
+      toId = #{toId,jdbcType=VARCHAR},
+      msgType = #{msgType,jdbcType=VARCHAR},
+      msgContent = #{msgContent,jdbcType=VARCHAR},
+      voiceTime = #{voiceTime,jdbcType=VARCHAR},
       filePath = #{filepath,jdbcType=VARCHAR},
       chatTime = now()
     where chatId = #{chatid,jdbcType=VARCHAR}

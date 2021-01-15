@@ -1,5 +1,7 @@
 package com.social.service.domain;
 
+import java.util.Date;
+
 public class Goods {
     private String goodsId;
 
@@ -11,12 +13,15 @@ public class Goods {
 
     private String peopleHead;
 
-    public Goods(String goodsId, String peopleId, String publicId, String peopleName, String peopleHead) {
+    private Date goodsTime;
+
+    public Goods(String goodsId, String peopleId, String publicId, String peopleName, String peopleHead, Date goodsTime) {
         this.goodsId = goodsId;
         this.peopleId = peopleId;
         this.publicId = publicId;
         this.peopleName = peopleName;
         this.peopleHead = peopleHead;
+        this.goodsTime = goodsTime;
     }
 
     public Goods() {
@@ -61,5 +66,13 @@ public class Goods {
 
     public void setPeopleHead(String peopleHead) {
         this.peopleHead = peopleHead == null ? null : peopleHead.trim();
+    }
+
+    public Date getGoodsTime() {
+        return goodsTime;
+    }
+
+    public void setGoodsTime(Date goodsTime) {
+        this.goodsTime = goodsTime;
     }
 }

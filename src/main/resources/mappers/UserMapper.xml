@@ -177,7 +177,6 @@
     where id = #{id,jdbcType=VARCHAR}
   </update>
 
-
   <resultMap id="selectMap" type="com.social.service.domain.User">
     <constructor>
       <idArg column="id" javaType="java.lang.String" jdbcType="VARCHAR" />

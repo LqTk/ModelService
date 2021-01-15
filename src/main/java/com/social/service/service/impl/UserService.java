@@ -38,6 +38,7 @@ public class UserService implements IUserService {
         map.put("headImg",user.getImg());
         map.put("sex",user.getSex());
         map.put("age",user.getAge());
+        map.put("birthday",user.getBirthday());
         map.put("phone",user.getPhone());
         map.put("des",user.getDes());
         return ServiceResponse.createBySuccessData(map);
@@ -57,8 +58,13 @@ public class UserService implements IUserService {
         user.setId(UUID.randomUUID().toString().replaceAll("-", ""));
         user.setRegistrationid("");
         user.setPassword(EncryptUtil.encoderUTF8(user.getPassword()));
-        user.setAge(0);
+        user.setAge(18);
         user.setSex(1);
+        user.setImg("");
+        SimpleDateFormat year = new SimpleDateFormat("yyyy");
+        Date date = new Date();
+        int yearage = Integer.valueOf(year.format(date))-18;
+        user.setBirthday(yearage+"-01-01");
         user.setDes("欢迎使用！");
         int rowCount = userMapper.insert(user);
         if (rowCount>0){
@@ -128,6 +134,10 @@ public class UserService implements IUserService {
         User user = new User();
         user.setId((String) map.get("userId"));
         if (!StringUtils.isBlank((String)map.get("name"))){
+            int name = userMapper.checkExistByPhoneOrName((String) map.get("name"));
+            if (name>0){
+                return ServiceResponse.createByErrorMessage("用户名已被使用");
+            }
             user.setName((String)map.get("name"));
         }
         if (map.get("sex")!=null){

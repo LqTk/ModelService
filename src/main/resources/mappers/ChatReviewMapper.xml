@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.social.service.dao.ChatReviewMapper">
+  <resultMap id="BaseResultMap" type="com.social.service.domain.ChatReview">
+    <constructor>
+      <idArg column="reviewChatId" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="reviewId" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="talkId" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="toId" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="chatText" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="chatTime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    reviewChatId, reviewId, talkId, toId, chatText, chatTime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from social_chat_review
+    where reviewChatId = #{reviewChatId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from social_chat_review
+    where reviewChatId = #{reviewChatId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.social.service.domain.ChatReview">
+    insert into social_chat_review (reviewChatId, reviewId, talkId,
+      toId, chatText, chatTime
+      )
+    values (#{reviewChatId,jdbcType=VARCHAR}, #{reviewId,jdbcType=VARCHAR}, #{talkId,jdbcType=VARCHAR},
+      #{toId,jdbcType=VARCHAR}, #{chatText,jdbcType=VARCHAR}, now()
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.social.service.domain.ChatReview">
+    insert into social_chat_review
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="reviewChatId != null">
+        reviewChatId,
+      </if>
+      <if test="reviewId != null">
+        reviewId,
+      </if>
+      <if test="talkId != null">
+        talkId,
+      </if>
+      <if test="toid != null">
+        toId,
+      </if>
+      <if test="chatText != null">
+        chatText,
+      </if>
+      <if test="chattime != null">
+        chatTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="reviewChatId != null">
+        #{reviewChatId,jdbcType=VARCHAR},
+      </if>
+      <if test="reviewId != null">
+        #{reviewId,jdbcType=VARCHAR},
+      </if>
+      <if test="talkId != null">
+        #{talkId,jdbcType=VARCHAR},
+      </if>
+      <if test="toid != null">
+        #{toId,jdbcType=VARCHAR},
+      </if>
+      <if test="chatText != null">
+        #{chatText,jdbcType=VARCHAR},
+      </if>
+      <if test="chattime != null">
+       now(),
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.social.service.domain.ChatReview">
+    update social_chat_review
+    <set>
+      <if test="reviewId != null">
+        reviewId = #{reviewId,jdbcType=VARCHAR},
+      </if>
+      <if test="talkId != null">
+        talkId = #{talkId,jdbcType=VARCHAR},
+      </if>
+      <if test="toid != null">
+        toId = #{toId,jdbcType=VARCHAR},
+      </if>
+      <if test="chatText != null">
+        chatText = #{chatText,jdbcType=VARCHAR},
+      </if>
+      <if test="chattime != null">
+        chatTime = now(),
+      </if>
+    </set>
+    where reviewChatId = #{reviewChatId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.social.service.domain.ChatReview">
+    update social_chat_review
+    set reviewId = #{reviewId,jdbcType=VARCHAR},
+      talkId = #{talkId,jdbcType=VARCHAR},
+      toId = #{toId,jdbcType=VARCHAR},
+      chatText = #{chatText,jdbcType=VARCHAR},
+      chatTime = now()
+    where reviewChatId = #{reviewChatId,jdbcType=VARCHAR}
+  </update>
+
+
+  <select id="findChatReview" resultType="com.social.service.domain.ChatReviewEntity">
+    select a.reviewChatId, a.reviewId, a.talkId, a.toId, b.name as talkName, c.name as toName, a.chatText, a.chatTime
+    from social_chat_review as a join social_user as b join social_user as c
+    where a.reviewChatId=#{reviewId} and b.id=a.talkId and c.id=a.toId order by a.chatTime desc
+  </select>
+
+
+  <delete id="deleteByReviewId" parameterType="java.lang.String">
+    delete from social_chat_review
+    where reviewId = #{reviewId,jdbcType=VARCHAR}
+  </delete>
+</mapper>

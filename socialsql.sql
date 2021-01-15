@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80017
 File Encoding         : 65001
 
-Date: 2021-01-08 17:21:58
+Date: 2021-01-15 17:17:41
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -32,6 +32,20 @@ CREATE TABLE `social_chat` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- ----------------------------
+-- Table structure for social_chat_review
+-- ----------------------------
+DROP TABLE IF EXISTS `social_chat_review`;
+CREATE TABLE `social_chat_review` (
+  `reviewChatId` varchar(32) NOT NULL,
+  `reviewId` varchar(32) NOT NULL,
+  `talkId` varchar(32) NOT NULL,
+  `toId` varchar(32) NOT NULL,
+  `chatText` varchar(255) DEFAULT NULL,
+  `chatTime` datetime NOT NULL,
+  PRIMARY KEY (`reviewChatId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- ----------------------------
 -- Table structure for social_goods
 -- ----------------------------
 DROP TABLE IF EXISTS `social_goods`;
@@ -41,6 +55,7 @@ CREATE TABLE `social_goods` (
   `publicId` varchar(32) NOT NULL,
   `peopleName` varchar(255) DEFAULT NULL,
   `peopleHead` varchar(255) DEFAULT NULL,
+  `goodsTime` datetime DEFAULT NULL,
   PRIMARY KEY (`goodsId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -52,6 +67,7 @@ CREATE TABLE `social_partner` (
   `id` varchar(255) NOT NULL,
   `userId` varchar(255) DEFAULT NULL,
   `partnerId` varchar(255) DEFAULT NULL,
+  `time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -84,6 +100,7 @@ CREATE TABLE `social_review` (
   `peopleId` varchar(32) NOT NULL,
   `publicId` varchar(32) NOT NULL,
   `reviewText` varchar(255) NOT NULL,
+  `reviewTime` datetime DEFAULT NULL,
   PRIMARY KEY (`reviewId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -96,10 +113,10 @@ CREATE TABLE `social_user` (
   `registrationId` varchar(255) DEFAULT NULL,
   `name` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL,
-  `img` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `img` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT '',
   `sex` int(1) DEFAULT '1',
   `birthday` varchar(255) DEFAULT NULL,
-  `age` int(3) DEFAULT '0',
+  `age` int(3) DEFAULT NULL,
   `phone` varchar(11) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `create_time` datetime DEFAULT NULL,
   `update_time` datetime DEFAULT NULL,

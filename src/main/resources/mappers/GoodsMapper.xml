@@ -8,10 +8,11 @@
       <arg column="publicId" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="peopleName" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="peopleHead" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="goodsTime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
-    goodsId, peopleId, publicId, peopleName, peopleHead
+    goodsId, peopleId, publicId, peopleName, peopleHead, goodsTime
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select
@@ -25,9 +26,9 @@
   </delete>
   <insert id="insert" parameterType="com.social.service.domain.Goods">
     insert into social_goods (goodsId, peopleId, publicId,
-      peopleName, peopleHead)
+      peopleName, peopleHead, goodsTime)
     values (#{goodsId,jdbcType=VARCHAR}, #{peopleId,jdbcType=VARCHAR}, #{publicId,jdbcType=VARCHAR},
-      #{peopleName,jdbcType=VARCHAR}, #{peopleHead,jdbcType=VARCHAR})
+      #{peopleName,jdbcType=VARCHAR}, #{peopleHead,jdbcType=VARCHAR}, now())
   </insert>
   <insert id="insertSelective" parameterType="com.social.service.domain.Goods">
     insert into social_goods
@@ -47,6 +48,7 @@
       <if test="peopleHead != null">
         peopleHead,
       </if>
+      goodsTime,
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="goodsId != null">
@@ -64,6 +66,7 @@
       <if test="peopleHead != null">
         #{peopleHead,jdbcType=VARCHAR},
       </if>
+      now(),
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.social.service.domain.Goods">
@@ -81,6 +84,7 @@
       <if test="peopleHead != null">
         peopleHead = #{peopleHead,jdbcType=VARCHAR},
       </if>
+      goodsTime = now(),
     </set>
     where goodsId = #{goodsId,jdbcType=VARCHAR}
   </update>
@@ -89,7 +93,13 @@
     set peopleId = #{peopleId,jdbcType=VARCHAR},
       publicId = #{publicId,jdbcType=VARCHAR},
       peopleName = #{peopleName,jdbcType=VARCHAR},
-      peopleHead = #{peopleHead,jdbcType=VARCHAR}
+      peopleHead = #{peopleHead,jdbcType=VARCHAR},
+      goodsTime = now(),
     where goodsId = #{goodsId,jdbcType=VARCHAR}
   </update>
+
+  <delete id="deleteByPbulishId" parameterType="java.lang.String">
+    delete from social_goods
+    where publicId = #{pbId,jdbcType=VARCHAR}
+  </delete>
 </mapper>

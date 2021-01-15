@@ -65,6 +65,18 @@ public class PartnerService implements IPartnerService {
     }
 
     @Override
+    public ServiceResponse getConcerns(String userId) {
+        if (StringUtils.isBlank(userId)){
+            return ServiceResponse.createByErrorMessage("好友不能为空");
+        }
+        List<PartnerEntity> partners = partnerMapper.getConcerns(userId);
+        if (partners!=null){
+            return ServiceResponse.createBySuccessData(partners);
+        }
+        return ServiceResponse.createByErrorMessage("获取关注列表失败");
+    }
+
+    @Override
     public int getByUserAndPartner(String userId, String partnerId) {
         Partner partner = partnerMapper.selectByUserIdAndPartnerId(userId, partnerId);
         if (partner!=null) {

@@ -83,7 +83,7 @@ public class ChatService implements IChatService {
             chats.sort(new Comparator<Chat>() {
                 @Override
                 public int compare(Chat o1, Chat o2) {
-                    return o1.getChattime().getTime()>o2.getChattime().getTime()?1:-1;
+                    return o1.getChatTime().getTime()>o2.getChatTime().getTime()?1:-1;
                 }
             });
             return ServiceResponse.createBySuccessData(chats);

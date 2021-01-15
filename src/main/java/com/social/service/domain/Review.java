@@ -1,54 +1,67 @@
 package com.social.service.domain;
 
+import java.util.Date;
+
 public class Review {
-    private String reviewid;
+    private String reviewId;
 
-    private String peopleid;
+    private String peopleId;
 
-    private String publicid;
+    private String publicId;
 
-    private String reviewtext;
+    private String reviewText;
 
-    public Review(String reviewid, String peopleid, String publicid, String reviewtext) {
-        this.reviewid = reviewid;
-        this.peopleid = peopleid;
-        this.publicid = publicid;
-        this.reviewtext = reviewtext;
+    private Date reviewTime;
+
+    public Review(String reviewId, String peopleId, String publicId, String reviewText, Date reviewTime) {
+        this.reviewId = reviewId;
+        this.peopleId = peopleId;
+        this.publicId = publicId;
+        this.reviewText = reviewText;
+        this.reviewTime = reviewTime;
     }
 
     public Review() {
         super();
     }
 
-    public String getReviewid() {
-        return reviewid;
+    public String getReviewId() {
+        return reviewId;
     }
 
-    public void setReviewid(String reviewid) {
-        this.reviewid = reviewid == null ? null : reviewid.trim();
+    public void setReviewId(String reviewid) {
+        this.reviewId = reviewid == null ? null : reviewid.trim();
     }
 
-    public String getPeopleid() {
-        return peopleid;
+    public String getPeopleId() {
+        return peopleId;
     }
 
-    public void setPeopleid(String peopleid) {
-        this.peopleid = peopleid == null ? null : peopleid.trim();
+    public void setPeopleId(String peopleid) {
+        this.peopleId = peopleid == null ? null : peopleid.trim();
     }
 
-    public String getPublicid() {
-        return publicid;
+    public String getPublicId() {
+        return publicId;
     }
 
-    public void setPublicid(String publicid) {
-        this.publicid = publicid == null ? null : publicid.trim();
+    public void setPublicId(String publicid) {
+        this.publicId = publicid == null ? null : publicid.trim();
     }
 
-    public String getReviewtext() {
-        return reviewtext;
+    public String getReviewText() {
+        return reviewText;
     }
 
-    public void setReviewtext(String reviewtext) {
-        this.reviewtext = reviewtext == null ? null : reviewtext.trim();
+    public void setReviewText(String reviewtext) {
+        this.reviewText = reviewtext == null ? null : reviewtext.trim();
+    }
+
+    public Date getReviewTime() {
+        return reviewTime;
+    }
+
+    public void setReviewTime(Date reviewTime) {
+        this.reviewTime = reviewTime;
     }
 }

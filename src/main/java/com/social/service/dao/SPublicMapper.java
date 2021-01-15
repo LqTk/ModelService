@@ -13,7 +13,7 @@ public interface SPublicMapper {
 
     int insertSelective(SPublic record);
 
-    SPublic selectByPrimaryKey(String shareid);
+    PublicedEntity selectByPrimaryKey(String shareid);
 
     int updateByPrimaryKeySelective(SPublic record);
 
@@ -23,10 +23,12 @@ public interface SPublicMapper {
 
     int addGoodsCount(@Param("shareId") String shareId, @Param("count") int count);
 
-//    List<SPublic> getSocialPublicSize();
     List<PublicedEntity> getSocialPublicSize();
 
-    List<SPublic> getSocialByUserId(@Param("userId") String userId, @Param("start")int start, @Param("end")int end);
+    List<PublicedEntity> getSocialByUserId(@Param("userId") String userId, @Param("start")int start, @Param("end")int end);
 
     int updataHeadImg(@Param("userId")String userId, @Param("imghead")String headImg);
+
+    PublicedEntity selectByShareId(String shareid);
+
 }

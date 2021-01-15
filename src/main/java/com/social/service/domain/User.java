@@ -44,8 +44,13 @@ public class User {
         this.img = img;
         this.sex = sex;
         this.birthday = birthday;
-        if (!StringUtils.isBlank(birthday) && birthday.contains("-")) {
-            this.age = Integer.valueOf(year.format(date)) - Integer.valueOf(birthday.split("-")[0]);
+        if (StringUtils.isBlank(birthday)){
+            this.birthday = "1994-01-01";
+        }else {
+            this.birthday = birthday;
+        }
+        if (!StringUtils.isBlank(this.birthday) && this.birthday.contains("-")) {
+            this.age = Integer.valueOf(year.format(date)) - Integer.valueOf(this.birthday.split("-")[0]);
         }else {
             this.age = 0;
         }
@@ -61,8 +66,13 @@ public class User {
         this.img = img;
         this.sex = sex;
         this.birthday = birthday;
-        if (!StringUtils.isBlank(birthday) && birthday.contains("-")) {
-            this.age = Integer.valueOf(year.format(date)) - Integer.valueOf(birthday.split("-")[0]);
+        if (StringUtils.isBlank(birthday)){
+            this.birthday = "1994-01-01";
+        }else {
+            this.birthday = birthday;
+        }
+        if (!StringUtils.isBlank(this.birthday) && this.birthday.contains("-")) {
+            this.age = Integer.valueOf(year.format(date)) - Integer.valueOf(this.birthday.split("-")[0]);
         }else {
             this.age = 0;
         }

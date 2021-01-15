@@ -43,6 +43,19 @@ public class PublicedEntity {
         this.reviewEntities = reviewEntities;
     }
 
+    public PublicedEntity(String shareId, String userId, String userName, String userHead, Integer userSex, String shareName, String shareUrl, String shareText, Date createTime, Integer isPublic) {
+        this.shareId = shareId;
+        this.userId = userId;
+        this.userName = userName;
+        this.userHead = userHead;
+        this.userSex = userSex;
+        this.shareName = shareName;
+        this.shareUrl = shareUrl;
+        this.shareText = shareText;
+        this.createTime = createTime;
+        this.isPublic = isPublic;
+    }
+
     public String getShareId() {
         return shareId;
     }

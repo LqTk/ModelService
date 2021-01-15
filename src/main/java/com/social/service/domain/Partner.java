@@ -1,5 +1,7 @@
 package com.social.service.domain;
 
+import java.util.Date;
+
 public class Partner {
     private String id;
 
@@ -7,10 +9,13 @@ public class Partner {
 
     private String partnerid;
 
-    public Partner(String id, String userid, String partnerid) {
+    private Date time;
+
+    public Partner(String id, String userid, String partnerid, Date time) {
         this.id = id;
         this.userid = userid;
         this.partnerid = partnerid;
+        this.time = time;
     }
 
     public Partner() {
@@ -39,5 +44,13 @@ public class Partner {
 
     public void setPartnerid(String partnerid) {
         this.partnerid = partnerid == null ? null : partnerid.trim();
+    }
+
+    public Date getTime() {
+        return time;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
     }
 }
