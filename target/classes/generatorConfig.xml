@@ -27,7 +27,7 @@
         <!--数据库连接属性-->
         <jdbcConnection driverClass="${db.driverClassName}"
                         connectionURL="${db.url}"
-                        userId="${db.username}"
+                        userId="${db.userName}"
                         password="${db.password}"/>
 
         <!--类型处理器，在数据库类型和Java类型之间的转换控制-->

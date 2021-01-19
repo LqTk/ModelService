@@ -35,7 +35,7 @@ public class PublicService implements IPublicService {
         if (pb == null){
             return ServiceResponse.createByIllegalArgument();
         }
-        pb.setShareid(UUID.randomUUID().toString().replaceAll("-", ""));
+        pb.setShareId(UUID.randomUUID().toString().replaceAll("-", ""));
         pb.setCreatetime(new Date());
         int insert = sPublicMapper.insert(pb);
         if (insert>0){

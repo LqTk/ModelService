@@ -3,111 +3,111 @@ package com.social.service.domain;
 import java.util.Date;
 
 public class SPublic {
-    private String shareid;
+    private String shareId;
 
-    private String userid;
+    private String userId;
 
-    private String username;
+    private String userName;
 
-    private String userhead;
+    private String userHead;
 
-    private Integer usersex;
+    private Integer userSex;
 
-    private String sharename;
+    private String shareName;
 
-    private String shareurl;
+    private String shareUrl;
 
-    private String sharetext;
+    private String shareText;
 
     private Date createtime;
 
-    private Integer ispublic;
+    private Integer isPublic;
 
-    private Integer goodscount;
+    private Integer goodsCount;
 
-    private Integer reviewcount;
+    private Integer reviewCount;
 
-    public SPublic(String shareid, String userid, String username, String userhead, Integer usersex, String sharename, String shareurl, String sharetext, Date createtime, Integer ispublic, Integer goodscount, Integer reviewcount) {
-        this.shareid = shareid;
-        this.userid = userid;
-        this.username = username;
-        this.userhead = userhead;
-        this.usersex = usersex;
-        this.sharename = sharename;
-        this.shareurl = shareurl;
-        this.sharetext = sharetext;
+    public SPublic(String shareId, String userId, String userName, String userHead, Integer userSex, String shareName, String shareUrl, String shareText, Date createtime, Integer isPublic, Integer goodsCount, Integer reviewCount) {
+        this.shareId = shareId;
+        this.userId = userId;
+        this.userName = userName;
+        this.userHead = userHead;
+        this.userSex = userSex;
+        this.shareName = shareName;
+        this.shareUrl = shareUrl;
+        this.shareText = shareText;
         this.createtime = createtime;
-        this.ispublic = ispublic;
-        this.goodscount = goodscount;
-        this.reviewcount = reviewcount;
+        this.isPublic = isPublic;
+        this.goodsCount = goodsCount;
+        this.reviewCount = reviewCount;
     }
 
     public SPublic() {
         super();
     }
 
-    public String getShareid() {
-        return shareid;
+    public String getShareId() {
+        return shareId;
     }
 
-    public void setShareid(String shareid) {
-        this.shareid = shareid == null ? null : shareid.trim();
+    public void setShareId(String shareId) {
+        this.shareId = shareId == null ? null : shareId.trim();
     }
 
-    public String getUserid() {
-        return userid;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setUserid(String userid) {
-        this.userid = userid == null ? null : userid.trim();
+    public void setUserId(String userId) {
+        this.userId = userId == null ? null : userId.trim();
     }
 
-    public String getUsername() {
-        return username;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUsername(String username) {
-        this.username = username == null ? null : username.trim();
+    public void setUserName(String userName) {
+        this.userName = userName == null ? null : userName.trim();
     }
 
-    public String getUserhead() {
-        return userhead;
+    public String getUserHead() {
+        return userHead;
     }
 
-    public void setUserhead(String userhead) {
-        this.userhead = userhead == null ? null : userhead.trim();
+    public void setUserHead(String userHead) {
+        this.userHead = userHead == null ? null : userHead.trim();
     }
 
-    public Integer getUsersex() {
-        return usersex;
+    public Integer getUserSex() {
+        return userSex;
     }
 
-    public void setUsersex(Integer usersex) {
-        this.usersex = usersex;
+    public void setUserSex(Integer userSex) {
+        this.userSex = userSex;
     }
 
-    public String getSharename() {
-        return sharename;
+    public String getShareName() {
+        return shareName;
     }
 
-    public void setSharename(String sharename) {
-        this.sharename = sharename == null ? null : sharename.trim();
+    public void setShareName(String shareName) {
+        this.shareName = shareName == null ? null : shareName.trim();
     }
 
-    public String getShareurl() {
-        return shareurl;
+    public String getShareUrl() {
+        return shareUrl;
     }
 
-    public void setShareurl(String shareurl) {
-        this.shareurl = shareurl == null ? null : shareurl.trim();
+    public void setShareUrl(String shareUrl) {
+        this.shareUrl = shareUrl == null ? null : shareUrl.trim();
     }
 
-    public String getSharetext() {
-        return sharetext;
+    public String getShareText() {
+        return shareText;
     }
 
-    public void setSharetext(String sharetext) {
-        this.sharetext = sharetext == null ? null : sharetext.trim();
+    public void setShareText(String shareText) {
+        this.shareText = shareText == null ? null : shareText.trim();
     }
 
     public Date getCreatetime() {
@@ -118,27 +118,27 @@ public class SPublic {
         this.createtime = createtime;
     }
 
-    public Integer getIspublic() {
-        return ispublic;
+    public Integer getIsPublic() {
+        return isPublic;
     }
 
-    public void setIspublic(Integer ispublic) {
-        this.ispublic = ispublic;
+    public void setIsPublic(Integer isPublic) {
+        this.isPublic = isPublic;
     }
 
-    public Integer getGoodscount() {
-        return goodscount;
+    public Integer getGoodsCount() {
+        return goodsCount;
     }
 
-    public void setGoodscount(Integer goodscount) {
-        this.goodscount = goodscount;
+    public void setGoodsCount(Integer goodsCount) {
+        this.goodsCount = goodsCount;
     }
 
-    public Integer getReviewcount() {
-        return reviewcount;
+    public Integer getReviewCount() {
+        return reviewCount;
     }
 
-    public void setReviewcount(Integer reviewcount) {
-        this.reviewcount = reviewcount;
+    public void setReviewCount(Integer reviewCount) {
+        this.reviewCount = reviewCount;
     }
 }

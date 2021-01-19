@@ -23,9 +23,9 @@ public class SocialPublic {
     public ServiceResponse publish(@RequestBody SPublic sPublic){
         if (null == sPublic)
             return ServiceResponse.createByIllegalArgument();
-        sPublic.setShareid(UUID.randomUUID().toString().replaceAll("-",""));
-        sPublic.setReviewcount(0);
-        sPublic.setGoodscount(0);
+        sPublic.setShareId(UUID.randomUUID().toString().replaceAll("-",""));
+        sPublic.setReviewCount(0);
+        sPublic.setGoodsCount(0);
         return iPublicService.insert(sPublic);
     }
 

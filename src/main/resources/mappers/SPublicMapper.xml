@@ -27,7 +27,7 @@
      a.shareText, a.createTime, a.isPublic
      from social_public as a
      join social_user as b
-    where shareId = #{shareid,jdbcType=VARCHAR} and a.userId = b.id
+    where shareId = #{shareId,jdbcType=VARCHAR} and a.userId = b.id
   </select>
   <insert id="insert" parameterType="com.social.service.domain.SPublic">
     insert into social_public (shareId, userId, userName,
@@ -35,144 +35,144 @@
       shareUrl, shareText, createTime,
       isPublic, goodsCount, reviewCount
       )
-    values (#{shareid,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR},
-      #{userhead,jdbcType=VARCHAR}, #{usersex,jdbcType=INTEGER}, #{sharename,jdbcType=VARCHAR},
-      #{shareurl,jdbcType=VARCHAR}, #{sharetext,jdbcType=VARCHAR}, now(),
-      #{ispublic,jdbcType=INTEGER}, #{goodscount,jdbcType=INTEGER}, #{reviewcount,jdbcType=INTEGER}
+    values (#{shareId,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR},
+      #{userHead,jdbcType=VARCHAR}, #{userSex,jdbcType=INTEGER}, #{shareName,jdbcType=VARCHAR},
+      #{shareUrl,jdbcType=VARCHAR}, #{shareText,jdbcType=VARCHAR}, now(),
+      #{isPublic,jdbcType=INTEGER}, #{goodsCount,jdbcType=INTEGER}, #{reviewCount,jdbcType=INTEGER}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.social.service.domain.SPublic">
     insert into social_public
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="shareid != null">
+      <if test="shareId != null">
         shareId,
       </if>
-      <if test="userid != null">
+      <if test="userId != null">
         userId,
       </if>
-      <if test="username != null">
+      <if test="userName != null">
         userName,
       </if>
-      <if test="userhead != null">
+      <if test="userHead != null">
         userHead,
       </if>
-      <if test="usersex != null">
+      <if test="userSex != null">
         userSex,
       </if>
-      <if test="sharename != null">
+      <if test="shareName != null">
         shareName,
       </if>
-      <if test="shareurl != null">
+      <if test="shareUrl != null">
         shareUrl,
       </if>
-      <if test="sharetext != null">
+      <if test="shareText != null">
         shareText,
       </if>
       <if test="createtime != null">
         createTime,
       </if>
-      <if test="ispublic != null">
+      <if test="isPublic != null">
         isPublic,
       </if>
-      <if test="goodscount != null">
+      <if test="goodsCount != null">
         goodsCount,
       </if>
-      <if test="reviewcount != null">
+      <if test="reviewCount != null">
         reviewCount,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="shareid != null">
-        #{shareid,jdbcType=VARCHAR},
+      <if test="shareId != null">
+        #{shareId,jdbcType=VARCHAR},
       </if>
-      <if test="userid != null">
-        #{userid,jdbcType=VARCHAR},
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
       </if>
-      <if test="username != null">
-        #{username,jdbcType=VARCHAR},
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
       </if>
-      <if test="userhead != null">
-        #{userhead,jdbcType=VARCHAR},
+      <if test="userHead != null">
+        #{userHead,jdbcType=VARCHAR},
       </if>
-      <if test="usersex != null">
-        #{usersex,jdbcType=INTEGER},
+      <if test="userSex != null">
+        #{userSex,jdbcType=INTEGER},
       </if>
-      <if test="sharename != null">
-        #{sharename,jdbcType=VARCHAR},
+      <if test="shareName != null">
+        #{shareName,jdbcType=VARCHAR},
       </if>
-      <if test="shareurl != null">
-        #{shareurl,jdbcType=VARCHAR},
+      <if test="shareUrl != null">
+        #{shareUrl,jdbcType=VARCHAR},
       </if>
-      <if test="sharetext != null">
-        #{sharetext,jdbcType=VARCHAR},
+      <if test="shareText != null">
+        #{shareText,jdbcType=VARCHAR},
       </if>
       <if test="createtime != null">
         now(),
       </if>
-      <if test="ispublic != null">
-        #{ispublic,jdbcType=INTEGER},
+      <if test="isPublic != null">
+        #{isPublic,jdbcType=INTEGER},
       </if>
-      <if test="goodscount != null">
-        #{goodscount,jdbcType=INTEGER},
+      <if test="goodsCount != null">
+        #{goodsCount,jdbcType=INTEGER},
       </if>
-      <if test="reviewcount != null">
-        #{reviewcount,jdbcType=INTEGER},
+      <if test="reviewCount != null">
+        #{reviewCount,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.social.service.domain.SPublic">
     update social_public
     <set>
-      <if test="userid != null">
-        userId = #{userid,jdbcType=VARCHAR},
+      <if test="userId != null">
+        userId = #{userId,jdbcType=VARCHAR},
       </if>
-      <if test="username != null">
-        userName = #{username,jdbcType=VARCHAR},
+      <if test="userName != null">
+        userName = #{userName,jdbcType=VARCHAR},
       </if>
-      <if test="userhead != null">
-        userHead = #{userhead,jdbcType=VARCHAR},
+      <if test="userHead != null">
+        userHead = #{userHead,jdbcType=VARCHAR},
       </if>
-      <if test="usersex != null">
-        userSex = #{usersex,jdbcType=INTEGER},
+      <if test="userSex != null">
+        userSex = #{userSex,jdbcType=INTEGER},
       </if>
-      <if test="sharename != null">
-        shareName = #{sharename,jdbcType=VARCHAR},
+      <if test="shareName != null">
+        shareName = #{shareName,jdbcType=VARCHAR},
       </if>
-      <if test="shareurl != null">
-        shareUrl = #{shareurl,jdbcType=VARCHAR},
+      <if test="shareUrl != null">
+        shareUrl = #{shareUrl,jdbcType=VARCHAR},
       </if>
-      <if test="sharetext != null">
-        shareText = #{sharetext,jdbcType=VARCHAR},
+      <if test="shareText != null">
+        shareText = #{shareText,jdbcType=VARCHAR},
       </if>
       <if test="createtime != null">
         createTime = now(),
       </if>
-      <if test="ispublic != null">
-        isPublic = #{ispublic,jdbcType=INTEGER},
+      <if test="isPublic != null">
+        isPublic = #{isPublic,jdbcType=INTEGER},
       </if>
-      <if test="goodscount != null">
-        goodsCount = #{goodscount,jdbcType=INTEGER},
+      <if test="goodsCount != null">
+        goodsCount = #{goodsCount,jdbcType=INTEGER},
       </if>
-      <if test="reviewcount != null">
-        reviewCount = #{reviewcount,jdbcType=INTEGER},
+      <if test="reviewCount != null">
+        reviewCount = #{reviewCount,jdbcType=INTEGER},
       </if>
     </set>
-    where shareId = #{shareid,jdbcType=VARCHAR}
+    where shareId = #{shareId,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.social.service.domain.SPublic">
     update social_public
-    set userId = #{userid,jdbcType=VARCHAR},
-      userName = #{username,jdbcType=VARCHAR},
-      userHead = #{userhead,jdbcType=VARCHAR},
-      userSex = #{usersex,jdbcType=INTEGER},
-      shareName = #{sharename,jdbcType=VARCHAR},
-      shareUrl = #{shareurl,jdbcType=VARCHAR},
-      shareText = #{sharetext,jdbcType=VARCHAR},
+    set userId = #{userId,jdbcType=VARCHAR},
+      userName = #{userName,jdbcType=VARCHAR},
+      userHead = #{userHead,jdbcType=VARCHAR},
+      userSex = #{userSex,jdbcType=INTEGER},
+      shareName = #{shareName,jdbcType=VARCHAR},
+      shareUrl = #{shareUrl,jdbcType=VARCHAR},
+      shareText = #{shareText,jdbcType=VARCHAR},
       createTime = now(),
-      isPublic = #{ispublic,jdbcType=INTEGER},
-      goodsCount = #{goodscount,jdbcType=INTEGER},
-      reviewCount = #{reviewcount,jdbcType=INTEGER}
-    where shareId = #{shareid,jdbcType=VARCHAR}
+      isPublic = #{isPublic,jdbcType=INTEGER},
+      goodsCount = #{goodsCount,jdbcType=INTEGER},
+      reviewCount = #{reviewCount,jdbcType=INTEGER}
+    where shareId = #{shareId,jdbcType=VARCHAR}
   </update>
 
   <update id="addReviewCount" parameterType="map">
@@ -193,13 +193,13 @@
      a.shareText, a.createTime, a.isPublic
      from social_public as a
      join social_user as b
-    where shareId = #{shareid,jdbcType=VARCHAR} and a.userId = b.id
+    where shareId = #{shareId,jdbcType=VARCHAR} and a.userId = b.id
   </select>
 
 
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
     delete from social_public
-    where shareId = #{shareid,jdbcType=VARCHAR}
+    where shareId = #{shareId,jdbcType=VARCHAR}
   </delete>
 
   <resultMap id="searchPublish" type="com.social.service.domain.PublicedEntity">

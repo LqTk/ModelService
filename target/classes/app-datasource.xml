@@ -20,7 +20,7 @@
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
         <property name="driverClassName" value="${db.driverClassName}"/>
         <property name="url" value="${db.url}"/>
-        <property name="username" value="${db.username}"/>
+        <property name="username" value="${db.userName}"/>
         <property name="password" value="${db.password}"/>
         <!--连接池的最大连接-->
         <property name="maxActive" value="${db.maxActive}"/>

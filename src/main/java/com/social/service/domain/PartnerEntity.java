@@ -66,4 +66,17 @@ public class PartnerEntity {
     public void setTime(Date time) {
         this.time = time;
     }
+
+
+    @Override
+    public int hashCode() {
+        return peopleId.hashCode();
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        PartnerEntity partnerEntity = (PartnerEntity) obj;
+        return this.peopleId.equals(partnerEntity.getPeopleId());
+    }
+
 }

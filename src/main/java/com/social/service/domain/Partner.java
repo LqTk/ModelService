@@ -5,16 +5,16 @@ import java.util.Date;
 public class Partner {
     private String id;
 
-    private String userid;
+    private String userId;
 
-    private String partnerid;
+    private String partnerId;
 
     private Date time;
 
-    public Partner(String id, String userid, String partnerid, Date time) {
+    public Partner(String id, String userId, String partnerId, Date time) {
         this.id = id;
-        this.userid = userid;
-        this.partnerid = partnerid;
+        this.userId = userId;
+        this.partnerId = partnerId;
         this.time = time;
     }
 
@@ -30,20 +30,20 @@ public class Partner {
         this.id = id == null ? null : id.trim();
     }
 
-    public String getUserid() {
-        return userid;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setUserid(String userid) {
-        this.userid = userid == null ? null : userid.trim();
+    public void setUserId(String userId) {
+        this.userId = userId == null ? null : userId.trim();
     }
 
-    public String getPartnerid() {
-        return partnerid;
+    public String getPartnerId() {
+        return partnerId;
     }
 
-    public void setPartnerid(String partnerid) {
-        this.partnerid = partnerid == null ? null : partnerid.trim();
+    public void setPartnerId(String partnerId) {
+        this.partnerId = partnerId == null ? null : partnerId.trim();
     }
 
     public Date getTime() {

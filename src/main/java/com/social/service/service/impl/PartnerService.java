@@ -30,15 +30,15 @@ public class PartnerService implements IPartnerService {
         }
         int insert = partnerMapper.insert(partner);
         if (insert>0){
-            User user = userMapper.selectByPrimaryKey(partner.getUserid());
-            User partnerUser = userMapper.selectByPrimaryKey(partner.getPartnerid());
+            User user = userMapper.selectByPrimaryKey(partner.getUserId());
+            User partnerUser = userMapper.selectByPrimaryKey(partner.getPartnerId());
             if (user.getRegistrationid()!=null)
-            JPushClientUtil.sendToRegistrationId(user.getRegistrationid(),"好友添加成功","好友添加结果","添加成功","");
+            JPushClientUtil.sendToRegistrationId(user.getRegistrationid(),"好友关注成功","好友关注结果","关注成功","");
             if (partnerUser.getRegistrationid()!=null)
-            JPushClientUtil.sendToRegistrationId(partnerUser.getRegistrationid(),"请求添加好友","请求添加好友",user.getName()+"请求添加好友","");
-            return ServiceResponse.createBySuccessMessage("添加成功");
+            JPushClientUtil.sendToRegistrationId(partnerUser.getRegistrationid(),"消息提示","有人关注了您",user.getName()+"关注了您","");
+            return ServiceResponse.createBySuccessMessage("关注成功");
         }
-        return ServiceResponse.createByErrorMessage("添加失败");
+        return ServiceResponse.createByErrorMessage("关注失败");
     }
 
     @Override
@@ -47,9 +47,9 @@ public class PartnerService implements IPartnerService {
             return ServiceResponse.createByErrorMessage("未找到好友");
         int i = partnerMapper.deleteByPrimaryKey(partId);
         if (i>0){
-            return ServiceResponse.createBySuccessMessage("删除成功");
+            return ServiceResponse.createBySuccessMessage("取消关注成功");
         }
-        return ServiceResponse.createByErrorMessage("删除失败");
+        return ServiceResponse.createByErrorMessage("取消关注失败");
     }
 
     @Override
@@ -69,20 +69,18 @@ public class PartnerService implements IPartnerService {
         if (StringUtils.isBlank(userId)){
             return ServiceResponse.createByErrorMessage("好友不能为空");
         }
-        List<PartnerEntity> partners = partnerMapper.getConcerns(userId);
-        if (partners!=null){
-            return ServiceResponse.createBySuccessData(partners);
+        List<PartnerEntity> concerns = partnerMapper.getConcerns(userId);
+        List<PartnerEntity> partners = partnerMapper.getPartners(userId);
+        if (concerns!=null){
+            concerns.removeAll(partners);
+            return ServiceResponse.createBySuccessData(concerns);
         }
         return ServiceResponse.createByErrorMessage("获取关注列表失败");
     }
 
     @Override
-    public int getByUserAndPartner(String userId, String partnerId) {
+    public Partner getByUserAndPartner(String userId, String partnerId) {
         Partner partner = partnerMapper.selectByUserIdAndPartnerId(userId, partnerId);
-        if (partner!=null) {
-            return 1;
-        }else {
-            return 0;
-        }
+        return partner;
     }
 }

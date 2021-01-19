@@ -25,7 +25,7 @@
   <insert id="insert" parameterType="com.social.service.domain.Partner">
     insert into social_partner (id, userId, partnerId, time
       )
-    values (#{id,jdbcType=VARCHAR}, #{userid,jdbcType=VARCHAR}, #{partnerid,jdbcType=VARCHAR},now()
+    values (#{id,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{partnerId,jdbcType=VARCHAR},now()
       )
   </insert>
   <insert id="insertSelective" parameterType="com.social.service.domain.Partner">
@@ -34,10 +34,10 @@
       <if test="id != null">
         id,
       </if>
-      <if test="userid != null">
+      <if test="userId != null">
         userId,
       </if>
-      <if test="partnerid != null">
+      <if test="partnerId != null">
         partnerId,
       </if>
       time,
@@ -46,11 +46,11 @@
       <if test="id != null">
         #{id,jdbcType=VARCHAR},
       </if>
-      <if test="userid != null">
-        #{userid,jdbcType=VARCHAR},
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
       </if>
-      <if test="partnerid != null">
-        #{partnerid,jdbcType=VARCHAR},
+      <if test="partnerId != null">
+        #{partnerId,jdbcType=VARCHAR},
       </if>
       now(),
     </trim>
@@ -58,11 +58,11 @@
   <update id="updateByPrimaryKeySelective" parameterType="com.social.service.domain.Partner">
     update social_partner
     <set>
-      <if test="userid != null">
-        userId = #{userid,jdbcType=VARCHAR},
+      <if test="userId != null">
+        userId = #{userId,jdbcType=VARCHAR},
       </if>
-      <if test="partnerid != null">
-        partnerId = #{partnerid,jdbcType=VARCHAR},
+      <if test="partnerId != null">
+        partnerId = #{partnerId,jdbcType=VARCHAR},
       </if>
       time = now(),
     </set>
@@ -70,8 +70,8 @@
   </update>
   <update id="updateByPrimaryKey" parameterType="com.social.service.domain.Partner">
     update social_partner
-    set userId = #{userid,jdbcType=VARCHAR},
-      partnerId = #{partnerid,jdbcType=VARCHAR},
+    set userId = #{userId,jdbcType=VARCHAR},
+      partnerId = #{partnerId,jdbcType=VARCHAR},
       time = now()
     where id = #{id,jdbcType=VARCHAR}
   </update>
@@ -105,8 +105,7 @@
     select a.name as peopleName, a.id as peopleId, a.img as peopleHead, a.sex as peopleSex, a.des as peopleDes, b.time
     from social_partner as b
     join social_user as a
-    join social_partner as e
-    where b.userId = #{userId} and e.partnerId = #{userId} and e.userId != b.userId and b.partnerId=a.id order by b.time asc
+    where b.userId = #{userId} and b.partnerId=a.id order by b.time asc
   </select>
 
   <select id="selectByUserIdAndPartnerId" parameterType="map" resultMap="BaseResultMap">
