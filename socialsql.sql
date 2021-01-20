@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80017
 File Encoding         : 65001
 
-Date: 2021-01-15 17:17:41
+Date: 2021-01-20 17:12:34
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -77,17 +77,12 @@ CREATE TABLE `social_partner` (
 DROP TABLE IF EXISTS `social_public`;
 CREATE TABLE `social_public` (
   `userId` varchar(32) NOT NULL DEFAULT '1',
-  `userName` varchar(255) DEFAULT NULL,
-  `userHead` varchar(255) DEFAULT NULL,
-  `userSex` int(1) DEFAULT '1',
   `shareId` varchar(32) NOT NULL,
   `shareName` varchar(255) DEFAULT NULL,
   `shareUrl` varchar(255) DEFAULT NULL,
   `shareText` varchar(255) DEFAULT NULL,
   `createTime` datetime DEFAULT NULL,
   `isPublic` int(1) DEFAULT '0',
-  `goodsCount` int(11) DEFAULT '0',
-  `reviewCount` int(11) DEFAULT NULL,
   PRIMARY KEY (`shareId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
