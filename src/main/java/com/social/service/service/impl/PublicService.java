@@ -39,7 +39,8 @@ public class PublicService implements IPublicService {
         pb.setCreatetime(new Date());
         int insert = sPublicMapper.insert(pb);
         if (insert>0){
-            return ServiceResponse.createBySuccessData(pb);
+            PublicedEntity publicedEntity = sPublicMapper.selectByPrimaryKey(pb.getShareId());
+            return ServiceResponse.createBySuccessData(publicedEntity);
         }
         return ServiceResponse.createByErrorMessage("发布失败！");
     }
@@ -176,17 +177,5 @@ public class PublicService implements IPublicService {
             return ServiceResponse.createByErrorMessage("未查询到信息");
         return ServiceResponse.createBySuccessData(sPublic);
     }
-
-    @Override
-    public ServiceResponse updataHeadImg(String userId, String headImg) {
-        if (StringUtils.isBlank(userId))
-            return ServiceResponse.createByErrorMessage("未查询到信息");
-        int i = sPublicMapper.updataHeadImg(userId, headImg);
-        if (i>0){
-            return ServiceResponse.createBySuccess();
-        }
-        return ServiceResponse.createByError();
-    }
-
 
 }

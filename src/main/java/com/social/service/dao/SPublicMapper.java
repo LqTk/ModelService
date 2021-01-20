@@ -19,15 +19,9 @@ public interface SPublicMapper {
 
     int updateByPrimaryKey(SPublic record);
 
-    int addReviewCount(@Param("shareId") String shareId, @Param("count") int count);
-
-    int addGoodsCount(@Param("shareId") String shareId, @Param("count") int count);
-
     List<PublicedEntity> getSocialPublicSize();
 
     List<PublicedEntity> getSocialByUserId(@Param("userId") String userId, @Param("start")int start, @Param("end")int end);
-
-    int updataHeadImg(@Param("userId")String userId, @Param("imghead")String headImg);
 
     PublicedEntity selectByShareId(String shareid);
 

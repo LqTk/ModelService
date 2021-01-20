@@ -129,8 +129,6 @@ public class UserController {
                 map.put("msg", "上传文件成功");
                 map.put("url", "social/headImg/" + uploadFile.getName());
                 map.put("uri", uploadFile.getName());
-
-                iPublicService.updataHeadImg(userId,"social/headImg/" + uploadFile.getName());
                 JPushClientUtil.sendToRegistrationId(user.getRegistrationid(),"头像更新结果","更新结果","头像更新成功","23333");
 //                JPushClientUtil.sendMessageToAll(user.getRegistrationid(),"头像更新结果","头像更新成功","23333");
                 return ServiceResponse.createBySuccessData(map);

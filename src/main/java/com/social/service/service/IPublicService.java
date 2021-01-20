@@ -29,5 +29,4 @@ public interface IPublicService {
 
     public ServiceResponse getByShareId(String shareId);
 
-    public ServiceResponse updataHeadImg(String userId, String headImg);
 }

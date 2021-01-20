@@ -5,21 +5,16 @@
     <constructor>
       <idArg column="shareId" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="userId" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="userName" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="userHead" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="userSex" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="shareName" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="shareUrl" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="shareText" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="createTime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
       <arg column="isPublic" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="goodsCount" javaType="java.lang.Integer" jdbcType="INTEGER" />
-      <arg column="reviewCount" javaType="java.lang.Integer" jdbcType="INTEGER" />
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
-    shareId, userId, userName, userHead, userSex, shareName, shareUrl, shareText, createTime,
-    isPublic, goodsCount, reviewCount
+    shareId, userId, shareName, shareUrl, shareText, createTime,
+    isPublic
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="searchPublish">
     select
@@ -30,16 +25,13 @@
     where shareId = #{shareId,jdbcType=VARCHAR} and a.userId = b.id
   </select>
   <insert id="insert" parameterType="com.social.service.domain.SPublic">
-    insert into social_public (shareId, userId, userName,
-      userHead, userSex, shareName,
+    insert into social_public (shareId, userId, shareName,
       shareUrl, shareText, createTime,
-      isPublic, goodsCount, reviewCount
+      isPublic
       )
-    values (#{shareId,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR},
-      #{userHead,jdbcType=VARCHAR}, #{userSex,jdbcType=INTEGER}, #{shareName,jdbcType=VARCHAR},
+    values (#{shareId,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{shareName,jdbcType=VARCHAR},
       #{shareUrl,jdbcType=VARCHAR}, #{shareText,jdbcType=VARCHAR}, now(),
-      #{isPublic,jdbcType=INTEGER}, #{goodsCount,jdbcType=INTEGER}, #{reviewCount,jdbcType=INTEGER}
-      )
+      #{isPublic,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.social.service.domain.SPublic">
     insert into social_public
@@ -49,15 +41,6 @@
       </if>
       <if test="userId != null">
         userId,
-      </if>
-      <if test="userName != null">
-        userName,
-      </if>
-      <if test="userHead != null">
-        userHead,
-      </if>
-      <if test="userSex != null">
-        userSex,
       </if>
       <if test="shareName != null">
         shareName,
@@ -74,12 +57,6 @@
       <if test="isPublic != null">
         isPublic,
       </if>
-      <if test="goodsCount != null">
-        goodsCount,
-      </if>
-      <if test="reviewCount != null">
-        reviewCount,
-      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="shareId != null">
@@ -87,15 +64,6 @@
       </if>
       <if test="userId != null">
         #{userId,jdbcType=VARCHAR},
-      </if>
-      <if test="userName != null">
-        #{userName,jdbcType=VARCHAR},
-      </if>
-      <if test="userHead != null">
-        #{userHead,jdbcType=VARCHAR},
-      </if>
-      <if test="userSex != null">
-        #{userSex,jdbcType=INTEGER},
       </if>
       <if test="shareName != null">
         #{shareName,jdbcType=VARCHAR},
@@ -112,12 +80,6 @@
       <if test="isPublic != null">
         #{isPublic,jdbcType=INTEGER},
       </if>
-      <if test="goodsCount != null">
-        #{goodsCount,jdbcType=INTEGER},
-      </if>
-      <if test="reviewCount != null">
-        #{reviewCount,jdbcType=INTEGER},
-      </if>
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.social.service.domain.SPublic">
@@ -125,15 +87,6 @@
     <set>
       <if test="userId != null">
         userId = #{userId,jdbcType=VARCHAR},
-      </if>
-      <if test="userName != null">
-        userName = #{userName,jdbcType=VARCHAR},
-      </if>
-      <if test="userHead != null">
-        userHead = #{userHead,jdbcType=VARCHAR},
-      </if>
-      <if test="userSex != null">
-        userSex = #{userSex,jdbcType=INTEGER},
       </if>
       <if test="shareName != null">
         shareName = #{shareName,jdbcType=VARCHAR},
@@ -150,41 +103,18 @@
       <if test="isPublic != null">
         isPublic = #{isPublic,jdbcType=INTEGER},
       </if>
-      <if test="goodsCount != null">
-        goodsCount = #{goodsCount,jdbcType=INTEGER},
-      </if>
-      <if test="reviewCount != null">
-        reviewCount = #{reviewCount,jdbcType=INTEGER},
-      </if>
     </set>
     where shareId = #{shareId,jdbcType=VARCHAR}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.social.service.domain.SPublic">
     update social_public
     set userId = #{userId,jdbcType=VARCHAR},
-      userName = #{userName,jdbcType=VARCHAR},
-      userHead = #{userHead,jdbcType=VARCHAR},
-      userSex = #{userSex,jdbcType=INTEGER},
       shareName = #{shareName,jdbcType=VARCHAR},
       shareUrl = #{shareUrl,jdbcType=VARCHAR},
       shareText = #{shareText,jdbcType=VARCHAR},
       createTime = now(),
-      isPublic = #{isPublic,jdbcType=INTEGER},
-      goodsCount = #{goodsCount,jdbcType=INTEGER},
-      reviewCount = #{reviewCount,jdbcType=INTEGER}
+      isPublic = #{isPublic,jdbcType=INTEGER}
     where shareId = #{shareId,jdbcType=VARCHAR}
-  </update>
-
-  <update id="addReviewCount" parameterType="map">
-    update social_public
-    set reviewCount = #{count}
-    where shareId = #{shareId}
-  </update>
-
-  <update id="addGoodsCount" parameterType="map">
-    update social_public
-    set goodsCount = #{count}
-    where shareId = #{shareId}
   </update>
 
   <select id="selectByShareId" parameterType="java.lang.String" resultMap="searchPublish">
@@ -269,9 +199,4 @@
       limit #{start},#{end}
   </select>
 
-  <update id="updataHeadImg" parameterType="map">
-    update social_public
-    set userHead = #{imghead}
-    where userId = #{userId}
-  </update>
 </mapper>
