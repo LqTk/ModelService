@@ -5,6 +5,7 @@ import com.social.service.domain.ChatReview;
 import com.social.service.domain.Goods;
 import com.social.service.domain.Review;
 import com.social.service.domain.SPublic;
+import com.social.service.service.IMsgService;
 import com.social.service.service.IPublicService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,9 @@ public class SocialPublic {
 
     @Autowired
     IPublicService iPublicService;
+
+    @Autowired
+    IMsgService iMsgService;
 
     @RequestMapping(value = "publish", method = RequestMethod.POST)
     public ServiceResponse publish(@RequestBody SPublic sPublic){
@@ -84,5 +88,15 @@ public class SocialPublic {
     @RequestMapping(value = "deleteChatReview/{chatId}",method = RequestMethod.DELETE)
     public ServiceResponse deleteChatReview(@PathVariable String chatId){
         return iPublicService.deleteChatReview(chatId);
+    }
+
+    /**
+     * 获取公场的未读消息
+     * @param userId
+     * @return
+     */
+    @RequestMapping(value = "getMsgCount/{userId}",method = RequestMethod.GET)
+    public ServiceResponse getMsgCount(@PathVariable String userId){
+        return iMsgService.selectByPeopleId(userId);
     }
 }

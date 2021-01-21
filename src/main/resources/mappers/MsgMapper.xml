@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.social.service.dao.MsgMapper">
+  <resultMap id="BaseResultMap" type="com.social.service.domain.Msg">
+    <constructor>
+      <idArg column="msgId" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="msgType" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="publishId" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="peopleId" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="reviewId" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="chatReviewId" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="goodsId" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="msgTime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    msgId, msgType, publishId, peopleId, reviewId, chatReviewId, goodsId, msgTime
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from social_msg
+    where msgId = #{msgId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from social_msg
+    where msgId = #{msgId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.social.service.domain.Msg">
+    insert into social_msg (msgId, msgType, publishId,
+      peopleId, reviewId, chatReviewId,
+      goodsId, msgTime)
+    values (#{msgId,jdbcType=VARCHAR}, #{msgType,jdbcType=VARCHAR}, #{publishId,jdbcType=VARCHAR},
+      #{peopleId,jdbcType=VARCHAR}, #{reviewId,jdbcType=VARCHAR}, #{chatReviewId,jdbcType=VARCHAR},
+      #{goodsId,jdbcType=VARCHAR}, #{msgTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.social.service.domain.Msg">
+    insert into social_msg
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="msgId != null">
+        msgId,
+      </if>
+      <if test="msgType != null">
+        msgType,
+      </if>
+      <if test="publishId != null">
+        publishId,
+      </if>
+      <if test="peopleId != null">
+        peopleId,
+      </if>
+      <if test="reviewId != null">
+        reviewId,
+      </if>
+      <if test="chatReviewId != null">
+        chatReviewId,
+      </if>
+      <if test="goodsId != null">
+        goodsId,
+      </if>
+      <if test="msgTime != null">
+        msgTime,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="msgId != null">
+        #{msgId,jdbcType=VARCHAR},
+      </if>
+      <if test="msgType != null">
+        #{msgType,jdbcType=VARCHAR},
+      </if>
+      <if test="publishId != null">
+        #{publishId,jdbcType=VARCHAR},
+      </if>
+      <if test="peopleId != null">
+        #{peopleId,jdbcType=VARCHAR},
+      </if>
+      <if test="reviewId != null">
+        #{reviewId,jdbcType=VARCHAR},
+      </if>
+      <if test="chatReviewId != null">
+        #{chatReviewId,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsId != null">
+        #{goodsId,jdbcType=VARCHAR},
+      </if>
+      <if test="msgTime != null">
+        #{msgTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.social.service.domain.Msg">
+    update social_msg
+    <set>
+      <if test="msgType != null">
+        msgType = #{msgType,jdbcType=VARCHAR},
+      </if>
+      <if test="publishId != null">
+        publishId = #{publishId,jdbcType=VARCHAR},
+      </if>
+      <if test="peopleId != null">
+        peopleId = #{peopleId,jdbcType=VARCHAR},
+      </if>
+      <if test="reviewId != null">
+        reviewId = #{reviewId,jdbcType=VARCHAR},
+      </if>
+      <if test="chatReviewId != null">
+        chatReviewId = #{chatReviewId,jdbcType=VARCHAR},
+      </if>
+      <if test="goodsId != null">
+        goodsId = #{goodsId,jdbcType=VARCHAR},
+      </if>
+      <if test="msgTime != null">
+        msgTime = #{msgTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where msgId = #{msgId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.social.service.domain.Msg">
+    update social_msg
+    set msgType = #{msgType,jdbcType=VARCHAR},
+      publishId = #{publishId,jdbcType=VARCHAR},
+      peopleId = #{peopleId,jdbcType=VARCHAR},
+      reviewId = #{reviewId,jdbcType=VARCHAR},
+      chatReviewId = #{chatReviewId,jdbcType=VARCHAR},
+      goodsId = #{goodsId,jdbcType=VARCHAR},
+      msgTime = #{msgTime,jdbcType=TIMESTAMP}
+    where msgId = #{msgId,jdbcType=VARCHAR}
+  </update>
+
+  <delete id="deleteByChatReviewId" parameterType="java.lang.String">
+    delete from social_msg
+    where chatReviewId = #{chatId,jdbcType=VARCHAR}
+  </delete>
+
+  <delete id="deleteByGoodsId" parameterType="java.lang.String">
+    delete from social_msg
+    where goodsId = #{goodsId,jdbcType=VARCHAR}
+  </delete>
+
+  <delete id="deleteByReviewId" parameterType="java.lang.String">
+    delete from social_msg
+    where reviewId = #{reviewId,jdbcType=VARCHAR}
+  </delete>
+
+  <delete id="deleteByPublishId" parameterType="java.lang.String">
+    delete from social_msg
+    where publishId = #{publishId,jdbcType=VARCHAR}
+  </delete>
+
+  <select id="selectByPeopleId" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"/>
+    from social_msg
+    where peopleId = #{peopleId,jdbcType=VARCHAR}
+  </select>
+</mapper>

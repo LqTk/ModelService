@@ -1,9 +1,11 @@
 package com.social.service.service.impl;
 
+import com.social.service.common.Const;
 import com.social.service.common.ServiceResponse;
 import com.social.service.dao.*;
 import com.social.service.domain.*;
 import com.social.service.service.IPublicService;
+import com.social.service.util.JPushClientUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,6 +31,9 @@ public class PublicService implements IPublicService {
 
     @Autowired
     ChatReviewMapper chatReviewMapper;
+
+    @Autowired
+    MsgMapper msgMapper;
 
     @Override
     public ServiceResponse insert(SPublic pb) {
@@ -58,6 +63,10 @@ public class PublicService implements IPublicService {
             }
         }
         goodsMapper.deleteByPbulishId(pbId);
+        msgMapper.deleteByPublishId(pbId);
+        User user = userMapper.selectByPrimaryKey(publicedEntity.getUserId());
+        if (user != null && !StringUtils.isBlank(user.getRegistrationid()))
+            JPushClientUtil.sendMessageToAll(user.getRegistrationid(), "有新消息", "新评论", "msgId", "");
 
 
         int i = sPublicMapper.deleteByPrimaryKey(pbId);
@@ -72,9 +81,16 @@ public class PublicService implements IPublicService {
         if (StringUtils.isBlank(reviewId)){
             return ServiceResponse.createByIllegalArgument();
         }
+        Review review = reviewMapper.selectByPrimaryKey(reviewId);
+        PublicedEntity publicedEntity = sPublicMapper.selectByPrimaryKey(review.getPublicId());
         chatReviewMapper.deleteByReviewId(reviewId);
         int i = reviewMapper.deleteByPrimaryKey(reviewId);
         if (i>0){
+            msgMapper.deleteByReviewId(reviewId);
+            User user = userMapper.selectByPrimaryKey(publicedEntity.getUserId());
+            if (user != null && !StringUtils.isBlank(user.getRegistrationid()))
+                JPushClientUtil.sendMessageToAll(user.getRegistrationid(), "有新消息", "新评论", "msgId", "");
+
             return ServiceResponse.createBySuccessMessage("删除成功");
         }
         return ServiceResponse.createByErrorMessage("删除失败");
@@ -90,6 +106,19 @@ public class PublicService implements IPublicService {
             int insert = reviewMapper.insert(review);
             if (insert>0){
                 ReviewEntity reviewEntity = reviewMapper.selectByReviewId(review.getReviewId());
+                User user = userMapper.selectByPrimaryKey(sPublic.getUserId());
+                if (!review.getPeopleId().equals(sPublic.getUserId())) {
+                    Msg msg = new Msg();
+                    msg.setMsgId(UUID.randomUUID().toString().replaceAll("-", ""));
+                    msg.setMsgType(Const.MSG_REVIEW);
+                    msg.setPublishId(sPublic.getShareId());
+                    msg.setPeopleId(user.getId());
+                    msg.setReviewId(review.getReviewId());
+                    msg.setMsgTime(reviewEntity.getReviewTime());
+                    msgMapper.insert(msg);
+                    if (user != null && !StringUtils.isBlank(user.getRegistrationid()))
+                        JPushClientUtil.sendMessageToAll(user.getRegistrationid(), "有新消息", "新评论", "msgId", msg.getMsgId());
+                }
                 if (reviewEntity!=null)
                     return ServiceResponse.createBySuccessData(reviewEntity);
             }
@@ -103,7 +132,21 @@ public class PublicService implements IPublicService {
         chatReview.setReviewChatId(UUID.randomUUID().toString().replaceAll("-",""));
         int insert = chatReviewMapper.insert(chatReview);
         if (insert>0){
+            Review review = reviewMapper.selectByPrimaryKey(chatReview.getReviewId());
             ChatReviewEntity chatReview1 = chatReviewMapper.findChatReview(chatReview.getReviewChatId());
+            Msg msg = new Msg();
+            msg.setMsgId(UUID.randomUUID().toString().replaceAll("-",""));
+            msg.setMsgType(Const.MSG_REVIEW_CHAT);
+            msg.setPublishId(review.getPublicId());
+            msg.setPeopleId(chatReview1.getToId());
+            msg.setReviewId(chatReview1.getReviewId());
+            msg.setChatReviewId(chatReview1.getReviewChatId());
+            msg.setMsgTime(chatReview1.getChatTime());
+            msgMapper.insert(msg);
+            User user = userMapper.selectByPrimaryKey(chatReview1.getToId());
+            if (user != null && !StringUtils.isBlank(user.getRegistrationid()))
+                JPushClientUtil.sendMessageToAll(user.getRegistrationid(), "有新消息", "新评论", "msgId", msg.getMsgId());
+
             if (chatReview1!=null)
                 return ServiceResponse.createBySuccessData(chatReview1);
         }
@@ -114,9 +157,17 @@ public class PublicService implements IPublicService {
     public ServiceResponse deleteChatReview(String chatId) {
         if (StringUtils.isBlank(chatId))
             return ServiceResponse.createByIllegalArgument();
+        ChatReview chatReview = chatReviewMapper.selectByPrimaryKey(chatId);
         int i = chatReviewMapper.deleteByPrimaryKey(chatId);
-        if (i>0)
+        if (i>0){
+            msgMapper.deleteByChatReviewId(chatId);
+            User user = userMapper.selectByPrimaryKey(chatReview.getToId());
+            if (user != null && !StringUtils.isBlank(user.getRegistrationid()))
+                JPushClientUtil.sendMessageToAll(user.getRegistrationid(), "有新消息", "新评论", "msgId", "");
+
+
             return ServiceResponse.createBySuccessMessage("删除成功");
+        }
         return ServiceResponse.createByErrorMessage("删除失败");
     }
 
@@ -129,6 +180,19 @@ public class PublicService implements IPublicService {
         if (sPublic!=null){
             int insert = goodsMapper.insert(goods);
             if (insert>0){
+                User user = userMapper.selectByPrimaryKey(sPublic.getUserId());
+                if (!goods.getPeopleId().equals(sPublic.getUserId())) {
+                    Msg msg = new Msg();
+                    msg.setMsgId(UUID.randomUUID().toString().replaceAll("-", ""));
+                    msg.setPublishId(goods.getPublicId());
+                    msg.setPeopleId(user.getId());
+                    msg.setMsgType(Const.MSG_GOODS);
+                    msg.setMsgTime(new Date());
+                    msg.setGoodsId(goods.getGoodsId());
+                    msgMapper.insert(msg);
+                    if (user != null && !StringUtils.isBlank(user.getRegistrationid()))
+                        JPushClientUtil.sendMessageToAll(user.getRegistrationid(), "有新消息", "新评论", "msgId", msg.getMsgId());
+                }
                 return ServiceResponse.createBySuccessData(goods);
             }
             return ServiceResponse.createByErrorMessage("点赞失败");
@@ -141,8 +205,15 @@ public class PublicService implements IPublicService {
         if (StringUtils.isBlank(goodsId)){
             return ServiceResponse.createByIllegalArgument();
         }
+        Goods goods = goodsMapper.selectByPrimaryKey(goodsId);
+        PublicedEntity publicedEntity = sPublicMapper.selectByPrimaryKey(goods.getPublicId());
         int i = goodsMapper.deleteByPrimaryKey(goodsId);
         if (i>0){
+            msgMapper.deleteByGoodsId(goodsId);
+            User user = userMapper.selectByPrimaryKey(publicedEntity.getUserId());
+            if (user != null && !StringUtils.isBlank(user.getRegistrationid()))
+                JPushClientUtil.sendMessageToAll(user.getRegistrationid(), "有新消息", "新评论", "msgId", "");
+
             return ServiceResponse.createBySuccessMessage("取消成功");
         }
         return ServiceResponse.createByErrorMessage("取消失败");

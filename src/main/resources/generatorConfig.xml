@@ -70,7 +70,9 @@
         enableDeleteByExample="false" enableSelectByExample="fasle" selectByExampleQueryId="fasle"/>-->
         <!--<table tableName="social_chat" domainObjectName="Chat" enableCountByExample="false" enableUpdateByExample="false"
         enableDeleteByExample="false" enableSelectByExample="fasle" selectByExampleQueryId="fasle"/>-->
-        <table tableName="social_chat_review" domainObjectName="ChatReview" enableCountByExample="false" enableUpdateByExample="false"
+        <!--<table tableName="social_chat_review" domainObjectName="ChatReview" enableCountByExample="false" enableUpdateByExample="false"
+        enableDeleteByExample="false" enableSelectByExample="fasle" selectByExampleQueryId="fasle"/>-->
+        <table tableName="social_msg" domainObjectName="Msg" enableCountByExample="false" enableUpdateByExample="false"
         enableDeleteByExample="false" enableSelectByExample="fasle" selectByExampleQueryId="fasle"/>
     </context>
 </generatorConfiguration>

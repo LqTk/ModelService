@@ -44,7 +44,7 @@
       <if test="talkId != null">
         talkId,
       </if>
-      <if test="toid != null">
+      <if test="toId != null">
         toId,
       </if>
       <if test="chatText != null">
@@ -64,7 +64,7 @@
       <if test="talkId != null">
         #{talkId,jdbcType=VARCHAR},
       </if>
-      <if test="toid != null">
+      <if test="toId != null">
         #{toId,jdbcType=VARCHAR},
       </if>
       <if test="chatText != null">
@@ -84,7 +84,7 @@
       <if test="talkId != null">
         talkId = #{talkId,jdbcType=VARCHAR},
       </if>
-      <if test="toid != null">
+      <if test="toId != null">
         toId = #{toId,jdbcType=VARCHAR},
       </if>
       <if test="chatText != null">

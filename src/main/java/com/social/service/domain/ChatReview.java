@@ -56,8 +56,8 @@ public class ChatReview {
         return toId;
     }
 
-    public void setToId(String toid) {
-        this.toId = toid == null ? null : toid.trim();
+    public void setToId(String toId) {
+        this.toId = toId == null ? null : toId.trim();
     }
 
     public String getChatText() {
@@ -68,11 +68,11 @@ public class ChatReview {
         this.chatText = chatText == null ? null : chatText.trim();
     }
 
-    public Date getChattime() {
+    public Date getChatTime() {
         return chatTime;
     }
 
-    public void setChattime(Date chattime) {
-        this.chatTime = chattime;
+    public void setChatTime(Date chatTime) {
+        this.chatTime = chatTime;
     }
 }
