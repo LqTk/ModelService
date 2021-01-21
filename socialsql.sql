@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80017
 File Encoding         : 65001
 
-Date: 2021-01-20 17:12:34
+Date: 2021-01-21 17:20:29
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -57,6 +57,22 @@ CREATE TABLE `social_goods` (
   `peopleHead` varchar(255) DEFAULT NULL,
   `goodsTime` datetime DEFAULT NULL,
   PRIMARY KEY (`goodsId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- ----------------------------
+-- Table structure for social_msg
+-- ----------------------------
+DROP TABLE IF EXISTS `social_msg`;
+CREATE TABLE `social_msg` (
+  `msgId` varchar(32) NOT NULL,
+  `msgType` varchar(255) NOT NULL,
+  `publishId` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `peopleId` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `reviewId` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `chatReviewId` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `goodsId` varchar(32) DEFAULT NULL,
+  `msgTime` datetime DEFAULT NULL,
+  PRIMARY KEY (`msgId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- ----------------------------
