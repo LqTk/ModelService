@@ -23,9 +23,7 @@ public class FileControler {
     @RequestMapping("uploadImg")
     public ServiceResponse uploadImg(@RequestParam(value = "img",required = false)MultipartFile file,
                                      HttpSession session, HttpServletRequest request,@RequestParam("userId") String userId){
-//        String uploadDir = request.getSession().getServletContext().getRealPath("uploadImg");
-        String uploadDir = "D:\\tomact\\apache-tomcat-9.0.21\\proDir\\"+"social/headImg";
-        String uploadUrl = iFileService.upload(file, uploadDir);
+        String uploadUrl = iFileService.upload(file, Const.upLoadHead);
         File uploadFile = new File(uploadUrl);
         HashMap map = new HashMap();
         if (StringUtils.isBlank(uploadUrl)){

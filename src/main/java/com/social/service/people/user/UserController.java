@@ -1,11 +1,10 @@
 package com.social.service.people.user;
 
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
 import com.social.service.common.Const;
 import com.social.service.common.ServiceResponse;
-import com.social.service.domain.Chat;
-import com.social.service.domain.ChatEntity;
-import com.social.service.domain.Partner;
-import com.social.service.domain.User;
+import com.social.service.domain.*;
 import com.social.service.service.*;
 import com.social.service.util.JPushClientUtil;
 import org.apache.commons.lang3.StringUtils;
@@ -106,15 +105,13 @@ public class UserController {
         }
         User user = (User) userInformation.getData();
 
-        String saveDir =  "D:\\tomact\\apache-tomcat-9.0.21\\proDir\\";
-        String uploadDir = saveDir+"social/headImg";
         if (!StringUtils.isBlank(user.getImg())){
-            File headFile = new File(saveDir+user.getImg());
+            File headFile = new File(Const.uploadDir+user.getImg());
             if (headFile.exists()){
                 headFile.delete();
             }
         }
-        String uploadUrl = iFileService.upload(file, uploadDir);
+        String uploadUrl = iFileService.upload(file, Const.upLoadHead);
         File uploadFile = new File(uploadUrl);
         if (StringUtils.isBlank(uploadUrl)){
             return ServiceResponse.createByErrorMessage("上传文件失败");
@@ -296,17 +293,16 @@ public class UserController {
         chat.setToId((String) map.get("toid"));
         chat.setMsgType((String) map.get("msgtype"));
         if (msgType.equals(Const.MODE_IMAGE) || msgType.equals(Const.MODE_VOICE)){
-            String saveDir =  "D:\\tomact\\apache-tomcat-9.0.21\\proDir\\";
             String uploadDir = "";
             if (msgType.equals(Const.MODE_IMAGE)){
                 //图片
-                uploadDir = "social/chatImg";
+                uploadDir = Const.upLoadImg;
             }else {
                 //语音
-                uploadDir = "social/chatVoice";
+                uploadDir = Const.upLoadVoice;
                 chat.setVoiceTime((String) map.get("voicetime"));
             }
-            String uploadUrl = iFileService.upload(file, saveDir+uploadDir);
+            String uploadUrl = iFileService.upload(file, Const.uploadDir+uploadDir);
             File uploadFile = new File(uploadUrl);
             if (StringUtils.isBlank(uploadUrl)){
                 return ServiceResponse.createByErrorMessage("上传文件失败");
@@ -429,5 +425,16 @@ public class UserController {
             listChatToMsg(chatEntities, chat);
         }
         return ServiceResponse.createBySuccessData(chatEntities);
+    }
+
+    /**
+     * 删除聊天图片和语音
+     */
+    @RequestMapping(value = "chat/deleteMsg",method = RequestMethod.POST)
+    public ServiceResponse deleteMsg(@RequestBody List<MsgDeleteEntity> deleteEntities){
+        for (MsgDeleteEntity msgDeleteEntity:deleteEntities){
+            iFileService.deleteFIle(msgDeleteEntity.type,msgDeleteEntity.path);
+        }
+        return ServiceResponse.createBySuccess();
     }
 }

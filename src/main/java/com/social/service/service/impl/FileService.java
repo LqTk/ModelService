@@ -1,5 +1,6 @@
 package com.social.service.service.impl;
 
+import com.social.service.common.Const;
 import com.social.service.service.IFileService;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
@@ -30,5 +31,12 @@ public class FileService implements IFileService {
             e.printStackTrace();
             return null;
         }
+    }
+
+    @Override
+    public void deleteFIle(String type, String path) {
+        File file = new File(Const.uploadDir+path);
+        if (file.exists())
+            file.delete();
     }
 }

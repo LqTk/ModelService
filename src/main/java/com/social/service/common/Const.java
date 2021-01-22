@@ -20,4 +20,12 @@ public class Const {
     public static final String MSG_REVIEW = "review";
     public static final String MSG_REVIEW_CHAT = "review_chat";
     public static final String MSG_GOODS = "goods";
+
+    /**
+     * 聊天图片语音保存路径
+     */
+    public static String uploadDir = "D:\\tomact\\apache-tomcat-9.0.21\\proDir\\";
+    public static String upLoadHead = uploadDir+"social/headImg";
+    public static String upLoadImg = "social/chatImg";
+    public static String upLoadVoice = "social/chatVoice";
 }
