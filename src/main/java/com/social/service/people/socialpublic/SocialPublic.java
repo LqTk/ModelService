@@ -1,10 +1,8 @@
 package com.social.service.people.socialpublic;
 
+import com.social.service.common.Const;
 import com.social.service.common.ServiceResponse;
-import com.social.service.domain.ChatReview;
-import com.social.service.domain.Goods;
-import com.social.service.domain.Review;
-import com.social.service.domain.SPublic;
+import com.social.service.domain.*;
 import com.social.service.service.IMsgService;
 import com.social.service.service.IPublicService;
 import org.apache.commons.lang3.StringUtils;
@@ -78,6 +76,29 @@ public class SocialPublic {
         return iPublicService.getByShareId(shareId);
     }
 
+    @RequestMapping(value = "getShareMsg/{shareId}/{msgId}", method = RequestMethod.GET)
+    public ServiceResponse getShareMsg(@PathVariable String shareId, @PathVariable String msgId){
+        ServiceResponse byShareId = iPublicService.getByShareId(shareId);
+        PublicedEntity data = (PublicedEntity) byShareId.getData();
+        ServiceResponse msgByMsgId = iPublicService.getMsgByMsgId(msgId);
+        if (msgByMsgId.isSuccess()){
+            Msg msg = (Msg) msgByMsgId.getData();
+            if (msg.getMsgType().equals(Const.MSG_GOODS)){
+                data.getReviewEntities().clear();
+                return ServiceResponse.createBySuccessData(data);
+            }else {
+                data.getReviewEntities().clear();
+                ServiceResponse review = iPublicService.getReview(msg.getReviewId());
+                if (review.isSuccess()){
+                    ReviewEntity reviewEntity = (ReviewEntity) review.getData();
+                    data.getReviewEntities().add(reviewEntity);
+                    return ServiceResponse.createBySuccessData(data);
+                }
+            }
+        }
+        return ServiceResponse.createByErrorMessage("数据获取失败");
+    }
+
     @RequestMapping(value = "addChatReview",method = RequestMethod.PUT)
     public ServiceResponse addChatReview(@RequestBody ChatReview chatReview){
         if (chatReview==null)
@@ -98,5 +119,13 @@ public class SocialPublic {
     @RequestMapping(value = "getMsgCount/{userId}",method = RequestMethod.GET)
     public ServiceResponse getMsgCount(@PathVariable String userId){
         return iMsgService.selectByPeopleId(userId);
+    }
+
+    /**
+     * 更新公场消息阅读状态
+     */
+    @RequestMapping(value = "updateReadState/{msgId}",method = RequestMethod.PUT)
+    public ServiceResponse updateReadState(@PathVariable String msgId){
+        return iMsgService.updateReadedState(msgId);
     }
 }

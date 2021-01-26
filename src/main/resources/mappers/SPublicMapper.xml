@@ -163,19 +163,20 @@
     <result column="publishId" property="publishId" jdbcType="VARCHAR"/>
     <result column="reviewText" property="reviewText" jdbcType="VARCHAR"/>
     <result column="peopleName" property="peopleName" jdbcType="VARCHAR"/>
+    <result column="peopleHead" property="peopleHead" jdbcType="VARCHAR"/>
     <result column="reviewTime" property="reviewTime" jdbcType="TIMESTAMP"/>
     <collection property="chatReviewList" javaType="java.util.ArrayList" ofType="com.social.service.domain.ChatReviewEntity"
                 select="findChatReview" column="reviewId"/>
   </resultMap>
 
   <select id="findChatReview" resultType="com.social.service.domain.ChatReviewEntity">
-    select a.reviewChatId, a.reviewId, a.talkId, a.toId, b.name as talkName, c.name as toName, a.chatText, a.chatTime
+    select a.reviewChatId, a.reviewId, a.talkId, a.toId, b.name as talkName, b.img as talkHead, c.name as toName, c.img as toHead, a.chatText, a.chatTime
     from social_chat_review as a join social_user as b join social_user as c
     where reviewId=#{reviewId} and b.id=a.talkId and c.id=a.toId order by a.chatTime asc
   </select>
 
   <select id="findByReviewId" resultMap="myReviewMap">
-    select a.reviewId as reviewId, a.peopleId as peopleId, a.publicId as publishId,a.reviewText as reviewText, b.name as peopleName, a.reviewTime
+    select a.reviewId as reviewId, a.peopleId as peopleId, a.publicId as publishId,a.reviewText as reviewText, b.name as peopleName, b.img as peopleHead, a.reviewTime
     from social_review as a join social_user as b
     where a.publicId=#{selectId} and b.id=a.peopleId order by a.reviewTime asc
   </select>

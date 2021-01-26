@@ -9,26 +9,37 @@ public class ReviewEntity {
     private String publishId;
     private String reviewText;
     private String peopleName;
+    private String peopleHead;
     private Date reviewTime;
     private List<ChatReview> chatReviewList;
 
-    public ReviewEntity(String reviewId, String peopleId, String publishId, String reviewText, String peopleName, Date reviewTime, List<ChatReview> chatReviewList) {
+    public ReviewEntity(String reviewId, String peopleId, String publishId, String reviewText, String peopleName, String peopleHead, Date reviewTime, List<ChatReview> chatReviewList) {
         this.reviewId = reviewId;
         this.peopleId = peopleId;
         this.publishId = publishId;
         this.reviewText = reviewText;
         this.peopleName = peopleName;
+        this.peopleHead = peopleHead;
         this.reviewTime = reviewTime;
         this.chatReviewList = chatReviewList;
     }
 
-    public ReviewEntity(String reviewId, String peopleId, String publishId, String reviewText, String peopleName, Date reviewTime) {
+    public ReviewEntity(String reviewId, String peopleId, String publishId, String reviewText, String peopleName, String peopleHead, Date reviewTime) {
         this.reviewId = reviewId;
         this.peopleId = peopleId;
         this.publishId = publishId;
         this.reviewText = reviewText;
         this.peopleName = peopleName;
+        this.peopleHead = peopleHead;
         this.reviewTime = reviewTime;
+    }
+
+    public String getPeopleHead() {
+        return peopleHead;
+    }
+
+    public void setPeopleHead(String peopleHead) {
+        this.peopleHead = peopleHead;
     }
 
     public List<ChatReview> getChatReviewList() {

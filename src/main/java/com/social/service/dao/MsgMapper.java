@@ -1,6 +1,7 @@
 package com.social.service.dao;
 
 import com.social.service.domain.Msg;
+import com.social.service.domain.MsgPublishEntity;
 
 import java.util.List;
 
@@ -26,4 +27,12 @@ public interface MsgMapper {
     int deleteByPublishId(String publishId);
 
     List<Msg> selectByPeopleId(String peopleId);
+
+    MsgPublishEntity selectGoods(String msgId);
+
+    MsgPublishEntity selectReview(String msgId);
+
+    MsgPublishEntity selectChatReview(String msgId);
+
+    int updataReadState(String msgId);
 }

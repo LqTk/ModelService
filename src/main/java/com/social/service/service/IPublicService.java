@@ -29,4 +29,7 @@ public interface IPublicService {
 
     public ServiceResponse getByShareId(String shareId);
 
+    public ServiceResponse getMsgByMsgId(String msgId);
+
+    public ServiceResponse getReview(String reviewId);
 }

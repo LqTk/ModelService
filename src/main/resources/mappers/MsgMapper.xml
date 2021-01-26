@@ -9,12 +9,13 @@
       <arg column="peopleId" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="reviewId" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="chatReviewId" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="readed" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="goodsId" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="msgTime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
-    msgId, msgType, publishId, peopleId, reviewId, chatReviewId, goodsId, msgTime
+    msgId, msgType, publishId, peopleId, reviewId, chatReviewId, readed, goodsId, msgTime
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select
@@ -28,11 +29,11 @@
   </delete>
   <insert id="insert" parameterType="com.social.service.domain.Msg">
     insert into social_msg (msgId, msgType, publishId,
-      peopleId, reviewId, chatReviewId,
+      peopleId, reviewId, chatReviewId, readed,
       goodsId, msgTime)
     values (#{msgId,jdbcType=VARCHAR}, #{msgType,jdbcType=VARCHAR}, #{publishId,jdbcType=VARCHAR},
       #{peopleId,jdbcType=VARCHAR}, #{reviewId,jdbcType=VARCHAR}, #{chatReviewId,jdbcType=VARCHAR},
-      #{goodsId,jdbcType=VARCHAR}, #{msgTime,jdbcType=TIMESTAMP})
+      0, #{goodsId,jdbcType=VARCHAR}, #{msgTime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.social.service.domain.Msg">
     insert into social_msg
@@ -54,6 +55,9 @@
       </if>
       <if test="chatReviewId != null">
         chatReviewId,
+      </if>
+      <if test="readed != null">
+        readed,
       </if>
       <if test="goodsId != null">
         goodsId,
@@ -81,6 +85,9 @@
       <if test="chatReviewId != null">
         #{chatReviewId,jdbcType=VARCHAR},
       </if>
+      <if test="readed != null">
+        #{readed, INTEGER},
+      </if>
       <if test="goodsId != null">
         #{goodsId,jdbcType=VARCHAR},
       </if>
@@ -107,6 +114,9 @@
       <if test="chatReviewId != null">
         chatReviewId = #{chatReviewId,jdbcType=VARCHAR},
       </if>
+      <if test="readed != null">
+        readed = #{readed, INTEGER},
+      </if>
       <if test="goodsId != null">
         goodsId = #{goodsId,jdbcType=VARCHAR},
       </if>
@@ -123,10 +133,60 @@
       peopleId = #{peopleId,jdbcType=VARCHAR},
       reviewId = #{reviewId,jdbcType=VARCHAR},
       chatReviewId = #{chatReviewId,jdbcType=VARCHAR},
+      readed = #{readed,jdbcType=INTEGER},
       goodsId = #{goodsId,jdbcType=VARCHAR},
       msgTime = #{msgTime,jdbcType=TIMESTAMP}
     where msgId = #{msgId,jdbcType=VARCHAR}
   </update>
+
+  <resultMap id="goodsMap" type="com.social.service.domain.MsgPublishEntity">
+    <constructor>
+      <idArg column="msgId" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="msgType" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="publishId" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="publishTitle" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="publishText" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="peopleName" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="peopleHead" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="peopleId" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="isReaded" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+      <arg column="goodsId" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="msgTime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <resultMap id="reviewMap" type="com.social.service.domain.MsgPublishEntity">
+    <constructor>
+      <idArg column="msgId" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="msgType" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="publishId" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="publishTitle" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="publishText" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="peopleName" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="peopleHead" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="peopleId" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="reviewId" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="reviewText" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="isReaded" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+      <arg column="msgTime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <resultMap id="chatReviewMap" type="com.social.service.domain.MsgPublishEntity">
+    <constructor>
+      <idArg column="msgId" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="msgType" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="publishId" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="publishTitle" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="publishText" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="peopleName" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="peopleHead" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="peopleId" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="reviewId" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="chatReviewId" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="chatText" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="isReaded" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+      <arg column="msgTime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
 
   <delete id="deleteByChatReviewId" parameterType="java.lang.String">
     delete from social_msg
@@ -149,8 +209,44 @@
   </delete>
 
   <select id="selectByPeopleId" parameterType="java.lang.String" resultMap="BaseResultMap">
-    select <include refid="Base_Column_List"/>
+    select <include refid="Base_Column_List" />
     from social_msg
-    where peopleId = #{peopleId,jdbcType=VARCHAR}
+    where peopleId = #{peopleId,jdbcType=VARCHAR} order by msgTime desc
   </select>
+
+  <select id="selectGoods" parameterType="java.lang.String" resultMap="goodsMap">
+    select a.msgId, a.msgType, a.publishId, b.shareName as publishTitle, b.shareText as publishText,
+        c.name as peopleName, c.img as peopleHead, c.id as peopleId, a.readed as isReaded, a.goodsId, a.msgTime
+        from social_msg as a
+        join social_public as b
+        join social_user as c
+        join social_goods as d
+        where a.msgId = #{msgId} and d.goodsId = a.goodsId and c.id = d.peopleId and b.shareId = a.publishId
+  </select>
+
+  <select id="selectReview" parameterType="java.lang.String" resultMap="reviewMap">
+    select a.msgId, a.msgType, a.publishId, b.shareName as publishTitle, b.shareText as publishText,
+        c.name as peopleName, c.img as peopleHead, c.id as peopleId, a.reviewId, d.reviewText, a.readed as isReaded, a.msgTime
+        from social_msg as a
+        join social_public as b
+        join social_user as c
+        join social_review as d
+        where a.msgId = #{msgId} and b.shareId = a.publishId and d.reviewId = a.reviewId and c.id = d.peopleId
+  </select>
+
+  <select id="selectChatReview" parameterType="java.lang.String" resultMap="chatReviewMap">
+    select a.msgId, a.msgType, a.publishId, b.shareName as publishTitle, b.shareText as publishText,
+        c.name as peopleName, c.img as peopleHead, c.id as peopleId, a.reviewId, a.chatReviewId, d.chatText, a.readed as isReaded, a.msgTime
+        from social_msg as a
+        join social_public as b
+        join social_user as c
+        join social_chat_review as d
+        where a.msgId = #{msgId} and b.shareId = a.publishId and d.reviewChatId = a.chatReviewId and c.id = d.talkId
+  </select>
+
+  <update id="updataReadState" parameterType="java.lang.String">
+    update social_msg
+    set readed = 1
+    where msgId = #{msgId}
+  </update>
 </mapper>

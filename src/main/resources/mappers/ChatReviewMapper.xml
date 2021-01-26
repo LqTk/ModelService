@@ -108,7 +108,7 @@
 
 
   <select id="findChatReview" resultType="com.social.service.domain.ChatReviewEntity">
-    select a.reviewChatId, a.reviewId, a.talkId, a.toId, b.name as talkName, c.name as toName, a.chatText, a.chatTime
+    select a.reviewChatId, a.reviewId, a.talkId, a.toId, b.name as talkName, b.img as talkHead, c.name as toName, c.img as toHead, a.chatText, a.chatTime
     from social_chat_review as a join social_user as b join social_user as c
     where a.reviewChatId=#{reviewId} and b.id=a.talkId and c.id=a.toId order by a.chatTime desc
   </select>

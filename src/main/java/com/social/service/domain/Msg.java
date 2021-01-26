@@ -15,17 +15,20 @@ public class Msg {
 
     private String chatReviewId;
 
+    private Integer readed;
+
     private String goodsId;
 
     private Date msgTime;
 
-    public Msg(String msgId, String msgType, String publishId, String peopleId, String reviewId, String chatReviewId, String goodsId, Date msgTime) {
+    public Msg(String msgId, String msgType, String publishId, String peopleId, String reviewId, String chatReviewId, Integer readed, String goodsId, Date msgTime) {
         this.msgId = msgId;
         this.msgType = msgType;
         this.publishId = publishId;
         this.peopleId = peopleId;
         this.reviewId = reviewId;
         this.chatReviewId = chatReviewId;
+        this.readed = readed;
         this.goodsId = goodsId;
         this.msgTime = msgTime;
     }
@@ -80,6 +83,14 @@ public class Msg {
 
     public void setChatReviewId(String chatReviewId) {
         this.chatReviewId = chatReviewId == null ? null : chatReviewId.trim();
+    }
+
+    public int getReaded() {
+        return readed;
+    }
+
+    public void setReaded(Integer readed) {
+        this.readed = readed;
     }
 
     public String getGoodsId() {

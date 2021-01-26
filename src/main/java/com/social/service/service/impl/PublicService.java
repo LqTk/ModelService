@@ -114,6 +114,7 @@ public class PublicService implements IPublicService {
                     msg.setPublishId(sPublic.getShareId());
                     msg.setPeopleId(user.getId());
                     msg.setReviewId(review.getReviewId());
+                    msg.setReaded(0);
                     msg.setMsgTime(reviewEntity.getReviewTime());
                     msgMapper.insert(msg);
                     if (user != null && !StringUtils.isBlank(user.getRegistrationid()))
@@ -140,6 +141,7 @@ public class PublicService implements IPublicService {
             msg.setPublishId(review.getPublicId());
             msg.setPeopleId(chatReview1.getToId());
             msg.setReviewId(chatReview1.getReviewId());
+            msg.setReaded(0);
             msg.setChatReviewId(chatReview1.getReviewChatId());
             msg.setMsgTime(chatReview1.getChatTime());
             msgMapper.insert(msg);
@@ -188,6 +190,7 @@ public class PublicService implements IPublicService {
                     msg.setPeopleId(user.getId());
                     msg.setMsgType(Const.MSG_GOODS);
                     msg.setMsgTime(new Date());
+                    msg.setReaded(0);
                     msg.setGoodsId(goods.getGoodsId());
                     msgMapper.insert(msg);
                     if (user != null && !StringUtils.isBlank(user.getRegistrationid()))
@@ -249,4 +252,23 @@ public class PublicService implements IPublicService {
         return ServiceResponse.createBySuccessData(sPublic);
     }
 
+    @Override
+    public ServiceResponse getMsgByMsgId(String msgId) {
+        if (StringUtils.isBlank(msgId))
+            return ServiceResponse.createByIllegalArgument();
+        Msg msg = msgMapper.selectByPrimaryKey(msgId);
+        if (msg!=null)
+            return ServiceResponse.createBySuccessData(msg);
+        return ServiceResponse.createByError();
+    }
+
+    @Override
+    public ServiceResponse getReview(String reviewId) {
+        if (StringUtils.isBlank(reviewId))
+            return ServiceResponse.createByIllegalArgument();
+        ReviewEntity reviewEntity = reviewMapper.selectByReviewId(reviewId);
+        if (reviewEntity!=null)
+            return ServiceResponse.createBySuccessData(reviewEntity);
+        return ServiceResponse.createByError();
+    }
 }
