@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80017
 File Encoding         : 65001
 
-Date: 2021-01-22 17:24:56
+Date: 2021-01-26 17:17:17
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -70,6 +70,7 @@ CREATE TABLE `social_msg` (
   `peopleId` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `reviewId` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `chatReviewId` varchar(32) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
+  `readed` int(1) DEFAULT '0',
   `goodsId` varchar(32) DEFAULT NULL,
   `msgTime` datetime DEFAULT NULL,
   PRIMARY KEY (`msgId`)
