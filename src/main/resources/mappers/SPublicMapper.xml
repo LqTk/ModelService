@@ -10,28 +10,22 @@
       <arg column="shareText" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="createTime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
       <arg column="isPublic" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="type" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="location" javaType="java.lang.String" jdbcType="VARCHAR" />
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
     shareId, userId, shareName, shareUrl, shareText, createTime,
-    isPublic
+    isPublic, type, loaction
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="searchPublish">
-    select
-     a.shareId, a.userId, b.name as userName, b.img as userHead, b.sex as userSex, a.shareName, a.shareUrl,
-     a.shareText, a.createTime, a.isPublic
-     from social_public as a
-     join social_user as b
-    where shareId = #{shareId,jdbcType=VARCHAR} and a.userId = b.id
-  </select>
   <insert id="insert" parameterType="com.social.service.domain.SPublic">
     insert into social_public (shareId, userId, shareName,
       shareUrl, shareText, createTime,
-      isPublic
+      isPublic, type, location
       )
     values (#{shareId,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{shareName,jdbcType=VARCHAR},
       #{shareUrl,jdbcType=VARCHAR}, #{shareText,jdbcType=VARCHAR}, now(),
-      #{isPublic,jdbcType=INTEGER})
+      #{isPublic,jdbcType=INTEGER}, #{type, jdbcType=VARCHAR}, #{location, jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.social.service.domain.SPublic">
     insert into social_public
@@ -57,6 +51,12 @@
       <if test="isPublic != null">
         isPublic,
       </if>
+      <if test="type != null">
+        type,
+      </if>
+      <if test="location != null">
+        location
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="shareId != null">
@@ -79,6 +79,12 @@
       </if>
       <if test="isPublic != null">
         #{isPublic,jdbcType=INTEGER},
+      </if>
+      <if test="type != null">
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="location != null">
+        #{location,jdbcType=VARCHAR}
       </if>
     </trim>
   </insert>
@@ -103,6 +109,12 @@
       <if test="isPublic != null">
         isPublic = #{isPublic,jdbcType=INTEGER},
       </if>
+      <if test="type != null">
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="location != null">
+        location = #{location,jdbcType=VARCHAR}
+      </if>
     </set>
     where shareId = #{shareId,jdbcType=VARCHAR}
   </update>
@@ -113,14 +125,25 @@
       shareUrl = #{shareUrl,jdbcType=VARCHAR},
       shareText = #{shareText,jdbcType=VARCHAR},
       createTime = now(),
-      isPublic = #{isPublic,jdbcType=INTEGER}
+      isPublic = #{isPublic,jdbcType=INTEGER},
+      type = #{type,jdbcType=VARCHAR},
+      location = #{location,jdbcType=VARCHAR}
     where shareId = #{shareId,jdbcType=VARCHAR}
   </update>
+
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="searchPublish">
+    select
+     a.shareId, a.userId, b.name as userName, b.img as userHead, b.sex as userSex, a.shareName, a.shareUrl,
+     a.shareText, a.createTime, a.isPublic, a.type, a.loaction
+     from social_public as a
+     join social_user as b
+    where shareId = #{shareId,jdbcType=VARCHAR} and a.userId = b.id
+  </select>
 
   <select id="selectByShareId" parameterType="java.lang.String" resultMap="searchPublish">
     select
      a.shareId, a.userId, b.name as userName, b.img as userHead, b.sex as userSex, a.shareName, a.shareUrl,
-     a.shareText, a.createTime, a.isPublic
+     a.shareText, a.createTime, a.isPublic, a.type, a.location
      from social_public as a
      join social_user as b
     where shareId = #{shareId,jdbcType=VARCHAR} and a.userId = b.id
@@ -143,6 +166,8 @@
     <result column="shareText" property="shareText" jdbcType="VARCHAR" />
     <result column="createTime" property="createTime" jdbcType="TIMESTAMP" />
     <result column="isPublic" property="isPublic" jdbcType="INTEGER" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="location" property="location" jdbcType="VARCHAR" />
   <!--   publishId 为查询 findRoleById 的入参, id 和 role_status 为查询 findUsers 的结果信息
      如果查询 findByGoodsId 需要 roleId 作为入参, column 写法 {userId=id,roleStatus=role_status,roleId=role_id} -->
     <collection property="goodsList" javaType="java.util.ArrayList" ofType="com.social.service.domain.Goods"
@@ -184,7 +209,7 @@
   <select id="getSocialPublicSize" resultMap="searchPublish">
     select
      a.shareId, a.userId, b.name as userName, b.img as userHead, b.sex as userSex, a.shareName, a.shareUrl,
-     a.shareText, a.createTime, a.isPublic
+     a.shareText, a.createTime, a.isPublic, a.type, a.location
      from social_public as a
      join social_user as b
      where a.userId = b.id
@@ -193,7 +218,7 @@
 
   <select id="getSocialByUserId" parameterType="map" resultMap="searchPublish">
     select a.shareId,a.userId,b.name as userName, b.img as userHead, b.sex as userSex, a.shareName,a.shareUrl,
-     a.shareText,a.createTime,a.isPublic
+     a.shareText,a.createTime,a.isPublic, a.type, a.location
      from social_public as a
      join social_user as b
       where a.userId=#{userId} and b.id=#{userId}

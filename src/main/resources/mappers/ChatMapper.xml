@@ -155,7 +155,7 @@
   <select id="selectCurrentChat" parameterType="map" resultMap="BaseResultMap">
     select
     <include refid="Base_Column_List" />
-     from social_chat where talkId=#{talkId} and toId=#{userId}
+     from social_chat where talkId=#{talkId} and toId=#{userId} order by chatTime asc
   </select>
 
 </mapper>

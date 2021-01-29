@@ -13,6 +13,7 @@ public class Const {
     public static final String MODE_TEXT = "TEXT";
     public static final String MODE_VOICE = "VOICE";
     public static final String MODE_IMAGE = "PIC";
+    public static final String MODE_VIDEO = "VIDEO";
 
     /**
      * 未读消息类型
@@ -27,5 +28,6 @@ public class Const {
     public static String uploadDir = "D:\\tomact\\apache-tomcat-9.0.21\\proDir\\";
     public static String upLoadHead = uploadDir+"social/headImg";
     public static String upLoadImg = "social/chatImg";
+    public static String upLoadVideo = "social/chatVideo";
     public static String upLoadVoice = "social/chatVoice";
 }

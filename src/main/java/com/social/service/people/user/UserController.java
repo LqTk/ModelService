@@ -292,12 +292,14 @@ public class UserController {
         chat.setTalkId((String) map.get("talkid"));
         chat.setToId((String) map.get("toid"));
         chat.setMsgType((String) map.get("msgtype"));
-        if (msgType.equals(Const.MODE_IMAGE) || msgType.equals(Const.MODE_VOICE)){
+        if (msgType.equals(Const.MODE_IMAGE) || msgType.equals(Const.MODE_VOICE) || msgType.equals(Const.MODE_VIDEO)){
             String uploadDir = "";
             if (msgType.equals(Const.MODE_IMAGE)){
                 //图片
                 uploadDir = Const.upLoadImg;
-            }else {
+            }else if (msgType.equals(Const.MODE_VIDEO)){
+                uploadDir = Const.upLoadVideo;
+            }else{
                 //语音
                 uploadDir = Const.upLoadVoice;
                 chat.setVoiceTime((String) map.get("voicetime"));

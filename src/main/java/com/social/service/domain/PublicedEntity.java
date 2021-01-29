@@ -24,11 +24,17 @@ public class PublicedEntity {
 
     private Integer isPublic;
 
+    private String type;
+
+    private String location;
+
     private List<Goods> goodsList;
 
     private List<ReviewEntity> reviewEntities;
 
-    public PublicedEntity(String shareId, String userId, String userName, String userHead, Integer userSex, String shareName, String shareUrl, String shareText, Date createTime, Integer isPublic, List<Goods> goodsList, List<ReviewEntity> reviewEntities) {
+    public PublicedEntity(String shareId, String userId, String userName, String userHead, Integer userSex,
+                          String shareName, String shareUrl, String shareText, Date createTime, Integer isPublic,
+                          String type, String location, List<Goods> goodsList, List<ReviewEntity> reviewEntities) {
         this.shareId = shareId;
         this.userId = userId;
         this.userName = userName;
@@ -39,11 +45,15 @@ public class PublicedEntity {
         this.shareText = shareText;
         this.createTime = createTime;
         this.isPublic = isPublic;
+        this.type = type;
+        this.location = location;
         this.goodsList = goodsList;
         this.reviewEntities = reviewEntities;
     }
 
-    public PublicedEntity(String shareId, String userId, String userName, String userHead, Integer userSex, String shareName, String shareUrl, String shareText, Date createTime, Integer isPublic) {
+    public PublicedEntity(String shareId, String userId, String userName, String userHead, Integer userSex,
+                          String shareName, String shareUrl, String shareText, Date createTime, Integer isPublic,
+                          String type, String location) {
         this.shareId = shareId;
         this.userId = userId;
         this.userName = userName;
@@ -54,6 +64,24 @@ public class PublicedEntity {
         this.shareText = shareText;
         this.createTime = createTime;
         this.isPublic = isPublic;
+        this.type = type;
+        this.location = location;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
     }
 
     public String getShareId() {

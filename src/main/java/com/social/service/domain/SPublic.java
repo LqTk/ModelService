@@ -17,7 +17,11 @@ public class SPublic {
 
     private Integer isPublic;
 
-    public SPublic(String shareId, String userId, String shareName, String shareUrl, String shareText, Date createtime, Integer isPublic) {
+    private String type;
+
+    private String location;
+
+    public SPublic(String shareId, String userId, String shareName, String shareUrl, String shareText, Date createtime, Integer isPublic, String type, String location) {
         this.shareId = shareId;
         this.userId = userId;
         this.shareName = shareName;
@@ -25,6 +29,8 @@ public class SPublic {
         this.shareText = shareText;
         this.createtime = createtime;
         this.isPublic = isPublic;
+        this.type = type;
+        this.location = location;
     }
 
     public SPublic() {
@@ -87,4 +93,19 @@ public class SPublic {
         this.isPublic = isPublic;
     }
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type == null ? null : type.trim();
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location == null ? null : location.trim();
+    }
 }

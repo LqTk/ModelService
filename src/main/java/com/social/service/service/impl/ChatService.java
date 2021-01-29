@@ -78,14 +78,8 @@ public class ChatService implements IChatService {
     public ServiceResponse selectCurrentChat(String talkId, String userId) {
         if (StringUtils.isBlank(talkId))
             return ServiceResponse.createByIllegalArgument();
-        List<Chat> chats = chatMapper.selectAllChatFromTalkId(talkId);
+        List<Chat> chats = chatMapper.selectCurrentChat(talkId,userId);
         if (chats!=null){
-            chats.sort(new Comparator<Chat>() {
-                @Override
-                public int compare(Chat o1, Chat o2) {
-                    return o1.getChatTime().getTime()>o2.getChatTime().getTime()?1:-1;
-                }
-            });
             return ServiceResponse.createBySuccessData(chats);
         }
         return ServiceResponse.createByErrorMessage("获取失败");
