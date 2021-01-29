@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80017
 File Encoding         : 65001
 
-Date: 2021-01-26 17:17:17
+Date: 2021-01-29 17:18:51
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -100,6 +100,8 @@ CREATE TABLE `social_public` (
   `shareText` varchar(255) DEFAULT NULL,
   `createTime` datetime DEFAULT NULL,
   `isPublic` int(1) DEFAULT '0',
+  `type` varchar(255) DEFAULT NULL,
+  `location` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`shareId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 

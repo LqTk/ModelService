@@ -9,13 +9,6 @@
     <list default="true" id="7783714a-5c1b-4c2c-842b-c648836bef44" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/SocialService_war_exploded/SocialService_war exploded.war" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SocialService_war_exploded/SocialService_war exploded.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/social/service/common/Const.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social/service/common/Const.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/social/service/domain/PublicedEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social/service/domain/PublicedEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/social/service/domain/SPublic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social/service/domain/SPublic.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/social/service/people/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social/service/people/user/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/social/service/service/impl/ChatService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social/service/service/impl/ChatService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/ChatMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/ChatMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/SPublicMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/SPublicMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/social/service/common/Const.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/social/service/common/Const.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/social/service/people/user/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/social/service/people/user/UserController.class" afterDir="false" />
     </list>
@@ -46,18 +39,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/domain/PublicedEntity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/people/socialpublic/SocialPublic.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -332,137 +313,6 @@
             <path>
               <item name="SocialService" type="b2602c69:ProjectViewProjectNode" />
               <item name="SocialService" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SocialService" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SocialService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SocialService" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SocialService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SocialService" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SocialService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SocialService" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SocialService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SocialService" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SocialService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SocialService" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SocialService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="dao" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SocialService" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SocialService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="domain" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SocialService" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SocialService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="people" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SocialService" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SocialService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="people" type="462c0819:PsiDirectoryNode" />
-              <item name="socialpublic" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SocialService" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SocialService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="people" type="462c0819:PsiDirectoryNode" />
-              <item name="user" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SocialService" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SocialService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SocialService" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SocialService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SocialService" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SocialService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SocialService" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SocialService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="mappers" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SocialService" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SocialService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SocialService" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SocialService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -754,7 +604,7 @@
       <workItem from="1611624039012" duration="11749000" />
       <workItem from="1611710758050" duration="5094000" />
       <workItem from="1611796845236" duration="3232000" />
-      <workItem from="1611883599512" duration="1365000" />
+      <workItem from="1611883599512" duration="1641000" />
     </task>
     <task id="LOCAL-00001" summary="服务器模板搭建">
       <created>1607934807583</created>
@@ -875,17 +725,24 @@
       <option name="project" value="LOCAL" />
       <updated>1611652652010</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="增加发布类型">
+      <created>1611911788449</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1611911788449</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="370861000" />
+    <option name="totallyTimeSpent" value="371137000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1641791" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1641791" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -976,7 +833,8 @@
     <MESSAGE value="代码优化" />
     <MESSAGE value="获取公场消息列表显示" />
     <MESSAGE value="数据库更新" />
-    <option name="LAST_COMMIT_MESSAGE" value="数据库更新" />
+    <MESSAGE value="增加发布类型" />
+    <option name="LAST_COMMIT_MESSAGE" value="增加发布类型" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1027,13 +885,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://D:/JDK/install/src.zip!/java/util/List.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1404">
-          <caret line="110" column="17" selection-start-line="110" selection-start-column="17" selection-end-line="110" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/common/MyList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="480">
@@ -1587,6 +1438,11 @@
         <state relative-caret-position="4710">
           <caret line="157" column="85" selection-start-line="157" selection-start-column="85" selection-end-line="157" selection-end-column="85" />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/socialsql.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2034" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/people/user/UserController.java">
