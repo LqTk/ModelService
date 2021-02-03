@@ -9,8 +9,17 @@
     <list default="true" id="7783714a-5c1b-4c2c-842b-c648836bef44" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/artifacts/SocialService_war_exploded/SocialService_war exploded.war" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SocialService_war_exploded/SocialService_war exploded.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/social/service/common/Const.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/social/service/common/Const.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/social/service/people/user/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/social/service/people/user/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/social/service/common/Const.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social/service/common/Const.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/social/service/domain/PublicedEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social/service/domain/PublicedEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/social/service/domain/SPublic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social/service/domain/SPublic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/social/service/domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social/service/domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/social/service/people/socialpublic/SocialPublic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social/service/people/socialpublic/SocialPublic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/SPublicMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/SPublicMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/UserMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/social/service/domain/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/social/service/domain/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/generatorConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/generatorConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/mappers/UserMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/mappers/UserMapper.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -40,31 +49,12 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/people/socialpublic/SocialPublic.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1500">
-              <caret line="81" column="25" selection-start-line="81" selection-start-column="25" selection-end-line="81" selection-end-column="25" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#publish#0;class#SocialPublic#0" />
-                <element signature="method#delete#0;class#SocialPublic#0" />
-                <element signature="method#addView#0;class#SocialPublic#0" />
-                <element signature="method#deleteView#0;class#SocialPublic#0" />
-                <element signature="method#addGoods#0;class#SocialPublic#0" />
-                <element signature="method#deleteGoods#0;class#SocialPublic#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/people/user/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-288">
-              <caret line="288" column="9" selection-start-line="288" selection-start-column="9" selection-end-line="288" selection-end-column="9" />
+            <state relative-caret-position="368">
+              <caret line="126" column="47" lean-forward="true" selection-start-line="126" selection-start-column="47" selection-end-line="126" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#login#0;class#UserController#0" />
                 <element signature="method#register#0;class#UserController#0" />
                 <element signature="method#updateInfo#0;class#UserController#0" />
                 <element signature="method#updataRegisterId#0;class#UserController#0" />
@@ -79,10 +69,68 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/common/Const.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="458">
+              <caret line="27" column="30" lean-forward="true" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/service/impl/UserService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1410">
+              <caret line="41" column="41" selection-start-line="41" selection-start-column="41" selection-end-line="41" selection-end-column="41" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/people/socialpublic/SocialPublic.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="488">
+              <caret line="150" column="37" selection-start-line="150" selection-start-column="37" selection-end-line="150" selection-end-column="37" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#delete#0;class#SocialPublic#0" />
+                <element signature="method#addView#0;class#SocialPublic#0" />
+                <element signature="method#deleteView#0;class#SocialPublic#0" />
+                <element signature="method#addGoods#0;class#SocialPublic#0" />
+                <element signature="method#deleteGoods#0;class#SocialPublic#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/domain/PublicedEntity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-60">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2396#2397#0" expanded="true" />
+                <element signature="e#2427#2428#0" expanded="true" />
+                <element signature="e#2475#2476#0" expanded="true" />
+                <element signature="e#2515#2516#0" expanded="true" />
+                <element signature="e#2551#2552#0" expanded="true" />
+                <element signature="e#2583#2584#0" expanded="true" />
+                <element signature="e#2633#2634#0" expanded="true" />
+                <element signature="e#2675#2676#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/service/IFileService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="150">
-              <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
+              <caret line="5" column="24" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -90,8 +138,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/service/impl/FileService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="15" column="35" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
+            <state relative-caret-position="210">
+              <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -100,49 +148,23 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/common/Const.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/domain/SPublic.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="870">
-              <caret line="29" column="29" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
+            <state relative-caret-position="51">
+              <caret line="6" selection-start-line="6" selection-end-line="6" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/service/IChatService.java">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mappers/SPublicMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="13" selection-start-line="13" selection-end-line="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/dao/ChatMapper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="25" column="23" selection-start-line="25" selection-start-column="23" selection-end-line="25" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/service/impl/ChatService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2040">
-              <caret line="77" column="44" selection-start-line="77" selection-start-column="27" selection-end-line="77" selection-end-column="44" />
+            <state relative-caret-position="218">
+              <caret line="159" column="62" selection-start-line="159" selection-start-column="62" selection-end-line="159" selection-end-column="62" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="n#select#2;n#mapper#0;n#!!top" />
+                <element signature="n#resultMap#2;n#mapper#0;n#!!top" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mappers/ChatMapper.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4710">
-              <caret line="157" column="85" selection-start-line="157" selection-start-column="85" selection-end-line="157" selection-end-column="85" />
             </state>
           </provider>
         </entry>
@@ -163,9 +185,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>selectByReviewId</find>
-      <find>findByReviewId</find>
-      <find>deleteReview</find>
       <find>checkExistByPhoneOrName</find>
       <find>updateUserInfo</find>
       <find>deleteGoods</find>
@@ -189,10 +208,13 @@
       <find>getByShareId</find>
       <find>getMsgCount</find>
       <find>getMsgByMsgId</find>
-      <find>searchPublish</find>
       <find>selectCurrentChat</find>
       <find>selectAllChatFromTalkId</find>
       <find>getSelectChat</find>
+      <find>SPublic</find>
+      <find>searchPublish</find>
+      <find>JdbcType</find>
+      <find>selectByPrimaryKey</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -211,10 +233,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/social/service/dao/ChatReviewMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/social/service/dao/GoodsMapper.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mappers/GoodsMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/social/service/domain/User.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/social/service/dao/UserMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mappers/UserMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/social/service/service/impl/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/social/service/dao/PartnerMapper.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mappers/PartnerMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/social/service/common/MyList.java" />
@@ -224,7 +243,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/social/service/domain/Partner.java" />
         <option value="$PROJECT_DIR$/src/main/resources/app-datasource.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/social/service/dao/SPublicMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/social/service/domain/ChatReview.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/social/service/service/IFileService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/social/service/common/FileControler.java" />
@@ -243,15 +261,19 @@
         <option value="$PROJECT_DIR$/src/main/java/com/social/service/dao/ReviewMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/social/service/service/IPublicService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/social/service/service/impl/PublicService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/social/service/people/socialpublic/SocialPublic.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mappers/ReviewMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/social/service/domain/SPublic.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/social/service/domain/PublicedEntity.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mappers/SPublicMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/social/service/service/impl/ChatService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mappers/ChatMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/social/service/domain/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/social/service/domain/SPublic.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/social/service/domain/PublicedEntity.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mappers/UserMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/social/service/service/impl/UserService.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mappers/SPublicMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/social/service/common/Const.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/social/service/people/user/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/social/service/people/socialpublic/SocialPublic.java" />
       </list>
     </option>
   </component>
@@ -292,8 +314,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-44" />
-    <option name="y" value="35" />
+    <option name="x" value="-68" />
+    <option name="y" value="42" />
     <option name="width" value="1934" />
     <option name="height" value="1045" />
   </component>
@@ -306,7 +328,6 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -314,10 +335,118 @@
               <item name="SocialService" type="b2602c69:ProjectViewProjectNode" />
               <item name="SocialService" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="SocialService" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SocialService" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SocialService" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SocialService" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SocialService" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SocialService" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SocialService" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SocialService" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SocialService" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SocialService" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SocialService" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SocialService" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="domain" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SocialService" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SocialService" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="people" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SocialService" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SocialService" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="people" type="462c0819:PsiDirectoryNode" />
+              <item name="socialpublic" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SocialService" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SocialService" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="people" type="462c0819:PsiDirectoryNode" />
+              <item name="user" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SocialService" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SocialService" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SocialService" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SocialService" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="impl" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SocialService" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SocialService" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SocialService" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SocialService" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="mappers" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -604,7 +733,10 @@
       <workItem from="1611624039012" duration="11749000" />
       <workItem from="1611710758050" duration="5094000" />
       <workItem from="1611796845236" duration="3232000" />
-      <workItem from="1611883599512" duration="1641000" />
+      <workItem from="1611883599512" duration="1816000" />
+      <workItem from="1612141759371" duration="3206000" />
+      <workItem from="1612231055646" duration="2103000" />
+      <workItem from="1612315263169" duration="6314000" />
     </task>
     <task id="LOCAL-00001" summary="服务器模板搭建">
       <created>1607934807583</created>
@@ -732,17 +864,24 @@
       <option name="project" value="LOCAL" />
       <updated>1611911788449</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="数据库更新">
+      <created>1611912025351</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1611912025351</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="371137000" />
+    <option name="totallyTimeSpent" value="382935000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1641791" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1673774" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -752,7 +891,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.83073497" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.7037862" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.5868597" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.43095767" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -832,9 +971,9 @@
     <MESSAGE value="文件上传" />
     <MESSAGE value="代码优化" />
     <MESSAGE value="获取公场消息列表显示" />
-    <MESSAGE value="数据库更新" />
     <MESSAGE value="增加发布类型" />
-    <option name="LAST_COMMIT_MESSAGE" value="增加发布类型" />
+    <MESSAGE value="数据库更新" />
+    <option name="LAST_COMMIT_MESSAGE" value="数据库更新" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -865,7 +1004,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/social/service/people/socialpublic/SocialPublic.java</url>
-          <line>82</line>
+          <line>89</line>
           <properties />
           <option name="timeStamp" value="25" />
         </line-breakpoint>
@@ -877,7 +1016,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/com/social/service/people/socialpublic/SocialPublic.java</url>
-          <line>83</line>
+          <line>90</line>
           <properties />
           <option name="timeStamp" value="27" />
         </line-breakpoint>
@@ -885,79 +1024,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/common/MyList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="61" column="5" lean-forward="true" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#218#219#0" expanded="true" />
-            <element signature="e#242#243#0" expanded="true" />
-            <element signature="e#288#289#0" expanded="true" />
-            <element signature="e#316#317#0" expanded="true" />
-            <element signature="e#371#372#0" expanded="true" />
-            <element signature="e#399#400#0" expanded="true" />
-            <element signature="e#447#448#0" expanded="true" />
-            <element signature="e#474#475#0" expanded="true" />
-            <element signature="e#521#522#0" expanded="true" />
-            <element signature="e#557#558#0" expanded="true" />
-            <element signature="e#607#608#0" expanded="true" />
-            <element signature="e#635#636#0" expanded="true" />
-            <element signature="e#688#689#0" expanded="true" />
-            <element signature="e#716#717#0" expanded="true" />
-            <element signature="e#773#774#0" expanded="true" />
-            <element signature="e#801#802#0" expanded="true" />
-            <element signature="e#869#870#0" expanded="true" />
-            <element signature="e#897#898#0" expanded="true" />
-            <element signature="e#998#999#0" expanded="true" />
-            <element signature="e#1026#1027#0" expanded="true" />
-            <element signature="e#1069#1070#0" expanded="true" />
-            <element signature="e#1093#1094#0" expanded="true" />
-            <element signature="e#1143#1144#0" expanded="true" />
-            <element signature="e#1170#1171#0" expanded="true" />
-            <element signature="e#1236#1237#0" expanded="true" />
-            <element signature="e#1263#1264#0" expanded="true" />
-            <element signature="e#1387#1388#0" expanded="true" />
-            <element signature="e#1414#1415#0" expanded="true" />
-            <element signature="e#1464#1465#0" expanded="true" />
-            <element signature="e#1488#1489#0" expanded="true" />
-            <element signature="e#1542#1543#0" expanded="true" />
-            <element signature="e#1566#1567#0" expanded="true" />
-            <element signature="e#1622#1623#0" expanded="true" />
-            <element signature="e#1649#1650#0" expanded="true" />
-            <element signature="e#1714#1715#0" expanded="true" />
-            <element signature="e#1741#1742#0" expanded="true" />
-            <element signature="e#1810#1811#0" expanded="true" />
-            <element signature="e#1837#1838#0" expanded="true" />
-            <element signature="e#1897#1898#0" expanded="true" />
-            <element signature="e#1925#1926#0" expanded="true" />
-            <element signature="e#1985#1986#0" expanded="true" />
-            <element signature="e#2013#2014#0" expanded="true" />
-            <element signature="e#2075#2076#0" expanded="true" />
-            <element signature="e#2103#2104#0" expanded="true" />
-            <element signature="e#2160#2161#0" expanded="true" />
-            <element signature="e#2196#2197#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/JDK/install/src.zip!/java/awt/List.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2310">
-          <caret line="108" column="13" selection-start-line="108" selection-start-column="13" selection-end-line="108" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/dao/UserMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/domain/PartnerEntity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="518">
@@ -1038,23 +1104,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/dao/SPublicMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/generatorConfig.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="548">
-          <caret line="74" column="59" selection-start-line="74" selection-start-column="59" selection-end-line="74" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/service/IUserService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="332">
@@ -1113,16 +1162,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/service/impl/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3720">
-          <caret line="142" selection-start-line="142" selection-end-line="142" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/common/FileControler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
@@ -1134,16 +1173,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
           <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mappers/UserMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="12" column="74" selection-start-line="11" selection-start-column="78" selection-end-line="12" selection-end-column="74" />
-          <folding>
-            <element signature="n#select#0;n#mapper#0;n#!!top" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1188,18 +1217,6 @@
             <element signature="e#2154#2155#0" expanded="true" />
             <element signature="e#2198#2199#0" expanded="true" />
             <element signature="e#2236#2237#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/domain/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="22" column="19" selection-start-line="22" selection-start-column="12" selection-end-line="22" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3083#3084#0" expanded="true" />
-            <element signature="e#3114#3115#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1331,82 +1348,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/service/impl/PublicService.java">
+    <entry file="file://$PROJECT_DIR$/socialsql.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2160">
-          <caret line="84" column="28" selection-start-line="84" selection-start-column="28" selection-end-line="84" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/domain/SPublic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mappers/SPublicMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3840">
-          <caret line="128" column="7" selection-start-line="128" selection-start-column="7" selection-end-line="128" selection-end-column="7" />
-          <folding>
-            <element signature="n#select#2;n#mapper#0;n#!!top" />
-            <element signature="n#resultMap#2;n#mapper#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/domain/PublicedEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/people/socialpublic/SocialPublic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1500">
-          <caret line="81" column="25" selection-start-line="81" selection-start-column="25" selection-end-line="81" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#publish#0;class#SocialPublic#0" />
-            <element signature="method#delete#0;class#SocialPublic#0" />
-            <element signature="method#addView#0;class#SocialPublic#0" />
-            <element signature="method#deleteView#0;class#SocialPublic#0" />
-            <element signature="method#addGoods#0;class#SocialPublic#0" />
-            <element signature="method#deleteGoods#0;class#SocialPublic#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/service/IFileService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="5" column="18" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/service/impl/FileService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="15" column="35" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/common/Const.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
-          <caret line="29" column="29" selection-start-line="29" selection-start-column="29" selection-end-line="29" selection-end-column="29" />
-        </state>
+        <state relative-caret-position="-2034" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/service/IChatService.java">
@@ -1440,18 +1384,117 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/socialsql.sql">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/dao/SPublicMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2034" />
+        <state relative-caret-position="290">
+          <caret line="13" column="24" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/service/impl/PublicService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="780">
+          <caret line="38" column="43" selection-start-line="38" selection-start-column="43" selection-end-line="38" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/domain/UserTest.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mappers/UserTestMapper.xml" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mappers/UserMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="212" column="78" selection-start-line="212" selection-start-column="78" selection-end-line="212" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/generatorConfig.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="61" column="103" lean-forward="true" selection-start-line="61" selection-start-column="103" selection-end-line="61" selection-end-column="103" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/domain/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3728">
+          <caret line="198" column="34" selection-start-line="198" selection-start-column="34" selection-end-line="198" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/domain/SPublic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/service/impl/UserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1410">
+          <caret line="41" column="41" selection-start-line="41" selection-start-column="41" selection-end-line="41" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/service/IFileService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="5" column="24" selection-start-line="5" selection-start-column="18" selection-end-line="5" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/common/Const.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="458">
+          <caret line="27" column="30" lean-forward="true" selection-start-line="27" selection-start-column="30" selection-end-line="27" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/service/impl/FileService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="21" selection-start-line="14" selection-start-column="21" selection-end-line="14" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mappers/SPublicMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="159" column="62" selection-start-line="159" selection-start-column="62" selection-end-line="159" selection-end-column="62" />
+          <folding>
+            <element signature="n#select#2;n#mapper#0;n#!!top" />
+            <element signature="n#resultMap#2;n#mapper#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/common/ServiceResponse.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="54" column="91" selection-start-line="54" selection-start-column="91" selection-end-line="54" selection-end-column="91" />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/people/user/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-288">
-          <caret line="288" column="9" selection-start-line="288" selection-start-column="9" selection-end-line="288" selection-end-column="9" />
+        <state relative-caret-position="368">
+          <caret line="126" column="47" lean-forward="true" selection-start-line="126" selection-start-column="47" selection-end-line="126" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#login#0;class#UserController#0" />
             <element signature="method#register#0;class#UserController#0" />
             <element signature="method#updateInfo#0;class#UserController#0" />
             <element signature="method#updataRegisterId#0;class#UserController#0" />
@@ -1460,6 +1503,39 @@
             <element signature="e#14254#14255#0" expanded="true" />
             <element signature="e#14301#14302#0" expanded="true" />
             <element signature="docComment;method#getChatMsg#0;class#UserController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/people/socialpublic/SocialPublic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="488">
+          <caret line="150" column="37" selection-start-line="150" selection-start-column="37" selection-end-line="150" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#delete#0;class#SocialPublic#0" />
+            <element signature="method#addView#0;class#SocialPublic#0" />
+            <element signature="method#deleteView#0;class#SocialPublic#0" />
+            <element signature="method#addGoods#0;class#SocialPublic#0" />
+            <element signature="method#deleteGoods#0;class#SocialPublic#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/domain/PublicedEntity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-60">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2396#2397#0" expanded="true" />
+            <element signature="e#2427#2428#0" expanded="true" />
+            <element signature="e#2475#2476#0" expanded="true" />
+            <element signature="e#2515#2516#0" expanded="true" />
+            <element signature="e#2551#2552#0" expanded="true" />
+            <element signature="e#2583#2584#0" expanded="true" />
+            <element signature="e#2633#2634#0" expanded="true" />
+            <element signature="e#2675#2676#0" expanded="true" />
           </folding>
         </state>
       </provider>

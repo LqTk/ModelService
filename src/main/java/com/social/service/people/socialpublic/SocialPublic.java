@@ -3,12 +3,16 @@ package com.social.service.people.socialpublic;
 import com.social.service.common.Const;
 import com.social.service.common.ServiceResponse;
 import com.social.service.domain.*;
+import com.social.service.service.IFileService;
 import com.social.service.service.IMsgService;
 import com.social.service.service.IPublicService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.util.HashMap;
 import java.util.UUID;
 
 @RestController
@@ -20,6 +24,9 @@ public class SocialPublic {
 
     @Autowired
     IMsgService iMsgService;
+
+    @Autowired
+    IFileService iFileService;
 
     @RequestMapping(value = "publish", method = RequestMethod.POST)
     public ServiceResponse publish(@RequestBody SPublic sPublic){
@@ -127,5 +134,23 @@ public class SocialPublic {
     @RequestMapping(value = "updateReadState/{msgId}",method = RequestMethod.PUT)
     public ServiceResponse updateReadState(@PathVariable String msgId){
         return iMsgService.updateReadedState(msgId);
+    }
+
+    /**
+     * 用户聊天信息
+     * @param file 上传的文件
+     * @return
+     */
+    @RequestMapping(value = "uploadFile", method = RequestMethod.POST)
+    public ServiceResponse uploadFile(@RequestParam(value = "file",required = false) MultipartFile file){
+        String filePath = Const.publishFile;
+        String uploadUrl = iFileService.upload(file, Const.uploadDir+filePath);
+        File file1 = new File(uploadUrl);
+        if (file1.exists()){
+            HashMap map = new HashMap();
+            map.put("url",filePath+"/"+file1.getName());
+            return ServiceResponse.createBySuccessData(map);
+        }
+        return ServiceResponse.createByErrorMessage("上传失败");
     }
 }

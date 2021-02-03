@@ -30,6 +30,10 @@ public class User {
 
     private String des;
 
+    private Double latitude;
+
+    private Double longitude;
+
     private static final SimpleDateFormat year = new SimpleDateFormat("yyyy");
     Date date = new Date();
 
@@ -38,7 +42,8 @@ public class User {
         this.password = password;
     }
 
-    public User(String id, String name, String img, Integer sex, String birthday, Integer age, String phone, String des) {
+    public User(String id, String name, String img, Integer sex, String birthday, Integer age, String phone, String des,
+                Double latitude, Double longitude) {
         this.id = id;
         this.name = name;
         this.img = img;
@@ -56,9 +61,12 @@ public class User {
         }
         this.phone = phone;
         this.des = des;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
-    public User(String id, String registrationid, String name, String password, String img, Integer sex, String birthday, Integer age, String phone, Date createTime, Date updateTime, String des) {
+    public User(String id, String registrationid, String name, String password, String img, Integer sex, String birthday,
+                Integer age, String phone, Date createTime, Date updateTime, String des, Double latitude, Double longitude) {
         this.id = id;
         this.registrationid = registrationid;
         this.name = name;
@@ -80,6 +88,8 @@ public class User {
         this.createTime = createTime;
         this.updateTime = updateTime;
         this.des = des;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
     public String getRegistrationid() {
@@ -180,5 +190,21 @@ public class User {
 
     public void setDes(String des) {
         this.des = des == null ? null : des.trim();
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
     }
 }

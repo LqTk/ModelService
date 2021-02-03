@@ -28,13 +28,18 @@ public class PublicedEntity {
 
     private String location;
 
+    private Double latitude;
+
+    private Double longitude;
+
     private List<Goods> goodsList;
 
     private List<ReviewEntity> reviewEntities;
 
     public PublicedEntity(String shareId, String userId, String userName, String userHead, Integer userSex,
                           String shareName, String shareUrl, String shareText, Date createTime, Integer isPublic,
-                          String type, String location, List<Goods> goodsList, List<ReviewEntity> reviewEntities) {
+                          String type, String location, Double latitude, Double longitude, List<Goods> goodsList,
+                          List<ReviewEntity> reviewEntities) {
         this.shareId = shareId;
         this.userId = userId;
         this.userName = userName;
@@ -47,13 +52,15 @@ public class PublicedEntity {
         this.isPublic = isPublic;
         this.type = type;
         this.location = location;
+        this.latitude = latitude;
+        this.longitude = longitude;
         this.goodsList = goodsList;
         this.reviewEntities = reviewEntities;
     }
 
     public PublicedEntity(String shareId, String userId, String userName, String userHead, Integer userSex,
                           String shareName, String shareUrl, String shareText, Date createTime, Integer isPublic,
-                          String type, String location) {
+                          String type, String location, Double latitude, Double longitude) {
         this.shareId = shareId;
         this.userId = userId;
         this.userName = userName;
@@ -66,6 +73,24 @@ public class PublicedEntity {
         this.isPublic = isPublic;
         this.type = type;
         this.location = location;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
+
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
     }
 
     public String getType() {

@@ -12,20 +12,23 @@
       <arg column="isPublic" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="type" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="location" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="latitude" javaType="java.lang.Double" jdbcType="DOUBLE" />
+      <arg column="longitude" javaType="java.lang.Double" jdbcType="DOUBLE" />
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
     shareId, userId, shareName, shareUrl, shareText, createTime,
-    isPublic, type, loaction
+    isPublic, type, loaction, latitude, longitude
   </sql>
   <insert id="insert" parameterType="com.social.service.domain.SPublic">
     insert into social_public (shareId, userId, shareName,
       shareUrl, shareText, createTime,
-      isPublic, type, location
+      isPublic, type, location, latitude, longitude
       )
     values (#{shareId,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{shareName,jdbcType=VARCHAR},
       #{shareUrl,jdbcType=VARCHAR}, #{shareText,jdbcType=VARCHAR}, now(),
-      #{isPublic,jdbcType=INTEGER}, #{type, jdbcType=VARCHAR}, #{location, jdbcType=VARCHAR})
+      #{isPublic,jdbcType=INTEGER}, #{type, jdbcType=VARCHAR}, #{location, jdbcType=VARCHAR},
+      #{latitude, jdbcType=DOUBLE}, #{longitude,jdbcType=DOUBLE})
   </insert>
   <insert id="insertSelective" parameterType="com.social.service.domain.SPublic">
     insert into social_public
@@ -55,7 +58,13 @@
         type,
       </if>
       <if test="location != null">
-        location
+        location,
+      </if>
+      <if test="latitude != null">
+        latitude,
+      </if>
+      <if test="longitude != null">
+        longitude
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -84,7 +93,13 @@
         #{type,jdbcType=VARCHAR},
       </if>
       <if test="location != null">
-        #{location,jdbcType=VARCHAR}
+        #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="latitude != null">
+        #{latitude, jdbcType=DOUBLE},
+      </if>
+      <if test="longitude != null">
+        #{longitude, jdbcType=DOUBLE}
       </if>
     </trim>
   </insert>
@@ -113,7 +128,13 @@
         type = #{type,jdbcType=VARCHAR},
       </if>
       <if test="location != null">
-        location = #{location,jdbcType=VARCHAR}
+        location = #{location,jdbcType=VARCHAR},
+      </if>
+      <if test="latitude != null">
+        latitude = #{latitude,jdbcType=DOUBLE},
+      </if>
+      <if test="longitude != null">
+        longitude = #{longitude,jdbcType=DOUBLE}
       </if>
     </set>
     where shareId = #{shareId,jdbcType=VARCHAR}
@@ -127,14 +148,16 @@
       createTime = now(),
       isPublic = #{isPublic,jdbcType=INTEGER},
       type = #{type,jdbcType=VARCHAR},
-      location = #{location,jdbcType=VARCHAR}
+      location = #{location,jdbcType=VARCHAR},
+      latitude = #{latitude,jdbcType=DOUBLE},
+      longitude = #{longitude,jdbcType=DOUBLE}
     where shareId = #{shareId,jdbcType=VARCHAR}
   </update>
 
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="searchPublish">
     select
      a.shareId, a.userId, b.name as userName, b.img as userHead, b.sex as userSex, a.shareName, a.shareUrl,
-     a.shareText, a.createTime, a.isPublic, a.type, a.loaction
+     a.shareText, a.createTime, a.isPublic, a.type, a.location, a.latitude, a.longitude
      from social_public as a
      join social_user as b
     where shareId = #{shareId,jdbcType=VARCHAR} and a.userId = b.id
@@ -143,7 +166,7 @@
   <select id="selectByShareId" parameterType="java.lang.String" resultMap="searchPublish">
     select
      a.shareId, a.userId, b.name as userName, b.img as userHead, b.sex as userSex, a.shareName, a.shareUrl,
-     a.shareText, a.createTime, a.isPublic, a.type, a.location
+     a.shareText, a.createTime, a.isPublic, a.type, a.location, a.latitude, a.longitude
      from social_public as a
      join social_user as b
     where shareId = #{shareId,jdbcType=VARCHAR} and a.userId = b.id
@@ -168,6 +191,8 @@
     <result column="isPublic" property="isPublic" jdbcType="INTEGER" />
     <result column="type" property="type" jdbcType="VARCHAR" />
     <result column="location" property="location" jdbcType="VARCHAR" />
+    <result column="latitude" property="latitude" jdbcType="DOUBLE" />
+    <result column="longitude" property="longitude" jdbcType="DOUBLE" />
   <!--   publishId 为查询 findRoleById 的入参, id 和 role_status 为查询 findUsers 的结果信息
      如果查询 findByGoodsId 需要 roleId 作为入参, column 写法 {userId=id,roleStatus=role_status,roleId=role_id} -->
     <collection property="goodsList" javaType="java.util.ArrayList" ofType="com.social.service.domain.Goods"
@@ -195,13 +220,15 @@
   </resultMap>
 
   <select id="findChatReview" resultType="com.social.service.domain.ChatReviewEntity">
-    select a.reviewChatId, a.reviewId, a.talkId, a.toId, b.name as talkName, b.img as talkHead, c.name as toName, c.img as toHead, a.chatText, a.chatTime
+    select a.reviewChatId, a.reviewId, a.talkId, a.toId, b.name as talkName, b.img as talkHead, c.name as toName,
+    c.img as toHead, a.chatText, a.chatTime
     from social_chat_review as a join social_user as b join social_user as c
     where reviewId=#{reviewId} and b.id=a.talkId and c.id=a.toId order by a.chatTime asc
   </select>
 
   <select id="findByReviewId" resultMap="myReviewMap">
-    select a.reviewId as reviewId, a.peopleId as peopleId, a.publicId as publishId,a.reviewText as reviewText, b.name as peopleName, b.img as peopleHead, a.reviewTime
+    select a.reviewId as reviewId, a.peopleId as peopleId, a.publicId as publishId,a.reviewText as reviewText,
+    b.name as peopleName, b.img as peopleHead, a.reviewTime
     from social_review as a join social_user as b
     where a.publicId=#{selectId} and b.id=a.peopleId order by a.reviewTime asc
   </select>
@@ -209,7 +236,7 @@
   <select id="getSocialPublicSize" resultMap="searchPublish">
     select
      a.shareId, a.userId, b.name as userName, b.img as userHead, b.sex as userSex, a.shareName, a.shareUrl,
-     a.shareText, a.createTime, a.isPublic, a.type, a.location
+     a.shareText, a.createTime, a.isPublic, a.type, a.location, a.latitude, a.longitude
      from social_public as a
      join social_user as b
      where a.userId = b.id
@@ -218,7 +245,7 @@
 
   <select id="getSocialByUserId" parameterType="map" resultMap="searchPublish">
     select a.shareId,a.userId,b.name as userName, b.img as userHead, b.sex as userSex, a.shareName,a.shareUrl,
-     a.shareText,a.createTime,a.isPublic, a.type, a.location
+     a.shareText,a.createTime,a.isPublic, a.type, a.location, a.latitude, a.longitude
      from social_public as a
      join social_user as b
       where a.userId=#{userId} and b.id=#{userId}

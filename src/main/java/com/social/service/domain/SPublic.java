@@ -21,7 +21,12 @@ public class SPublic {
 
     private String location;
 
-    public SPublic(String shareId, String userId, String shareName, String shareUrl, String shareText, Date createtime, Integer isPublic, String type, String location) {
+    private Double latitude;
+
+    private Double longitude;
+
+    public SPublic(String shareId, String userId, String shareName, String shareUrl, String shareText, Date createtime,
+                   Integer isPublic, String type, String location, Double latitude, Double longitude) {
         this.shareId = shareId;
         this.userId = userId;
         this.shareName = shareName;
@@ -31,6 +36,8 @@ public class SPublic {
         this.isPublic = isPublic;
         this.type = type;
         this.location = location;
+        this.latitude = latitude;
+        this.longitude = longitude;
     }
 
     public SPublic() {
@@ -107,5 +114,21 @@ public class SPublic {
 
     public void setLocation(String location) {
         this.location = location == null ? null : location.trim();
+    }
+
+    public double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
     }
 }
