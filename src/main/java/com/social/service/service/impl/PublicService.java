@@ -223,7 +223,11 @@ public class PublicService implements IPublicService {
     }
 
     @Override
-    public ServiceResponse getTenCounts() {
+    public ServiceResponse getTenCounts(int page) {
+        int allCount = sPublicMapper.getAllCount();
+        if (page*10>=allCount){
+            return ServiceResponse.createByErrorMessage("没有更多了");
+        }
         List<PublicedEntity> socialPublicSize = sPublicMapper.getSocialPublicSize();
         if (socialPublicSize!=null){
             return ServiceResponse.createBySuccessData(socialPublicSize);

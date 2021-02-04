@@ -6,8 +6,8 @@
       <idArg column="shareId" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="userId" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="shareName" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="shareUrl" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="shareText" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="shareUrl" javaType="java.lang.String" jdbcType="LONGVARCHAR" />
+      <arg column="shareText" javaType="java.lang.String" jdbcType="LONGVARCHAR" />
       <arg column="createTime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
       <arg column="isPublic" javaType="java.lang.Integer" jdbcType="INTEGER" />
       <arg column="type" javaType="java.lang.String" jdbcType="VARCHAR" />
@@ -26,7 +26,7 @@
       isPublic, type, location, latitude, longitude
       )
     values (#{shareId,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{shareName,jdbcType=VARCHAR},
-      #{shareUrl,jdbcType=VARCHAR}, #{shareText,jdbcType=VARCHAR}, now(),
+      #{shareUrl,jdbcType=LONGVARCHAR}, #{shareText,jdbcType=LONGVARCHAR}, now(),
       #{isPublic,jdbcType=INTEGER}, #{type, jdbcType=VARCHAR}, #{location, jdbcType=VARCHAR},
       #{latitude, jdbcType=DOUBLE}, #{longitude,jdbcType=DOUBLE})
   </insert>
@@ -78,10 +78,10 @@
         #{shareName,jdbcType=VARCHAR},
       </if>
       <if test="shareUrl != null">
-        #{shareUrl,jdbcType=VARCHAR},
+        #{shareUrl,jdbcType=LONGVARCHAR},
       </if>
       <if test="shareText != null">
-        #{shareText,jdbcType=VARCHAR},
+        #{shareText,jdbcType=LONGVARCHAR},
       </if>
       <if test="createtime != null">
         now(),
@@ -113,10 +113,10 @@
         shareName = #{shareName,jdbcType=VARCHAR},
       </if>
       <if test="shareUrl != null">
-        shareUrl = #{shareUrl,jdbcType=VARCHAR},
+        shareUrl = #{shareUrl,jdbcType=LONGVARCHAR},
       </if>
       <if test="shareText != null">
-        shareText = #{shareText,jdbcType=VARCHAR},
+        shareText = #{shareText,jdbcType=LONGVARCHAR},
       </if>
       <if test="createtime != null">
         createTime = now(),
@@ -143,8 +143,8 @@
     update social_public
     set userId = #{userId,jdbcType=VARCHAR},
       shareName = #{shareName,jdbcType=VARCHAR},
-      shareUrl = #{shareUrl,jdbcType=VARCHAR},
-      shareText = #{shareText,jdbcType=VARCHAR},
+      shareUrl = #{shareUrl,jdbcType=LONGVARCHAR},
+      shareText = #{shareText,jdbcType=LONGVARCHAR},
       createTime = now(),
       isPublic = #{isPublic,jdbcType=INTEGER},
       type = #{type,jdbcType=VARCHAR},
@@ -185,8 +185,8 @@
     <result column="userHead" property="userHead" jdbcType="VARCHAR" />
     <result column="userSex" property="userSex" jdbcType="INTEGER" />
     <result column="shareName" property="shareName" jdbcType="VARCHAR" />
-    <result column="shareUrl" property="shareUrl" jdbcType="VARCHAR" />
-    <result column="shareText" property="shareText" jdbcType="VARCHAR" />
+    <result column="shareUrl" property="shareUrl" jdbcType="LONGVARCHAR" />
+    <result column="shareText" property="shareText" jdbcType="LONGVARCHAR" />
     <result column="createTime" property="createTime" jdbcType="TIMESTAMP" />
     <result column="isPublic" property="isPublic" jdbcType="INTEGER" />
     <result column="type" property="type" jdbcType="VARCHAR" />
@@ -252,4 +252,7 @@
       limit #{start},#{end}
   </select>
 
+  <select id="getAllCount" resultType="java.lang.Integer">
+    select count(*) from social_public
+  </select>
 </mapper>

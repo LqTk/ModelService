@@ -7,7 +7,7 @@
       <arg column="talkId" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="toId" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="msgType" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="msgContent" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="msgContent" javaType="java.lang.String" jdbcType="LONGVARCHAR" />
       <arg column="voiceTime" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="filePath" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="chatTime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
@@ -31,7 +31,7 @@
       msgType, msgContent, voiceTime,
       filePath, chatTime)
     values (#{chatId,jdbcType=VARCHAR}, #{talkId,jdbcType=VARCHAR}, #{toId,jdbcType=VARCHAR},
-      #{msgType,jdbcType=VARCHAR}, #{msgContent,jdbcType=VARCHAR}, #{voiceTime,jdbcType=VARCHAR},
+      #{msgType,jdbcType=VARCHAR}, #{msgContent,jdbcType=LONGVARCHAR}, #{voiceTime,jdbcType=VARCHAR},
       #{filepath,jdbcType=VARCHAR}, now())
   </insert>
   <insert id="insertSelective" parameterType="com.social.service.domain.Chat">
@@ -76,7 +76,7 @@
         #{msgType,jdbcType=VARCHAR},
       </if>
       <if test="msgContent != null">
-        #{msgContent,jdbcType=VARCHAR},
+        #{msgContent,jdbcType=LONGVARCHAR},
       </if>
       <if test="voiceTime != null">
         #{voiceTime,jdbcType=VARCHAR},
@@ -100,7 +100,7 @@
         msgType = #{msgType,jdbcType=VARCHAR},
       </if>
       <if test="msgContent != null">
-        msgContent = #{msgContent,jdbcType=VARCHAR},
+        msgContent = #{msgContent,jdbcType=LONGVARCHAR},
       </if>
       <if test="voiceTime != null">
         voiceTime = #{voiceTime,jdbcType=VARCHAR},
@@ -119,7 +119,7 @@
     set talkId = #{talkId,jdbcType=VARCHAR},
       toId = #{toId,jdbcType=VARCHAR},
       msgType = #{msgType,jdbcType=VARCHAR},
-      msgContent = #{msgContent,jdbcType=VARCHAR},
+      msgContent = #{msgContent,jdbcType=LONGVARCHAR},
       voiceTime = #{voiceTime,jdbcType=VARCHAR},
       filePath = #{filepath,jdbcType=VARCHAR},
       chatTime = now()
@@ -130,7 +130,7 @@
   <resultMap id="selectMap" type="com.social.service.domain.ChatEntity">
     <constructor>
       <arg column="chatId" javaType="java.lang.String" jdbcType="VARCHAR"/>
-      <arg column="msgContent" javaType="java.lang.String" jdbcType="VARCHAR"/>
+      <arg column="msgContent" javaType="java.lang.String" jdbcType="LONGVARCHAR"/>
       <arg column="msgType" javaType="java.lang.String" jdbcType="VARCHAR"/>
       <arg column="voiceTime" javaType="java.lang.String" jdbcType="VARCHAR"/>
       <arg column="senderId" javaType="java.lang.String" jdbcType="VARCHAR"/>

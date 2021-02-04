@@ -7,7 +7,7 @@
       <arg column="reviewId" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="talkId" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="toId" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="chatText" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="chatText" javaType="java.lang.String" jdbcType="LONGVARCHAR" />
       <arg column="chatTime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
     </constructor>
   </resultMap>
@@ -29,7 +29,7 @@
       toId, chatText, chatTime
       )
     values (#{reviewChatId,jdbcType=VARCHAR}, #{reviewId,jdbcType=VARCHAR}, #{talkId,jdbcType=VARCHAR},
-      #{toId,jdbcType=VARCHAR}, #{chatText,jdbcType=VARCHAR}, now()
+      #{toId,jdbcType=VARCHAR}, #{chatText,jdbcType=LONGVARCHAR}, now()
       )
   </insert>
   <insert id="insertSelective" parameterType="com.social.service.domain.ChatReview">
@@ -68,7 +68,7 @@
         #{toId,jdbcType=VARCHAR},
       </if>
       <if test="chatText != null">
-        #{chatText,jdbcType=VARCHAR},
+        #{chatText,jdbcType=LONGVARCHAR},
       </if>
       <if test="chattime != null">
        now(),
@@ -88,7 +88,7 @@
         toId = #{toId,jdbcType=VARCHAR},
       </if>
       <if test="chatText != null">
-        chatText = #{chatText,jdbcType=VARCHAR},
+        chatText = #{chatText,jdbcType=LONGVARCHAR},
       </if>
       <if test="chattime != null">
         chatTime = now(),
@@ -101,14 +101,15 @@
     set reviewId = #{reviewId,jdbcType=VARCHAR},
       talkId = #{talkId,jdbcType=VARCHAR},
       toId = #{toId,jdbcType=VARCHAR},
-      chatText = #{chatText,jdbcType=VARCHAR},
+      chatText = #{chatText,jdbcType=LONGVARCHAR},
       chatTime = now()
     where reviewChatId = #{reviewChatId,jdbcType=VARCHAR}
   </update>
 
 
   <select id="findChatReview" resultType="com.social.service.domain.ChatReviewEntity">
-    select a.reviewChatId, a.reviewId, a.talkId, a.toId, b.name as talkName, b.img as talkHead, c.name as toName, c.img as toHead, a.chatText, a.chatTime
+    select a.reviewChatId, a.reviewId, a.talkId, a.toId, b.name as talkName, b.img as talkHead, c.name as toName,
+    c.img as toHead, a.chatText, a.chatTime
     from social_chat_review as a join social_user as b join social_user as c
     where a.reviewChatId=#{reviewId} and b.id=a.talkId and c.id=a.toId order by a.chatTime desc
   </select>

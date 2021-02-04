@@ -73,9 +73,9 @@ public class SocialPublic {
         return iPublicService.deleteGoods(goodsId);
     }
 
-    @RequestMapping(value = "getdatas", method = RequestMethod.GET)
-    public ServiceResponse getdatas(){
-        return iPublicService.getTenCounts();
+    @RequestMapping(value = "getdatas/{page}", method = RequestMethod.GET)
+    public ServiceResponse getdatas(@PathVariable int page){
+        return iPublicService.getTenCounts(page);
     }
 
     @RequestMapping(value = "getByShareId/{shareId}", method = RequestMethod.GET)

@@ -23,7 +23,7 @@ public interface IPublicService {
 
     public ServiceResponse deleteGoods(String goodsId);
 
-    public ServiceResponse getTenCounts();
+    public ServiceResponse getTenCounts(int page);
 
     public ServiceResponse getByUserId(String userId, int page);
 

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80017
 File Encoding         : 65001
 
-Date: 2021-02-03 17:26:14
+Date: 2021-02-04 17:24:31
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -24,7 +24,7 @@ CREATE TABLE `social_chat` (
   `talkId` varchar(255) DEFAULT NULL,
   `toId` varchar(255) DEFAULT NULL,
   `msgType` varchar(255) DEFAULT NULL,
-  `msgContent` varchar(255) DEFAULT NULL,
+  `msgContent` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
   `voiceTime` varchar(11) DEFAULT NULL,
   `filePath` varchar(255) DEFAULT NULL,
   `chatTime` datetime DEFAULT NULL,
@@ -40,7 +40,7 @@ CREATE TABLE `social_chat_review` (
   `reviewId` varchar(32) NOT NULL,
   `talkId` varchar(32) NOT NULL,
   `toId` varchar(32) NOT NULL,
-  `chatText` varchar(255) DEFAULT NULL,
+  `chatText` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
   `chatTime` datetime NOT NULL,
   PRIMARY KEY (`reviewChatId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -96,8 +96,8 @@ CREATE TABLE `social_public` (
   `userId` varchar(32) NOT NULL DEFAULT '1',
   `shareId` varchar(32) NOT NULL,
   `shareName` varchar(255) DEFAULT NULL,
-  `shareUrl` varchar(255) DEFAULT NULL,
-  `shareText` varchar(255) DEFAULT NULL,
+  `shareUrl` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
+  `shareText` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,
   `createTime` datetime DEFAULT NULL,
   `isPublic` int(1) DEFAULT '0',
   `type` varchar(255) DEFAULT NULL,
@@ -115,7 +115,7 @@ CREATE TABLE `social_review` (
   `reviewId` varchar(32) NOT NULL,
   `peopleId` varchar(32) NOT NULL,
   `publicId` varchar(32) NOT NULL,
-  `reviewText` varchar(255) NOT NULL,
+  `reviewText` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `reviewTime` datetime DEFAULT NULL,
   PRIMARY KEY (`reviewId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

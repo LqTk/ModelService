@@ -6,7 +6,7 @@
       <idArg column="reviewId" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="peopleId" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="publicId" javaType="java.lang.String" jdbcType="VARCHAR" />
-      <arg column="reviewText" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="reviewText" javaType="java.lang.String" jdbcType="LONGVARCHAR" />
       <arg column="reviewTime" javaType="java.util.Date" jdbcType="TIMESTAMP" />
     </constructor>
   </resultMap>
@@ -27,7 +27,7 @@
     insert into social_review (reviewId, peopleId, publicId,
       reviewText,reviewTime)
     values (#{reviewId,jdbcType=VARCHAR}, #{peopleId,jdbcType=VARCHAR}, #{publicId,jdbcType=VARCHAR},
-      #{reviewText,jdbcType=VARCHAR},now())
+      #{reviewText,jdbcType=LONGVARCHAR},now())
   </insert>
   <insert id="insertSelective" parameterType="com.social.service.domain.Review">
     insert into social_review
@@ -57,7 +57,7 @@
         #{publicId,jdbcType=VARCHAR},
       </if>
       <if test="reviewtext != null">
-        #{reviewText,jdbcType=VARCHAR},
+        #{reviewText,jdbcType=LONGVARCHAR},
       </if>
       now(),
     </trim>
@@ -72,7 +72,7 @@
         publicId = #{publicId,jdbcType=VARCHAR},
       </if>
       <if test="reviewtext != null">
-        reviewText = #{reviewText,jdbcType=VARCHAR},
+        reviewText = #{reviewText,jdbcType=LONGVARCHAR},
       </if>
       reviewTime = now(),
     </set>
@@ -82,7 +82,7 @@
     update social_review
     set peopleId = #{peopleId,jdbcType=VARCHAR},
       publicId = #{publicId,jdbcType=VARCHAR},
-      reviewText = #{reviewText,jdbcType=VARCHAR},
+      reviewText = #{reviewText,jdbcType=LONGVARCHAR},
       reviewTime = now(),
     where reviewId = #{reviewId,jdbcType=VARCHAR}
   </update>
@@ -93,7 +93,7 @@
     <id column="reviewId" property="reviewId" jdbcType="VARCHAR"/>
     <result column="peopleId" property="peopleId" jdbcType="VARCHAR"/>
     <result column="publishId" property="publishId" jdbcType="VARCHAR"/>
-    <result column="reviewText" property="reviewText" jdbcType="VARCHAR"/>
+    <result column="reviewText" property="reviewText" jdbcType="LONGVARCHAR"/>
     <result column="peopleName" property="peopleName" jdbcType="VARCHAR"/>
     <result column="peopleHead" property="peopleHead" jdbcType="VARCHAR"/>
     <result column="reviewTime" property="reviewTime" jdbcType="TIMESTAMP"/>
