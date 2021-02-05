@@ -172,12 +172,6 @@
       <if test="des != null">
         des = #{des,jdbcType=VARCHAR},
       </if>
-      <if test="latitude != null">
-        latitude = #{latitude,jdbcType=DOUBLE},
-      </if>
-      <if test="longitude != null">
-        longitude = #{longitude,jdbcType=DOUBLE}
-      </if>
     </set>
     where id = #{id,jdbcType=VARCHAR}
   </update>

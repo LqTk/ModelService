@@ -12,9 +12,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.util.*;
 
 @RestController
@@ -355,6 +359,21 @@ public class UserController {
         chatEntity.chatId = chat.getChatId();
         chatEntity.chatTime = chat.getChatTime();
         chatEntity.senderId = chat.getTalkId();
+        if (chat.getMsgType().equals(Const.MODE_IMAGE)){
+            try {
+                File picture = new File(Const.uploadDir+"/"+chat.getFilepath());
+                FileInputStream fileInputStream = new FileInputStream(picture);
+                BufferedImage sourceImg = ImageIO.read(fileInputStream);
+                chatEntity.setWidth(sourceImg.getWidth());
+                chatEntity.setHeight(sourceImg.getHeight());
+                System.out.println("Width: " + sourceImg.getWidth());
+                System.out.println("Height: " + sourceImg.getHeight());
+                fileInputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }finally {
+            }
+        }
         if (chat.getMsgType().equals(Const.MODE_TEXT)) {
             chatEntity.msgContent = chat.getMsgContent();
         }else{
