@@ -366,8 +366,6 @@ public class UserController {
                 BufferedImage sourceImg = ImageIO.read(fileInputStream);
                 chatEntity.setWidth(sourceImg.getWidth());
                 chatEntity.setHeight(sourceImg.getHeight());
-                System.out.println("Width: " + sourceImg.getWidth());
-                System.out.println("Height: " + sourceImg.getHeight());
                 fileInputStream.close();
             } catch (IOException e) {
                 e.printStackTrace();

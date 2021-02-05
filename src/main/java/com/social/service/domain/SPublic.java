@@ -117,7 +117,7 @@ public class SPublic {
     }
 
     public double getLatitude() {
-        return latitude;
+        return latitude==null?0:latitude;
     }
 
     public void setLatitude(Double latitude) {
@@ -125,7 +125,7 @@ public class SPublic {
     }
 
     public double getLongitude() {
-        return longitude;
+        return longitude==null?0:longitude;
     }
 
     public void setLongitude(Double longitude) {
