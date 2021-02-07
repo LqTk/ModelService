@@ -26,4 +26,6 @@ public interface IUserService {
     public User checkExistByResgitrationId(String registrationId);
 
     public ServiceResponse clearRegistrationId(String userId);
+
+    public User getUserByUserId(String userId);
 }

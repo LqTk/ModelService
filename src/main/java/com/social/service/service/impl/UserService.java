@@ -195,4 +195,11 @@ public class UserService implements IUserService {
         }
         return ServiceResponse.createByError();
     }
+
+    @Override
+    public User getUserByUserId(String userId) {
+        if (StringUtils.isBlank(userId))
+        return null;
+        return userMapper.selectByPrimaryKey(userId);
+    }
 }

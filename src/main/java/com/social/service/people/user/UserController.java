@@ -171,6 +171,12 @@ public class UserController {
                 iUserService.clearRegistrationId(user.getId());
             }
         }
+
+        User user1 = iUserService.getUserByUserId(userId);
+        if (!StringUtils.isBlank(user1.getRegistrationid()) && !user1.getRegistrationid().equals(registerId)){
+            JPushClientUtil.sendMessageToAll(user1.getRegistrationid(), "有新消息", "掉线", "", "");
+        }
+
         if (StringUtils.isBlank(userId))
             return ServiceResponse.createByErrorMessage("用户Id不能为空");
         return iUserService.updateUserRegistrationId(userId,registerId);
