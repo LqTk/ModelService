@@ -24,6 +24,8 @@ public class PublicedEntity {
 
     private Integer isPublic;
 
+    private Integer reportCount;
+
     private String type;
 
     private String location;
@@ -38,7 +40,7 @@ public class PublicedEntity {
 
     public PublicedEntity(String shareId, String userId, String userName, String userHead, Integer userSex,
                           String shareName, String shareUrl, String shareText, Date createTime, Integer isPublic,
-                          String type, String location, Double latitude, Double longitude, List<Goods> goodsList,
+                          Integer reportCount, String type, String location, Double latitude, Double longitude, List<Goods> goodsList,
                           List<ReviewEntity> reviewEntities) {
         this.shareId = shareId;
         this.userId = userId;
@@ -50,6 +52,7 @@ public class PublicedEntity {
         this.shareText = shareText;
         this.createTime = createTime;
         this.isPublic = isPublic;
+        this.reportCount = reportCount;
         this.type = type;
         this.location = location;
         this.latitude = latitude;
@@ -60,7 +63,7 @@ public class PublicedEntity {
 
     public PublicedEntity(String shareId, String userId, String userName, String userHead, Integer userSex,
                           String shareName, String shareUrl, String shareText, Date createTime, Integer isPublic,
-                          String type, String location, Double latitude, Double longitude) {
+                          Integer reportCount, String type, String location, Double latitude, Double longitude) {
         this.shareId = shareId;
         this.userId = userId;
         this.userName = userName;
@@ -71,10 +74,19 @@ public class PublicedEntity {
         this.shareText = shareText;
         this.createTime = createTime;
         this.isPublic = isPublic;
+        this.reportCount = reportCount;
         this.type = type;
         this.location = location;
         this.latitude = latitude;
         this.longitude = longitude;
+    }
+
+    public Integer getReportCount() {
+        return reportCount;
+    }
+
+    public void setReportCount(Integer reportCount) {
+        this.reportCount = reportCount;
     }
 
     public Double getLatitude() {

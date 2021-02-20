@@ -210,7 +210,10 @@ public class UserController {
         hashMap.put("peopleDes",user.getDes());
         hashMap.put("peopleAge",user.getAge());
         //用户是否关注了该人
-        if (iPartnerService.getByUserAndPartner(userId,peopleId)!=null){
+        Partner patrner = iPartnerService.getByUserAndPartner(userId, peopleId);
+        if (patrner!=null){
+            hashMap.put("setName",patrner.getName());
+            hashMap.put("partnerId",patrner.getId());
             hashMap.put("isConcern",true);
         }else {
             hashMap.put("isConcern",false);
@@ -461,5 +464,52 @@ public class UserController {
             iFileService.deleteFIle(msgDeleteEntity.type,msgDeleteEntity.path);
         }
         return ServiceResponse.createBySuccess();
+    }
+
+    /**
+     * 设置新密码
+     */
+    @RequestMapping(value = "resetPassword",method = RequestMethod.POST)
+    public ServiceResponse updatePassword(@RequestBody HashMap map){
+        if (map==null)
+            return ServiceResponse.createByIllegalArgument();
+        String phone = (String) map.get("phone");
+        String password = (String) map.get("password");
+        if (StringUtils.isBlank(phone) || StringUtils.isBlank(password)){
+            return ServiceResponse.createByErrorMessage("参数不能为空");
+        }
+        return iUserService.resetPassword(phone,password);
+    }
+
+    /**
+     * 修改密码
+     */
+    @RequestMapping(value = "changePassword",method = RequestMethod.POST)
+    public ServiceResponse changePassword(@RequestBody HashMap map){
+        if (map==null)
+            return ServiceResponse.createByIllegalArgument();
+        String oldPassword = (String) map.get("oldPassword");
+        String userId = (String) map.get("userId");
+        String newPassword = (String) map.get("newPassword");
+        if (StringUtils.isBlank(oldPassword) || StringUtils.isBlank(userId) || StringUtils.isBlank(newPassword)){
+            return ServiceResponse.createByErrorMessage("参数不能为空");
+        }
+        return iUserService.resetPassword(oldPassword,newPassword,userId);
+    }
+
+    /**
+     * 设置备注
+     */
+    @RequestMapping(value = "setNote",method = RequestMethod.POST)
+    public ServiceResponse setNote(@RequestBody HashMap map){
+        if (map==null)
+            return ServiceResponse.createByIllegalArgument();
+        String id = (String) map.get("id");
+        String name = (String) map.get("name");
+        if (StringUtils.isBlank(id) || StringUtils.isBlank(name)){
+            return ServiceResponse.createByErrorMessage("参数不能为空");
+        }
+
+        return iPartnerService.setNote(id,name);
     }
 }

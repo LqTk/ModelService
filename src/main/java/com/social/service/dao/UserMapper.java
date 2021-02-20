@@ -24,7 +24,10 @@ public interface UserMapper {
 
     User selectLogin(@Param("name") String name, @Param("password") String password);
 
-    int updatePasswordByUsername(@Param("name") String name, @Param("password") String password);
+    int updatePasswordByUserId(@Param("id") String id, @Param("password") String password);
+
+    int updatePasswordByPhone(@Param("phone") String phone, @Param("password") String password);
 
     int updataResigtrationId(@Param("userId")String userId, @Param("registrationId")String registrationId);
+
 }

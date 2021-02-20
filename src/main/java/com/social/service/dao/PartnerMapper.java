@@ -24,4 +24,6 @@ public interface PartnerMapper {
     List<PartnerEntity> getConcerns(String userId);
 
     Partner selectByUserIdAndPartnerId(@Param("userId") String userId, @Param("partnerId") String partnerId);
+
+    int updateNoteName(@Param("id") String id, @Param("name") String name);
 }

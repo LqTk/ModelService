@@ -6,11 +6,12 @@
       <idArg column="id" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="userId" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="partnerId" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="name" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
-    id, userId, partnerId, time
+    id, userId, partnerId, name, time
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select
@@ -23,9 +24,9 @@
     where id = #{id,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.social.service.domain.Partner">
-    insert into social_partner (id, userId, partnerId, time
+    insert into social_partner (id, userId, partnerId, name, time
       )
-    values (#{id,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{partnerId,jdbcType=VARCHAR},now()
+    values (#{id,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, #{partnerId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},now()
       )
   </insert>
   <insert id="insertSelective" parameterType="com.social.service.domain.Partner">
@@ -40,6 +41,9 @@
       <if test="partnerId != null">
         partnerId,
       </if>
+      <if test="name != null">
+        name,
+      </if>
       time,
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -51,6 +55,9 @@
       </if>
       <if test="partnerId != null">
         #{partnerId,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
       </if>
       now(),
     </trim>
@@ -64,6 +71,9 @@
       <if test="partnerId != null">
         partnerId = #{partnerId,jdbcType=VARCHAR},
       </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
       time = now(),
     </set>
     where id = #{id,jdbcType=VARCHAR}
@@ -72,6 +82,7 @@
     update social_partner
     set userId = #{userId,jdbcType=VARCHAR},
       partnerId = #{partnerId,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
       time = now()
     where id = #{id,jdbcType=VARCHAR}
   </update>
@@ -89,12 +100,13 @@
       <arg column="peopleHead" javaType="java.lang.String" jdbcType="VARCHAR"/>
       <arg column="peopleSex" javaType="java.lang.Integer" jdbcType="INTEGER"/>
       <arg column="peopleDes" javaType="java.lang.String" jdbcType="VARCHAR"/>
+      <arg column="setName" javaType="java.lang.String" jdbcType="VARCHAR"/>
       <arg column="time" javaType="java.util.Date" jdbcType="TIMESTAMP"/>
     </constructor>
   </resultMap>
 
   <select id="getPartners" parameterType="java.lang.String" resultMap="partEntity">
-    select a.name as peopleName, a.id as peopleId, a.img as peopleHead, a.sex as peopleSex, a.des as peopleDes, b.time
+    select a.name as peopleName, a.id as peopleId, a.img as peopleHead, a.sex as peopleSex, a.des as peopleDes, b.name as setName, b.time
     from social_partner as b
     join social_user as a
     join social_partner as e
@@ -102,7 +114,7 @@
   </select>
 
   <select id="getConcerns" parameterType="java.lang.String" resultMap="partEntity">
-    select a.name as peopleName, a.id as peopleId, a.img as peopleHead, a.sex as peopleSex, a.des as peopleDes, b.time
+    select a.name as peopleName, a.id as peopleId, a.img as peopleHead, a.sex as peopleSex, a.des as peopleDes, b.name as setName, b.time
     from social_partner as b
     join social_user as a
     where b.userId = #{userId} and b.partnerId=a.id order by b.time asc
@@ -112,5 +124,8 @@
     select * from social_partner where userId=#{userId} and partnerId=#{partnerId}
   </select>
 
-
+  <update id="updateNoteName" parameterType="map">
+    update social_partner
+     set name=#{name} where id=#{id}
+  </update>
 </mapper>

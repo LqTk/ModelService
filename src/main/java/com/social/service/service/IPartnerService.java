@@ -13,4 +13,6 @@ public interface IPartnerService {
     public ServiceResponse getConcerns(String userId);
 
     public Partner getByUserAndPartner(String userId, String partnerId);
+
+    public ServiceResponse setNote(String id, String name);
 }

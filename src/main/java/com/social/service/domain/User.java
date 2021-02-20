@@ -193,7 +193,7 @@ public class User {
     }
 
     public double getLatitude() {
-        return latitude;
+        return latitude==null?0.0:latitude;
     }
 
     public void setLatitude(Double latitude) {
@@ -201,7 +201,7 @@ public class User {
     }
 
     public double getLongitude() {
-        return longitude;
+        return longitude==null?0.0:longitude;
     }
 
     public void setLongitude(Double longitude) {

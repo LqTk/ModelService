@@ -65,7 +65,7 @@ public class UserService implements IUserService {
         Date date = new Date();
         int yearage = Integer.valueOf(year.format(date))-18;
         user.setBirthday(yearage+"-01-01");
-        user.setDes("欢迎使用！");
+        user.setDes("nice to meet you!");
         int rowCount = userMapper.insert(user);
         if (rowCount>0){
             return ServiceResponse.createBySuccessMessage("注册成功");
@@ -109,6 +109,7 @@ public class UserService implements IUserService {
         return ServiceResponse.createBySuccessData(user);
     }
 
+    @Override
     public ServiceResponse resetPassword(String password, String newPassword, String userId) {
         User user = userMapper.selectByPrimaryKey(userId);
         if (null == user){
@@ -119,11 +120,20 @@ public class UserService implements IUserService {
             return ServiceResponse.createByErrorMessage("原密码错误");
         }
         String newEncryptPassword = EncryptUtil.encoderUTF8(newPassword);
-        int rowCount = userMapper.updatePasswordByUsername(user.getName(),newEncryptPassword);
+        int rowCount = userMapper.updatePasswordByUserId(user.getId(),newEncryptPassword);
         if (rowCount>0){
             return ServiceResponse.createBySuccessMessage("重置密码成功");
         }
         return ServiceResponse.createByErrorMessage("重置密码失败");
+    }
+
+    @Override
+    public ServiceResponse resetPassword(String phone, String password) {
+        int i = userMapper.updatePasswordByPhone(phone, EncryptUtil.encoderUTF8(password));
+        if (i>0){
+            return ServiceResponse.createBySuccessMessage("重置成功");
+        }
+        return ServiceResponse.createByErrorMessage("重置失败");
     }
 
     @Override
@@ -202,4 +212,5 @@ public class UserService implements IUserService {
         return null;
         return userMapper.selectByPrimaryKey(userId);
     }
+
 }

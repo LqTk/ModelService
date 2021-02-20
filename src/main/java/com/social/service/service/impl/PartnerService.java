@@ -12,7 +12,9 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service("iPartnerService")
 public class PartnerService implements IPartnerService {
@@ -36,7 +38,10 @@ public class PartnerService implements IPartnerService {
             JPushClientUtil.sendToRegistrationId(user.getRegistrationid(),"好友关注成功","好友关注结果","关注成功","");
             if (partnerUser.getRegistrationid()!=null)
             JPushClientUtil.sendToRegistrationId(partnerUser.getRegistrationid(),"消息提示","有人关注了您",user.getName()+"关注了您","");
-            return ServiceResponse.createBySuccessMessage("关注成功");
+//            return ServiceResponse.createBySuccessMessage("关注成功");
+            Map m=new HashMap();
+            m.put("friendId",partner.getId());
+            return ServiceResponse.createBySuccessData(m);
         }
         return ServiceResponse.createByErrorMessage("关注失败");
     }
@@ -82,5 +87,14 @@ public class PartnerService implements IPartnerService {
     public Partner getByUserAndPartner(String userId, String partnerId) {
         Partner partner = partnerMapper.selectByUserIdAndPartnerId(userId, partnerId);
         return partner;
+    }
+
+    @Override
+    public ServiceResponse setNote(String id, String name) {
+        int i = partnerMapper.updateNoteName(id, name);
+        if (i>0){
+            return ServiceResponse.createBySuccessMessage("修改成功");
+        }
+        return ServiceResponse.createByErrorMessage("修改失败");
     }
 }

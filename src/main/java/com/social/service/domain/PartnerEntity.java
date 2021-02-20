@@ -8,15 +8,25 @@ public class PartnerEntity {
     String peopleHead;
     Integer peopleSex;
     String peopleDes;
+    String setName;
     Date time;
 
-    public PartnerEntity(String peopleName, String peopleId, String peopleHead, Integer peopleSex, String peopleDes, Date time) {
+    public PartnerEntity(String peopleName, String peopleId, String peopleHead, Integer peopleSex, String peopleDes, String setName, Date time) {
         this.peopleName = peopleName;
         this.peopleId = peopleId;
         this.peopleHead = peopleHead;
         this.peopleSex = peopleSex;
         this.peopleDes = peopleDes;
+        this.setName = setName;
         this.time = time;
+    }
+
+    public String getSetName() {
+        return setName;
+    }
+
+    public void setSetName(String setName) {
+        this.setName = setName;
     }
 
     public String getPeopleName() {

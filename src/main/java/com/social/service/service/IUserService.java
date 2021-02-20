@@ -19,6 +19,8 @@ public interface IUserService {
 
     public ServiceResponse resetPassword(String password, String newPassword, String userId);
 
+    public ServiceResponse resetPassword(String phone, String password);
+
     public ServiceResponse updateUserInfo(Map map);
 
     public ServiceResponse updateUserRegistrationId(String userId, String registrationId);
@@ -28,4 +30,5 @@ public interface IUserService {
     public ServiceResponse clearRegistrationId(String userId);
 
     public User getUserByUserId(String userId);
+
 }
