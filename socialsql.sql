@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80017
 File Encoding         : 65001
 
-Date: 2021-02-05 17:22:42
+Date: 2021-02-20 17:25:17
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -84,6 +84,7 @@ CREATE TABLE `social_partner` (
   `id` varchar(255) NOT NULL,
   `userId` varchar(255) DEFAULT NULL,
   `partnerId` varchar(255) DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
   `time` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -104,6 +105,7 @@ CREATE TABLE `social_public` (
   `location` varchar(255) DEFAULT NULL,
   `latitude` double(11,6) DEFAULT NULL,
   `longitude` double(11,6) DEFAULT NULL,
+  `reportCount` int(2) DEFAULT '0',
   PRIMARY KEY (`shareId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
