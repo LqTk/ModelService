@@ -141,9 +141,10 @@
   </resultMap>
 
   <select id="selectAllChatFromToId" parameterType="string" resultMap="selectMap">
-    select a.chatId,a.msgContent,a.msgType,a.voiceTime,b.id as senderId,b.img as senderAvatar,b.name as senderName,a.chatTime
-    from social_chat as a join social_user as b
-    where a.toId=#{toId} and b.id=a.talkId
+    select a.chatId,a.msgContent,a.msgType,a.voiceTime,b.id as senderId,b.img as senderAvatar,b.name as senderName, a.chatTime
+    from social_chat as a
+    join social_user as b
+    where a.toId=#{toId} and b.id=a.talkId order by a.chatTime asc
   </select>
 
   <select id="selectAllChatFromTalkId" parameterType="string" resultMap="BaseResultMap">

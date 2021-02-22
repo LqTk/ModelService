@@ -225,10 +225,16 @@
     and password = #{password}
   </select>
 
-  <update id="updatePasswordByUsername" parameterType="map">
+  <update id="updatePasswordByUserId" parameterType="map">
     update social_user
     set password=#{password},update_time=now()
-    where name = #{name} or phone = #{name}
+    where id = #{id}
+  </update>
+
+  <update id="updatePasswordByPhone" parameterType="map">
+    update social_user
+    set password=#{password},update_time=now()
+    where phone = #{phone}
   </update>
 
   <update id="updataResigtrationId" parameterType="map">

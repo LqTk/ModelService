@@ -15,6 +15,7 @@ public class ChatEntity {
     public String senderId;
     public String senderAvatar;
     public String senderName;
+    public String setName;
     public int width;
     public int height;
     public Date chatTime;
@@ -22,7 +23,8 @@ public class ChatEntity {
     public ChatEntity() {
     }
 
-    public ChatEntity(String chatId, String msgContent, String msgType, String voiceTime, String senderId, String senderAvatar, String senderName, Date chatTime) {
+    public ChatEntity(String chatId, String msgContent, String msgType, String voiceTime, String senderId, String senderAvatar,
+                      String senderName, Date chatTime) {
         this.chatId = chatId;
         this.msgContent = msgContent;
         this.msgType = msgType;
@@ -35,6 +37,14 @@ public class ChatEntity {
 
     public int getWidth() {
         return width;
+    }
+
+    public String getSetName() {
+        return setName;
+    }
+
+    public void setSetName(String setName) {
+        this.setName = setName;
     }
 
     public void setWidth(int width) {

@@ -52,12 +52,6 @@ public class ChatService implements IChatService {
         List<ChatEntity> chats = chatMapper.selectAllChatFromToId(toId);
 
         if (chats!=null){
-            chats.sort(new Comparator<ChatEntity>() {
-                @Override
-                public int compare(ChatEntity o1, ChatEntity o2) {
-                    return o1.chatTime.getTime()>o2.chatTime.getTime()?1:-1;
-                }
-            });
             return ServiceResponse.createBySuccessData(chats);
         }
         return ServiceResponse.createByErrorMessage("获取失败");
