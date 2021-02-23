@@ -20,7 +20,7 @@ public class ReportPublishService implements IReportPublishService {
 
     @Override
     public ServiceResponse insert(ReportPublishWithBLOBs reportPublish) {
-        ReportPublishWithBLOBs reportPublishWithBLOBs = reportPublishMapper.selectByUserIdAndPbulishId(reportPublish.getPublishid(), reportPublish.getReportuserid());
+        ReportPublishWithBLOBs reportPublishWithBLOBs = reportPublishMapper.selectByUserIdAndPublishId(reportPublish.getPublishid(), reportPublish.getReportuserid());
         if (reportPublishWithBLOBs!=null) {
             int i = reportPublishMapper.updateImg(reportPublishWithBLOBs.getReportid(), reportPublish.getText(), reportPublish.getImg());
             if (i>0){

@@ -2,6 +2,7 @@ package com.social.service.dao;
 
 import com.social.service.domain.ReportPublish;
 import com.social.service.domain.ReportPublishWithBLOBs;
+import org.apache.ibatis.annotations.Param;
 
 public interface ReportPublishMapper {
     int deleteByPrimaryKey(String reportid);
@@ -18,7 +19,7 @@ public interface ReportPublishMapper {
 
     int updateByPrimaryKey(ReportPublish record);
 
-    ReportPublishWithBLOBs selectByUserIdAndPbulishId(String publishId, String userId);
+    ReportPublishWithBLOBs selectByUserIdAndPublishId(@Param("publishId") String publishId, @Param("userId") String userId);
 
-    int updateImg(String reportId, String text, String img);
+    int updateImg(@Param("reportId") String reportId, @Param("text") String text, @Param("img") String img);
 }

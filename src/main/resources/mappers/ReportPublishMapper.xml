@@ -111,7 +111,7 @@
     where reportId = #{reportid,jdbcType=VARCHAR}
   </update>
 
-  <select id="selectByUserIdAndPbulishId" parameterType="map" resultMap="ResultMapWithBLOBs">
+  <select id="selectByUserIdAndPublishId" parameterType="map" resultMap="ResultMapWithBLOBs">
     select
     <include refid="Base_Column_List" />
     ,
