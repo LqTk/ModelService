@@ -74,5 +74,7 @@
         enableDeleteByExample="false" enableSelectByExample="fasle" selectByExampleQueryId="fasle"/>-->
         <!--<table tableName="social_msg" domainObjectName="Msg" enableCountByExample="false" enableUpdateByExample="false"
         enableDeleteByExample="false" enableSelectByExample="fasle" selectByExampleQueryId="fasle"/>-->
+        <!--<table tableName="social_report_publish" domainObjectName="ReportPublish" enableCountByExample="false" enableUpdateByExample="false"
+        enableDeleteByExample="false" enableSelectByExample="fasle" selectByExampleQueryId="fasle"/>-->
     </context>
 </generatorConfiguration>

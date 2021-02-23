@@ -31,4 +31,5 @@ public class Const {
     public static String upLoadVideo = "social/chatVideo";
     public static String upLoadVoice = "social/chatVoice";
     public static String publishFile = "social/publish";
+    public static String reportPublishFile = "social/report/publish";
 }

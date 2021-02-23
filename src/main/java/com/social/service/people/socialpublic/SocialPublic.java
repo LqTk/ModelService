@@ -6,6 +6,7 @@ import com.social.service.domain.*;
 import com.social.service.service.IFileService;
 import com.social.service.service.IMsgService;
 import com.social.service.service.IPublicService;
+import com.social.service.service.IReportPublishService;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.UUID;
 
 @RestController
@@ -27,6 +29,9 @@ public class SocialPublic {
 
     @Autowired
     IFileService iFileService;
+
+    @Autowired
+    IReportPublishService iReportPublishService;
 
     @RequestMapping(value = "publish", method = RequestMethod.POST)
     public ServiceResponse publish(@RequestBody SPublic sPublic){
@@ -137,13 +142,26 @@ public class SocialPublic {
     }
 
     /**
-     * 用户聊天信息
      * @param file 上传的文件
      * @return
      */
     @RequestMapping(value = "uploadFile", method = RequestMethod.POST)
     public ServiceResponse uploadFile(@RequestParam(value = "file",required = false) MultipartFile file){
         String filePath = Const.publishFile;
+        return saveUploadFile(file, filePath);
+    }
+
+    /**
+     * @param file 上传的文件
+     * @return
+     */
+    @RequestMapping(value = "reportFile", method = RequestMethod.POST)
+    public ServiceResponse reportFile(@RequestParam(value = "file",required = false) MultipartFile file){
+        String filePath = Const.reportPublishFile;
+        return saveUploadFile(file, filePath);
+    }
+
+    private ServiceResponse saveUploadFile(@RequestParam(value = "file", required = false) MultipartFile file, String filePath) {
         String uploadUrl = iFileService.upload(file, Const.uploadDir+filePath);
         File file1 = new File(uploadUrl);
         if (file1.exists()){
@@ -152,5 +170,26 @@ public class SocialPublic {
             return ServiceResponse.createBySuccessData(map);
         }
         return ServiceResponse.createByErrorMessage("上传失败");
+    }
+
+    /**
+     * 举报
+     */
+    @RequestMapping(value = "reportPublish",method = RequestMethod.POST)
+    public ServiceResponse reportPublish(@RequestBody Map map){
+        String publishId = (String) map.get("publishId");
+        String reportUserId = (String) map.get("userId");
+        String text = (String) map.get("text");
+        String img = (String) map.get("img");
+        if (StringUtils.isBlank(publishId)||StringUtils.isBlank(reportUserId)||StringUtils.isBlank(text)){
+            return ServiceResponse.createByErrorMessage("参数不能为空");
+        }
+        ReportPublishWithBLOBs reportPublish = new ReportPublishWithBLOBs();
+        reportPublish.setReportid(UUID.randomUUID().toString().replaceAll("-",""));
+        reportPublish.setImg(img);
+        reportPublish.setText(text);
+        reportPublish.setPublishid(publishId);
+        reportPublish.setReportuserid(reportUserId);
+        return iReportPublishService.insert(reportPublish);
     }
 }

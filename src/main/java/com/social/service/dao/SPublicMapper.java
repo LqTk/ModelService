@@ -26,4 +26,6 @@ public interface SPublicMapper {
     PublicedEntity selectByShareId(String shareid);
 
     int getAllCount();
+
+    int updataReportCount(int count,String publishId);
 }

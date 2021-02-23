@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80017
 File Encoding         : 65001
 
-Date: 2021-02-22 12:32:41
+Date: 2021-02-23 17:26:36
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -107,6 +107,19 @@ CREATE TABLE `social_public` (
   `longitude` double(11,6) DEFAULT NULL,
   `reportCount` int(2) DEFAULT '0',
   PRIMARY KEY (`shareId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- ----------------------------
+-- Table structure for social_report_publish
+-- ----------------------------
+DROP TABLE IF EXISTS `social_report_publish`;
+CREATE TABLE `social_report_publish` (
+  `reportId` varchar(32) NOT NULL,
+  `publishId` varchar(32) NOT NULL,
+  `reportUserId` varchar(32) NOT NULL,
+  `text` text,
+  `img` text,
+  PRIMARY KEY (`reportId`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- ----------------------------

@@ -261,4 +261,10 @@
   <select id="getAllCount" resultType="java.lang.Integer">
     select count(*) from social_public
   </select>
+
+  <update id="updataReportCount" parameterType="map">
+    update social_public
+    set reportCount=#{count}
+    where shareId=#{publishId}
+  </update>
 </mapper>

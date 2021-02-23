@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.social.service.dao.ReportPublishMapper">
+  <resultMap id="BaseResultMap" type="com.social.service.domain.ReportPublish">
+    <constructor>
+      <idArg column="reportId" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="publishId" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="reportUserId" javaType="java.lang.String" jdbcType="VARCHAR" />
+    </constructor>
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.social.service.domain.ReportPublishWithBLOBs">
+    <constructor>
+      <idArg column="reportId" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="publishId" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="reportUserId" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="text" javaType="java.lang.String" jdbcType="LONGVARCHAR" />
+      <arg column="img" javaType="java.lang.String" jdbcType="LONGVARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    reportId, publishId, reportUserId
+  </sql>
+  <sql id="Blob_Column_List">
+    text, img
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from social_report_publish
+    where reportId = #{reportid,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from social_report_publish
+    where reportId = #{reportid,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.social.service.domain.ReportPublishWithBLOBs">
+    insert into social_report_publish (reportId, publishId, reportUserId,
+      text, img)
+    values (#{reportid,jdbcType=VARCHAR}, #{publishid,jdbcType=VARCHAR}, #{reportuserid,jdbcType=VARCHAR},
+      #{text,jdbcType=LONGVARCHAR}, #{img,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.social.service.domain.ReportPublishWithBLOBs">
+    insert into social_report_publish
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        reportId,
+      </if>
+      <if test="publishid != null">
+        publishId,
+      </if>
+      <if test="reportuserid != null">
+        reportUserId,
+      </if>
+      <if test="text != null">
+        text,
+      </if>
+      <if test="img != null">
+        img,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="reportid != null">
+        #{reportid,jdbcType=VARCHAR},
+      </if>
+      <if test="publishid != null">
+        #{publishid,jdbcType=VARCHAR},
+      </if>
+      <if test="reportuserid != null">
+        #{reportuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="text != null">
+        #{text,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="img != null">
+        #{img,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.social.service.domain.ReportPublishWithBLOBs">
+    update social_report_publish
+    <set>
+      <if test="publishid != null">
+        publishId = #{publishid,jdbcType=VARCHAR},
+      </if>
+      <if test="reportuserid != null">
+        reportUserId = #{reportuserid,jdbcType=VARCHAR},
+      </if>
+      <if test="text != null">
+        text = #{text,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="img != null">
+        img = #{img,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where reportId = #{reportid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.social.service.domain.ReportPublishWithBLOBs">
+    update social_report_publish
+    set publishId = #{publishid,jdbcType=VARCHAR},
+      reportUserId = #{reportuserid,jdbcType=VARCHAR},
+      text = #{text,jdbcType=LONGVARCHAR},
+      img = #{img,jdbcType=LONGVARCHAR}
+    where reportId = #{reportid,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.social.service.domain.ReportPublish">
+    update social_report_publish
+    set publishId = #{publishid,jdbcType=VARCHAR},
+      reportUserId = #{reportuserid,jdbcType=VARCHAR}
+    where reportId = #{reportid,jdbcType=VARCHAR}
+  </update>
+
+  <select id="selectByUserIdAndPbulishId" parameterType="map" resultMap="ResultMapWithBLOBs">
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from social_report_publish
+    where publishId=#{publishId} and reportUserId=#{userId}
+  </select>
+
+  <update id="updateImg" parameterType="map">
+    update social_report_publish
+    set text = #{text,jdbcType=LONGVARCHAR},
+      img = #{img,jdbcType=LONGVARCHAR}
+      where reportId = #{reportid}
+  </update>
+</mapper>
