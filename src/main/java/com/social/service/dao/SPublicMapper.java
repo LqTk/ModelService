@@ -27,5 +27,5 @@ public interface SPublicMapper {
 
     int getAllCount();
 
-    int updataReportCount(int count,String publishId);
+    int updataReportCount(@Param("count") int count,@Param("publishId") String publishId);
 }
