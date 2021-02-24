@@ -124,6 +124,6 @@
     update social_report_publish
     set text = #{text,jdbcType=LONGVARCHAR},
       img = #{img,jdbcType=LONGVARCHAR}
-      where reportId = #{reportid}
+      where reportId = #{reportId}
   </update>
 </mapper>

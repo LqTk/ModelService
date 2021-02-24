@@ -8,7 +8,8 @@
   <component name="ChangeListManager">
     <list default="true" id="7783714a-5c1b-4c2c-842b-c648836bef44" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/social/service/dao/SPublicMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social/service/dao/SPublicMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/SocialService_war_exploded/SocialService_war exploded.war" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SocialService_war_exploded/SocialService_war exploded.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/ReportPublishMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/ReportPublishMapper.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -46,11 +47,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/service/impl/ReportPublishService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="155">
-              <caret line="33" column="51" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="51" />
+            <state relative-caret-position="56">
+              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -59,18 +60,9 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.2.4.RELEASE/spring-web-5.2.4.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="95">
-              <caret line="107" selection-start-line="107" selection-end-line="107" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/dao/SPublicMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
+            <state relative-caret-position="750">
               <caret line="29" column="69" selection-start-line="29" selection-start-column="69" selection-end-line="29" selection-end-column="69" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -82,8 +74,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/mappers/SPublicMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="507">
-              <caret line="265" column="24" lean-forward="true" selection-start-line="265" selection-start-column="24" selection-end-line="265" selection-end-column="24" />
+            <state relative-caret-position="4350">
+              <caret line="265" column="24" selection-start-line="265" selection-start-column="24" selection-end-line="265" selection-end-column="24" />
               <folding>
                 <element signature="n#insert#1;n#mapper#0;n#!!top" />
                 <element signature="n#set#0;n#update#0;n#mapper#0;n#!!top" />
@@ -97,8 +89,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/people/socialpublic/SocialPublic.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="24" column="34" lean-forward="true" selection-start-line="23" selection-start-column="14" selection-end-line="24" selection-end-column="34" />
+            <state relative-caret-position="270">
+              <caret line="24" column="34" selection-start-line="23" selection-start-column="14" selection-end-line="24" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#delete#0;class#SocialPublic#0" />
@@ -116,8 +108,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/dao/ReportPublishMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="76">
-              <caret line="23" column="93" selection-start-line="23" selection-start-column="93" selection-end-line="23" selection-end-column="93" />
+            <state relative-caret-position="196">
+              <caret line="23" column="34" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="34" />
             </state>
           </provider>
         </entry>
@@ -125,8 +117,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/mappers/ReportPublishMapper.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="349">
-              <caret line="119" column="19" selection-start-line="119" selection-start-column="19" selection-end-line="119" selection-end-column="19" />
+            <state relative-caret-position="567">
+              <caret line="126" column="33" selection-start-line="126" selection-start-column="33" selection-end-line="126" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -241,10 +233,10 @@
         <option value="$PROJECT_DIR$/src/main/java/com/social/service/people/socialpublic/SocialPublic.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mappers/SPublicMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/social/service/service/IReportPublishService.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mappers/ReportPublishMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/social/service/service/impl/ReportPublishService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/social/service/dao/ReportPublishMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/social/service/dao/SPublicMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mappers/ReportPublishMapper.xml" />
       </list>
     </option>
   </component>
@@ -285,7 +277,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-24" />
+    <option name="x" value="-7" />
+    <option name="y" value="2" />
     <option name="width" value="1934" />
     <option name="height" value="1045" />
   </component>
@@ -297,6 +290,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -415,8 +410,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -729,7 +722,8 @@
       <workItem from="1613717608782" duration="4706000" />
       <workItem from="1613783647528" duration="14453000" />
       <workItem from="1613959841541" duration="7891000" />
-      <workItem from="1614046475077" duration="6874000" />
+      <workItem from="1614046475077" duration="6911000" />
+      <workItem from="1614131962194" duration="1853000" />
     </task>
     <task id="LOCAL-00001" summary="服务器模板搭建">
       <created>1607934807583</created>
@@ -941,17 +935,24 @@
       <option name="project" value="LOCAL" />
       <updated>1614072963443</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="举报">
+      <created>1614073051218</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1614073051218</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="438892000" />
+    <option name="totallyTimeSpent" value="440782000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-24" y="0" width="1934" height="1045" extended-state="0" />
+    <frame x="-7" y="2" width="1934" height="1045" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16221985" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12753469" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -961,8 +962,8 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.83073497" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.077951" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.51972944" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.45208567" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.51972944" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -1363,13 +1364,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/test.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="21" column="60" selection-start-line="21" selection-start-column="60" selection-end-line="21" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/test.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/service/impl/ChatService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
@@ -1478,10 +1473,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/service/IReportPublishService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="2" column="49" selection-start-line="2" selection-start-column="49" selection-end-line="2" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/dao/SPublicMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="750">
+          <caret line="29" column="69" selection-start-line="29" selection-start-column="69" selection-end-line="29" selection-end-column="69" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mappers/SPublicMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4350">
+          <caret line="265" column="24" selection-start-line="265" selection-start-column="24" selection-end-line="265" selection-end-column="24" />
+          <folding>
+            <element signature="n#insert#1;n#mapper#0;n#!!top" />
+            <element signature="n#set#0;n#update#0;n#mapper#0;n#!!top" />
+            <element signature="n#select#2;n#mapper#0;n#!!top" />
+            <element signature="n#resultMap#2;n#mapper#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/people/socialpublic/SocialPublic.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="24" column="34" lean-forward="true" selection-start-line="23" selection-start-column="14" selection-end-line="24" selection-end-column="34" />
+        <state relative-caret-position="270">
+          <caret line="24" column="34" selection-start-line="23" selection-start-column="14" selection-end-line="24" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#delete#0;class#SocialPublic#0" />
@@ -1495,19 +1520,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mappers/SPublicMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="265" column="24" lean-forward="true" selection-start-line="265" selection-start-column="24" selection-end-line="265" selection-end-column="24" />
-          <folding>
-            <element signature="n#insert#1;n#mapper#0;n#!!top" />
-            <element signature="n#set#0;n#update#0;n#mapper#0;n#!!top" />
-            <element signature="n#select#2;n#mapper#0;n#!!top" />
-            <element signature="n#resultMap#2;n#mapper#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/domain/ReportPublishWithBLOBs.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -1515,48 +1527,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/service/IReportPublishService.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/dao/ReportPublishMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="2" column="49" selection-start-line="2" selection-start-column="49" selection-end-line="2" selection-end-column="49" />
+        <state relative-caret-position="196">
+          <caret line="23" column="34" selection-start-line="23" selection-start-column="26" selection-end-line="23" selection-end-column="34" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mappers/ReportPublishMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="119" column="19" selection-start-line="119" selection-start-column="19" selection-end-line="119" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/dao/ReportPublishMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="23" column="93" selection-start-line="23" selection-start-column="93" selection-end-line="23" selection-end-column="93" />
+        <state relative-caret-position="567">
+          <caret line="126" column="33" selection-start-line="126" selection-start-column="33" selection-end-line="126" selection-end-column="33" />
         </state>
       </provider>
     </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.2.4.RELEASE/spring-web-5.2.4.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
+        <state relative-caret-position="225">
           <caret line="107" selection-start-line="107" selection-end-line="107" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/service/impl/ReportPublishService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="33" column="51" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="51" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/dao/SPublicMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="29" column="69" selection-start-line="29" selection-start-column="69" selection-end-line="29" selection-end-column="69" />
+        <state relative-caret-position="56">
+          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
