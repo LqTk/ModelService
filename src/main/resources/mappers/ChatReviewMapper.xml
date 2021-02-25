@@ -5,6 +5,7 @@
     <constructor>
       <idArg column="reviewChatId" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="reviewId" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="publishId" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="talkId" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="toId" javaType="java.lang.String" jdbcType="VARCHAR" />
       <arg column="chatText" javaType="java.lang.String" jdbcType="LONGVARCHAR" />
@@ -12,7 +13,7 @@
     </constructor>
   </resultMap>
   <sql id="Base_Column_List">
-    reviewChatId, reviewId, talkId, toId, chatText, chatTime
+    reviewChatId, reviewId,  publishId, talkId, toId, chatText, chatTime
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select
@@ -25,10 +26,10 @@
     where reviewChatId = #{reviewChatId,jdbcType=VARCHAR}
   </delete>
   <insert id="insert" parameterType="com.social.service.domain.ChatReview">
-    insert into social_chat_review (reviewChatId, reviewId, talkId,
+    insert into social_chat_review (reviewChatId, reviewId, publishId, talkId,
       toId, chatText, chatTime
       )
-    values (#{reviewChatId,jdbcType=VARCHAR}, #{reviewId,jdbcType=VARCHAR}, #{talkId,jdbcType=VARCHAR},
+    values (#{reviewChatId,jdbcType=VARCHAR}, #{reviewId,jdbcType=VARCHAR}, #{publishId,jdbcType=VARCHAR}, #{talkId,jdbcType=VARCHAR},
       #{toId,jdbcType=VARCHAR}, #{chatText,jdbcType=LONGVARCHAR}, now()
       )
   </insert>
@@ -40,6 +41,9 @@
       </if>
       <if test="reviewId != null">
         reviewId,
+      </if>
+      <if test="publishId != null">
+        publishId,
       </if>
       <if test="talkId != null">
         talkId,
@@ -61,6 +65,9 @@
       <if test="reviewId != null">
         #{reviewId,jdbcType=VARCHAR},
       </if>
+      <if test="publishId != null">
+        #{publishId,jdbcType=VARCHAR},
+      </if>
       <if test="talkId != null">
         #{talkId,jdbcType=VARCHAR},
       </if>
@@ -81,6 +88,9 @@
       <if test="reviewId != null">
         reviewId = #{reviewId,jdbcType=VARCHAR},
       </if>
+      <if test="publishId != null">
+        publishId = #{publishId,jdbcType=VARCHAR},
+      </if>
       <if test="talkId != null">
         talkId = #{talkId,jdbcType=VARCHAR},
       </if>
@@ -99,6 +109,7 @@
   <update id="updateByPrimaryKey" parameterType="com.social.service.domain.ChatReview">
     update social_chat_review
     set reviewId = #{reviewId,jdbcType=VARCHAR},
+      publishId = #{publishId,jdbcType=VARCHAR},
       talkId = #{talkId,jdbcType=VARCHAR},
       toId = #{toId,jdbcType=VARCHAR},
       chatText = #{chatText,jdbcType=LONGVARCHAR},
@@ -118,5 +129,10 @@
   <delete id="deleteByReviewId" parameterType="java.lang.String">
     delete from social_chat_review
     where reviewId = #{reviewId,jdbcType=VARCHAR}
+  </delete>
+
+  <delete id="deleteByPublishId" parameterType="java.lang.String">
+    delete from social_chat_review
+    where publishId = #{publishId}
   </delete>
 </mapper>

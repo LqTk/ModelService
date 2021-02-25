@@ -239,14 +239,14 @@
     where a.publicId=#{selectId} and b.id=a.peopleId order by a.reviewTime asc
   </select>
 
-  <select id="getSocialPublicSize" resultMap="searchPublish">
+  <select id="getSocialPublicSize" resultMap="searchPublish" parameterType="java.lang.Integer">
     select
      a.shareId, a.userId, b.name as userName, b.img as userHead, b.sex as userSex, a.shareName, a.shareUrl,
      a.shareText, a.createTime, a.isPublic, a.reportCount, a.type, a.location, a.latitude, a.longitude
      from social_public as a
      join social_user as b
      where b.id = a.userId and a.isPublic &lt;&gt; 2 and a.reportCount &lt; 6
-     order by rand() limit 10
+     order by rand() limit #{size}
   </select>
 
   <select id="getSocialByUserId" parameterType="map" resultMap="searchPublish">

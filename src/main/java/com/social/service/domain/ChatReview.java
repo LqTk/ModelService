@@ -7,6 +7,8 @@ public class ChatReview {
 
     private String reviewId;
 
+    private String publishId;
+
     private String talkId;
 
     private String toId;
@@ -15,9 +17,10 @@ public class ChatReview {
 
     private Date chatTime;
 
-    public ChatReview(String reviewchatId, String reviewId, String talkId, String toId, String chatText, Date chatTime) {
+    public ChatReview(String reviewchatId, String reviewId, String publishId, String talkId, String toId, String chatText, Date chatTime) {
         this.reviewChatId = reviewchatId;
         this.reviewId = reviewId;
+        this.publishId = publishId;
         this.talkId = talkId;
         this.toId = toId;
         this.chatText = chatText;
@@ -26,6 +29,14 @@ public class ChatReview {
 
     public ChatReview() {
         super();
+    }
+
+    public String getPublishId() {
+        return publishId;
+    }
+
+    public void setPublishId(String publishId) {
+        this.publishId = publishId;
     }
 
     public String getReviewChatId() {

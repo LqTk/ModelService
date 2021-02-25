@@ -4,6 +4,7 @@ import com.social.service.common.Const;
 import com.social.service.common.ServiceResponse;
 import com.social.service.dao.*;
 import com.social.service.domain.*;
+import com.social.service.service.IFileService;
 import com.social.service.service.IPublicService;
 import com.social.service.util.JPushClientUtil;
 import org.apache.commons.lang3.StringUtils;
@@ -35,6 +36,12 @@ public class PublicService implements IPublicService {
     @Autowired
     MsgMapper msgMapper;
 
+    @Autowired
+    private IFileService iFileService;
+
+    @Autowired
+    ReportPublishMapper reportPublishMapper;
+
     @Override
     public ServiceResponse insert(SPublic pb) {
         if (pb == null){
@@ -56,19 +63,38 @@ public class PublicService implements IPublicService {
             return ServiceResponse.createByIllegalArgument();
         }
         PublicedEntity publicedEntity = sPublicMapper.selectByPrimaryKey(pbId);
-        List<Review> reviews = reviewMapper.selectByPbId(pbId);
-        if (reviews!=null && reviews.size()>0){
+//        List<Review> reviews = reviewMapper.selectByPbId(pbId);
+        /*if (reviews!=null && reviews.size()>0){
             for (Review review:reviews){
                 deleteReview(review.getReviewId());
             }
-        }
+        }*/
+        //删除评论中的评论
+        chatReviewMapper.deleteByPublishId(pbId);
+        //删除评论
+        reviewMapper.deleteByShareId(pbId);
+        //删除点赞
         goodsMapper.deleteByPbulishId(pbId);
+        //删除消息
         msgMapper.deleteByPublishId(pbId);
         User user = userMapper.selectByPrimaryKey(publicedEntity.getUserId());
         if (user != null && !StringUtils.isBlank(user.getRegistrationid()))
             JPushClientUtil.sendMessageToAll(user.getRegistrationid(), "有新消息", "新评论", "msgId", "");
 
+        //删除举报
+        reportPublishMapper.deleteByPublishId(pbId);
 
+        //删除发布的图片视频
+        if (publicedEntity.getType().equals(Const.SHARE_PIC)){
+            String[] urls = publicedEntity.getShareUrl().split(";");
+            for (String str:urls){
+                iFileService.deleteFile(Const.SHARE_PIC,str);
+            }
+        }else if (publicedEntity.getType().equals(Const.SHARE_VIDEO)){
+            iFileService.deleteFile(Const.SHARE_PIC,publicedEntity.getShareUrl());
+        }
+
+        //删除内容
         int i = sPublicMapper.deleteByPrimaryKey(pbId);
         if (i>0){
             return ServiceResponse.createBySuccessMessage("删除成功");
@@ -225,10 +251,12 @@ public class PublicService implements IPublicService {
     @Override
     public ServiceResponse getTenCounts(int page) {
         int allCount = sPublicMapper.getAllCount();
-        if (page*10>=allCount){
-            return ServiceResponse.createByErrorMessage("没有更多了");
-        }
-        List<PublicedEntity> socialPublicSize = sPublicMapper.getSocialPublicSize();
+        List<PublicedEntity> socialPublicSize;
+        /*if ((page+1)*10>allCount){
+            socialPublicSize = sPublicMapper.getSocialPublicSize(allCount-page*10);
+        }else {
+        }*/
+        socialPublicSize = sPublicMapper.getSocialPublicSize(10);
         if (socialPublicSize!=null){
             return ServiceResponse.createBySuccessData(socialPublicSize);
         }

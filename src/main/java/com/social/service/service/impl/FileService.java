@@ -7,15 +7,25 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.UUID;
 
 @Service("iFileService")
 public class FileService implements IFileService {
 
+    @Override
     public String upload(MultipartFile file, String uploadPath) {
         String originalFileName = file.getOriginalFilename();
-        String extendName = originalFileName.substring(originalFileName.lastIndexOf(".")+1);
-//        String fileName = UUID.randomUUID().toString().replaceAll("-", "")+"."+extendName;
+        return saveFile(file, uploadPath, originalFileName);
+    }
+
+    @Override
+    public String upload(MultipartFile file, String uploadPath, String userId) {
+        String originalFileName = file.getOriginalFilename();
+        String extendName = originalFileName.substring(originalFileName.lastIndexOf("."));
+        originalFileName = userId+"-"+System.currentTimeMillis()+extendName;
+        return saveFile(file, uploadPath, originalFileName);
+    }
+
+    private String saveFile(MultipartFile file, String uploadPath, String originalFileName) {
         String fileName = originalFileName;
         File uploadDir = new File(uploadPath);
         if (!uploadDir.exists()){
@@ -34,7 +44,7 @@ public class FileService implements IFileService {
     }
 
     @Override
-    public void deleteFIle(String type, String path) {
+    public void deleteFile(String type, String path) {
         File file = new File(Const.uploadDir+path);
         if (file.exists())
             file.delete();

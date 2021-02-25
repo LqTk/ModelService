@@ -4,6 +4,8 @@ import com.social.service.domain.ReportPublish;
 import com.social.service.domain.ReportPublishWithBLOBs;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 public interface ReportPublishMapper {
     int deleteByPrimaryKey(String reportid);
 
@@ -22,4 +24,8 @@ public interface ReportPublishMapper {
     ReportPublishWithBLOBs selectByUserIdAndPublishId(@Param("publishId") String publishId, @Param("userId") String userId);
 
     int updateImg(@Param("reportId") String reportId, @Param("text") String text, @Param("img") String img);
+
+    int deleteByPublishId(String publishId);
+
+    List<ReportPublishWithBLOBs> selectByPublishId(String publishId);
 }

@@ -126,4 +126,17 @@
       img = #{img,jdbcType=LONGVARCHAR}
       where reportId = #{reportId}
   </update>
+
+  <delete id="deleteByPublishId" parameterType="java.lang.String">
+    delete from social_report_publish where publishId=#{publishId}
+  </delete>
+
+  <select id="selectByPublishId" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from social_report_publish
+    where publishId=#{publishId}
+  </select>
 </mapper>

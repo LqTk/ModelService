@@ -23,7 +23,7 @@ public class FileControler {
     @RequestMapping("uploadImg")
     public ServiceResponse uploadImg(@RequestParam(value = "img",required = false)MultipartFile file,
                                      HttpSession session, HttpServletRequest request,@RequestParam("userId") String userId){
-        String uploadUrl = iFileService.upload(file, Const.upLoadHead);
+        String uploadUrl = iFileService.upload(file, Const.upLoadHead, userId);
         File uploadFile = new File(uploadUrl);
         HashMap map = new HashMap();
         if (StringUtils.isBlank(uploadUrl)){

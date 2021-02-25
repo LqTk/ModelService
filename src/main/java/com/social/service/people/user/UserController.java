@@ -1,7 +1,5 @@
 package com.social.service.people.user;
 
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
 import com.social.service.common.Const;
 import com.social.service.common.ServiceResponse;
 import com.social.service.domain.*;
@@ -115,7 +113,7 @@ public class UserController {
                 headFile.delete();
             }
         }
-        String uploadUrl = iFileService.upload(file, Const.upLoadHead);
+        String uploadUrl = iFileService.upload(file, Const.upLoadHead, userId);
         File uploadFile = new File(uploadUrl);
         if (StringUtils.isBlank(uploadUrl)){
             return ServiceResponse.createByErrorMessage("上传文件失败");
@@ -317,7 +315,7 @@ public class UserController {
                 uploadDir = Const.upLoadVoice;
                 chat.setVoiceTime((String) map.get("voicetime"));
             }
-            String uploadUrl = iFileService.upload(file, Const.uploadDir+uploadDir);
+            String uploadUrl = iFileService.upload(file, Const.uploadDir+uploadDir, (String) map.get("talkid"));
             File uploadFile = new File(uploadUrl);
             if (StringUtils.isBlank(uploadUrl)){
                 return ServiceResponse.createByErrorMessage("上传文件失败");
@@ -461,7 +459,7 @@ public class UserController {
     @RequestMapping(value = "chat/deleteMsg",method = RequestMethod.POST)
     public ServiceResponse deleteMsg(@RequestBody List<MsgDeleteEntity> deleteEntities){
         for (MsgDeleteEntity msgDeleteEntity:deleteEntities){
-            iFileService.deleteFIle(msgDeleteEntity.type,msgDeleteEntity.path);
+            iFileService.deleteFile(msgDeleteEntity.type,msgDeleteEntity.path);
         }
         return ServiceResponse.createBySuccess();
     }

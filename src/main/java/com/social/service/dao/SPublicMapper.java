@@ -19,7 +19,7 @@ public interface SPublicMapper {
 
     int updateByPrimaryKey(SPublic record);
 
-    List<PublicedEntity> getSocialPublicSize();
+    List<PublicedEntity> getSocialPublicSize(Integer size);
 
     List<PublicedEntity> getSocialByUserId(@Param("userId") String userId, @Param("start")int start, @Param("end")int end);
 

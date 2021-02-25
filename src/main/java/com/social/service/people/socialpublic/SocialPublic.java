@@ -44,6 +44,7 @@ public class SocialPublic {
     public ServiceResponse delete(@PathVariable String publishId){
         if (StringUtils.isBlank(publishId))
             return ServiceResponse.createByIllegalArgument();
+        iReportPublishService.deleteImg(publishId);
         return iPublicService.delete(publishId);
     }
 
@@ -145,24 +146,24 @@ public class SocialPublic {
      * @param file 上传的文件
      * @return
      */
-    @RequestMapping(value = "uploadFile", method = RequestMethod.POST)
-    public ServiceResponse uploadFile(@RequestParam(value = "file",required = false) MultipartFile file){
+    @RequestMapping(value = "uploadFile/{userId}", method = RequestMethod.POST)
+    public ServiceResponse uploadFile(@RequestParam(value = "file",required = false) MultipartFile file, @PathVariable String userId){
         String filePath = Const.publishFile;
-        return saveUploadFile(file, filePath);
+        return saveUploadFile(file, filePath, userId);
     }
 
     /**
      * @param file 上传的文件
      * @return
      */
-    @RequestMapping(value = "reportFile", method = RequestMethod.POST)
-    public ServiceResponse reportFile(@RequestParam(value = "file",required = false) MultipartFile file){
+    @RequestMapping(value = "reportFile/{userId}", method = RequestMethod.POST)
+    public ServiceResponse reportFile(@RequestParam(value = "file",required = false) MultipartFile file, @PathVariable String userId){
         String filePath = Const.reportPublishFile;
-        return saveUploadFile(file, filePath);
+        return saveUploadFile(file, filePath, userId);
     }
 
-    private ServiceResponse saveUploadFile(@RequestParam(value = "file", required = false) MultipartFile file, String filePath) {
-        String uploadUrl = iFileService.upload(file, Const.uploadDir+filePath);
+    private ServiceResponse saveUploadFile(@RequestParam(value = "file", required = false) MultipartFile file, String filePath, String userId) {
+        String uploadUrl = iFileService.upload(file, Const.uploadDir+filePath, userId);
         File file1 = new File(uploadUrl);
         if (file1.exists()){
             HashMap map = new HashMap();

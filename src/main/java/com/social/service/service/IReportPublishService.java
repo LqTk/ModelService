@@ -5,4 +5,5 @@ import com.social.service.domain.ReportPublishWithBLOBs;
 
 public interface IReportPublishService {
     ServiceResponse insert(ReportPublishWithBLOBs reportPublish);
+    void deleteImg(String publishId);
 }

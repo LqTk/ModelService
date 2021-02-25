@@ -19,4 +19,6 @@ public interface ChatReviewMapper {
     ChatReviewEntity findChatReview(String reviewId);
 
     int deleteByReviewId(String reviewId);
+
+    int deleteByPublishId(String publishId);
 }

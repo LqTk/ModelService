@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 80017
 File Encoding         : 65001
 
-Date: 2021-02-23 17:26:36
+Date: 2021-02-25 17:05:42
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -38,6 +38,7 @@ DROP TABLE IF EXISTS `social_chat_review`;
 CREATE TABLE `social_chat_review` (
   `reviewChatId` varchar(32) NOT NULL,
   `reviewId` varchar(32) NOT NULL,
+  `publishId` varchar(32) NOT NULL,
   `talkId` varchar(32) NOT NULL,
   `toId` varchar(32) NOT NULL,
   `chatText` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci,

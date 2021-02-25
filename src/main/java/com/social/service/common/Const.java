@@ -16,6 +16,13 @@ public class Const {
     public static final String MODE_VIDEO = "VIDEO";
 
     /**
+     * 分享类型
+     */
+    public static final String SHARE_MUSIC = "music";
+    public static final String SHARE_TEXT = "text";
+    public static final String SHARE_PIC = "pic";
+    public static final String SHARE_VIDEO = "video";
+    /**
      * 未读消息类型
      */
     public static final String MSG_REVIEW = "review";
