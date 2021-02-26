@@ -10,10 +10,26 @@ Target Server Type    : MYSQL
 Target Server Version : 80017
 File Encoding         : 65001
 
-Date: 2021-02-25 17:05:42
+Date: 2021-02-26 17:20:03
 */
 
 SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for social_apk
+-- ----------------------------
+DROP TABLE IF EXISTS `social_apk`;
+CREATE TABLE `social_apk` (
+  `id` varchar(32) NOT NULL,
+  `appCode` int(11) NOT NULL DEFAULT '1',
+  `appVersion` varchar(255) NOT NULL,
+  `appUrl` text CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `appType` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `updateType` int(1) NOT NULL,
+  `appDes` text,
+  `time` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 -- ----------------------------
 -- Table structure for social_chat

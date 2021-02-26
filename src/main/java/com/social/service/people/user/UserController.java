@@ -510,4 +510,5 @@ public class UserController {
 
         return iPartnerService.setNote(id,name);
     }
+
 }

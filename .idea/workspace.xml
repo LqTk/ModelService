@@ -7,23 +7,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7783714a-5c1b-4c2c-842b-c648836bef44" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/social/service/dao/ApkMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/social/service/domain/Apk.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/social/service/domain/ApkWithBLOBs.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/social/service/people/ApkController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/social/service/service/IApkService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/social/service/service/impl/ApkService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/mappers/ApkMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/social/service/common/Const.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social/service/common/Const.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/social/service/common/FileControler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social/service/common/FileControler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/social/service/dao/ChatReviewMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social/service/dao/ChatReviewMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/social/service/dao/ReportPublishMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social/service/dao/ReportPublishMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/social/service/dao/SPublicMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social/service/dao/SPublicMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/social/service/domain/ChatReview.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social/service/domain/ChatReview.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/social/service/people/socialpublic/SocialPublic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social/service/people/socialpublic/SocialPublic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/SocialService_war_exploded/SocialService_war exploded.war" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/SocialService_war_exploded/SocialService_war exploded.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/socialsql.sql" beforeDir="false" afterPath="$PROJECT_DIR$/socialsql.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/social/service/people/user/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social/service/people/user/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/social/service/service/IFileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social/service/service/IFileService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/social/service/service/IReportPublishService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social/service/service/IReportPublishService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/social/service/service/impl/FileService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social/service/service/impl/FileService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/social/service/service/impl/PublicService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social/service/service/impl/PublicService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/social/service/service/impl/ReportPublishService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/social/service/service/impl/ReportPublishService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/ChatReviewMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/ChatReviewMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/ReportPublishMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/ReportPublishMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mappers/SPublicMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mappers/SPublicMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/social/service/common/Const.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/social/service/common/Const.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/social/service/common/FileControler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/social/service/common/FileControler.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/social/service/people/user/UserController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/social/service/people/user/UserController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/social/service/service/IFileService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/social/service/service/IFileService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/social/service/service/impl/FileService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/social/service/service/impl/FileService.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -53,18 +53,61 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/people/socialpublic/SocialPublic.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/dao/ApkMapper.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="628">
-              <caret line="164" column="28" selection-start-line="164" selection-start-column="28" selection-end-line="164" selection-end-column="28" />
+            <state relative-caret-position="120">
+              <caret line="20" column="48" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mappers/ApkMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="305">
+              <caret line="160" column="82" lean-forward="true" selection-start-line="160" selection-start-column="82" selection-end-line="160" selection-end-column="82" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/service/IApkService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="180">
+              <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#deleteView#0;class#SocialPublic#0" />
-                <element signature="method#addGoods#0;class#SocialPublic#0" />
-                <element signature="method#deleteGoods#0;class#SocialPublic#0" />
-                <element signature="method#getShareMsg#0;class#SocialPublic#0" />
-                <element signature="method#deleteChatReview#0;class#SocialPublic#0" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/service/impl/ApkService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="86">
+              <caret line="21" selection-start-line="21" selection-end-line="21" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/service/IChatService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/domain/Apk.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="780">
+              <caret line="26" column="99" selection-start-line="26" selection-start-column="99" selection-end-line="26" selection-end-column="99" />
             </state>
           </provider>
         </entry>
@@ -72,8 +115,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/people/user/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="639">
-              <caret line="115" column="76" selection-start-line="115" selection-start-column="76" selection-end-line="115" selection-end-column="76" />
+            <state relative-caret-position="13440">
+              <caret line="512" selection-start-line="512" selection-end-line="512" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#updateInfo#0;class#UserController#0" />
@@ -86,43 +129,23 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/service/impl/PublicService.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/people/ApkController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="358">
-              <caret line="257" column="11" lean-forward="true" selection-start-line="257" selection-start-column="11" selection-end-line="257" selection-end-column="11" />
+            <state relative-caret-position="117">
+              <caret line="5" column="62" selection-start-line="5" selection-start-column="62" selection-end-line="5" selection-end-column="62" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#703#704#0" expanded="true" />
+                <element signature="e#749#750#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/service/IFileService.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/domain/ApkWithBLOBs.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/service/impl/FileService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
-              <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/common/FileControler.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
-              <caret line="22" column="32" lean-forward="true" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
+            <state relative-caret-position="120">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -150,11 +173,9 @@
       <find>selectAllChatFromTalkId</find>
       <find>SPublic</find>
       <find>JdbcType</find>
-      <find>ResultMapWithBLOBs</find>
       <find>reviewText</find>
       <find>updateByPrimaryKeySelective</find>
       <find>updatePasswordByUsername</find>
-      <find>selectByPrimaryKey</find>
       <find>resetPassword</find>
       <find>searchPublish</find>
       <find>isConcern</find>
@@ -173,6 +194,8 @@
       <find>deleteByPublishId</find>
       <find>getTenCounts</find>
       <find>uploadFile</find>
+      <find>selectByPrimaryKey</find>
+      <find>ResultMapWithBLOBs</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -181,13 +204,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/resources/mappers/GoodsMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/social/service/common/MyList.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/app-datasource.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/social/service/domain/MsgDeleteEntity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/social/service/domain/MsgPublisEntity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/social/service/domain/MsgPublishEntity.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/social/service/domain/ReviewEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/social/service/domain/ChatReviewEntity.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/social/service/service/IMsgService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/social/service/service/impl/MsgService.java" />
@@ -215,7 +231,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/social/service/domain/Msg.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/social/service/dao/MsgMapper.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mappers/MsgMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/mappers/SPublicMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/social/service/dao/SPublicMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/social/service/common/Const.java" />
@@ -229,9 +244,17 @@
         <option value="$PROJECT_DIR$/src/main/java/com/social/service/service/impl/PublicService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/social/service/service/IFileService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/social/service/service/impl/FileService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/social/service/people/socialpublic/SocialPublic.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/social/service/people/user/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/social/service/common/FileControler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/social/service/people/socialpublic/SocialPublic.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/social/service/dao/ApkMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/social/service/service/IApkService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/social/service/service/impl/ApkService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/social/service/domain/Apk.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/social/service/domain/ApkWithBLOBs.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/social/service/people/user/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/social/service/people/ApkController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mappers/ApkMapper.xml" />
       </list>
     </option>
   </component>
@@ -285,8 +308,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -364,16 +385,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
               <item name="people" type="462c0819:PsiDirectoryNode" />
-              <item name="socialpublic" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SocialService" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SocialService" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="people" type="462c0819:PsiDirectoryNode" />
               <item name="user" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -410,10 +421,19 @@
               <item name="resources" type="462c0819:PsiDirectoryNode" />
               <item name="mappers" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="SocialService" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SocialService" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -653,6 +673,10 @@
         </option>
       </method>
     </configuration>
+    <list>
+      <item itemvalue="Application.test" />
+      <item itemvalue="Tomcat Server.index.jsp" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Tomcat Server.index.jsp" />
@@ -728,7 +752,8 @@
       <workItem from="1613959841541" duration="7891000" />
       <workItem from="1614046475077" duration="6911000" />
       <workItem from="1614131962194" duration="3586000" />
-      <workItem from="1614216259049" duration="16186000" />
+      <workItem from="1614216259049" duration="17178000" />
+      <workItem from="1614302544547" duration="10392000" />
     </task>
     <task id="LOCAL-00001" summary="服务器模板搭建">
       <created>1607934807583</created>
@@ -954,16 +979,24 @@
       <option name="project" value="LOCAL" />
       <updated>1614151667278</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="上传文件名修改">
+      <created>1614244019091</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1614244019091</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="458701000" />
+    <option name="totallyTimeSpent" value="470085000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="2" width="1934" height="1045" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.13500534" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1430096" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -973,8 +1006,8 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.83073497" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3179256" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.5287486" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.416009" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.27846673" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -991,10 +1024,10 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Maven" order="3" weight="0.23134328" />
+      <window_info anchor="right" id="Maven" order="3" weight="0.23105656" />
       <window_info anchor="right" id="Palette" order="4" />
       <window_info anchor="right" id="Capture Analysis" order="5" />
-      <window_info anchor="right" id="Database" order="6" weight="0.32942432" />
+      <window_info anchor="right" id="Database" order="6" weight="0.32924226" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info anchor="right" id="JSF" order="9" />
@@ -1062,7 +1095,8 @@
     <MESSAGE value="数据库" />
     <MESSAGE value="备注" />
     <MESSAGE value="举报" />
-    <option name="LAST_COMMIT_MESSAGE" value="举报" />
+    <MESSAGE value="上传文件名修改" />
+    <option name="LAST_COMMIT_MESSAGE" value="上传文件名修改" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1139,118 +1173,22 @@
           <properties />
           <option name="timeStamp" value="46" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/social/service/people/ApkController.java</url>
+          <line>19</line>
+          <properties />
+          <option name="timeStamp" value="47" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/social/service/service/impl/ApkService.java</url>
+          <line>21</line>
+          <properties />
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mappers/ReviewMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3420">
-          <caret line="114" selection-start-line="114" selection-end-line="114" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.2.4.RELEASE/spring-web-5.2.4.RELEASE.jar!/org/springframework/web/multipart/MultipartFile.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="38" column="9" selection-start-line="38" selection-start-column="9" selection-end-line="38" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/util/JPushClientUtil.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="15" column="18" selection-start-line="15" selection-start-column="18" selection-end-line="15" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/domain/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="195" column="33" selection-start-line="195" selection-start-column="33" selection-end-line="195" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4619#4620#0" expanded="true" />
-            <element signature="e#4650#4651#0" expanded="true" />
-            <element signature="e#4791#4792#0" expanded="true" />
-            <element signature="e#4833#4834#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mappers/UserMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="227" column="36" selection-start-line="227" selection-start-column="36" selection-end-line="227" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/domain/PublicedEntity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="630">
-          <caret line="27" lean-forward="true" selection-start-line="27" selection-end-line="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2560#2561#0" expanded="true" />
-            <element signature="e#2594#2595#0" expanded="true" />
-            <element signature="e#2649#2650#0" expanded="true" />
-            <element signature="e#2695#2696#0" expanded="true" />
-            <element signature="e#2396#2397#0" expanded="true" />
-            <element signature="e#2427#2428#0" expanded="true" />
-            <element signature="e#2475#2476#0" expanded="true" />
-            <element signature="e#2515#2516#0" expanded="true" />
-            <element signature="e#2551#2552#0" expanded="true" />
-            <element signature="e#2583#2584#0" expanded="true" />
-            <element signature="e#2633#2634#0" expanded="true" />
-            <element signature="e#2675#2676#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/service/impl/UserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5880">
-          <caret line="214" selection-start-line="214" selection-end-line="214" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/service/IUserService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/service/IPartnerService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/domain/SPublic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/service/IChatService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mappers/ChatMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3870">
@@ -1301,20 +1239,6 @@
             <element signature="n#delete#1;n#mapper#0;n#!!top" />
             <element signature="n#resultMap#1;n#mapper#0;n#!!top" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/generatorConfig.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="76" column="8" lean-forward="true" selection-start-line="76" selection-start-column="8" selection-end-line="76" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.2.4.RELEASE/spring-web-5.2.4.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="107" selection-start-line="107" selection-end-line="107" />
         </state>
       </provider>
     </entry>
@@ -1560,47 +1484,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/service/impl/PublicService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="257" column="11" lean-forward="true" selection-start-line="257" selection-start-column="11" selection-end-line="257" selection-end-column="11" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/people/socialpublic/SocialPublic.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="628">
-          <caret line="164" column="28" selection-start-line="164" selection-start-column="28" selection-end-line="164" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#deleteView#0;class#SocialPublic#0" />
-            <element signature="method#addGoods#0;class#SocialPublic#0" />
-            <element signature="method#deleteGoods#0;class#SocialPublic#0" />
-            <element signature="method#getShareMsg#0;class#SocialPublic#0" />
-            <element signature="method#deleteChatReview#0;class#SocialPublic#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/people/user/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="639">
-          <caret line="115" column="76" selection-start-line="115" selection-start-column="76" selection-end-line="115" selection-end-column="76" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#updateInfo#0;class#UserController#0" />
-            <element signature="method#sendMsgResult#0;class#UserController#0" />
-            <element signature="method#chatToMsg#0;class#UserController#0" />
-            <element signature="docComment;method#getChatMsg#0;class#UserController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/service/impl/FileService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+        <state relative-caret-position="7320">
+          <caret line="257" column="11" selection-start-line="257" selection-start-column="11" selection-end-line="257" selection-end-column="11" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1614,10 +1499,150 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/service/impl/FileService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/common/FileControler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="22" column="32" lean-forward="true" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
+        <state relative-caret-position="57">
+          <caret line="32" column="9" lean-forward="true" selection-start-line="32" selection-start-column="9" selection-end-line="32" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/people/socialpublic/SocialPublic.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="148" column="39" selection-start-line="148" selection-start-column="29" selection-end-line="148" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#deleteView#0;class#SocialPublic#0" />
+            <element signature="method#addGoods#0;class#SocialPublic#0" />
+            <element signature="method#deleteGoods#0;class#SocialPublic#0" />
+            <element signature="method#getShareMsg#0;class#SocialPublic#0" />
+            <element signature="method#deleteChatReview#0;class#SocialPublic#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-180">
+          <caret line="57" column="16" lean-forward="true" selection-start-line="57" selection-start-column="16" selection-end-line="57" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/mybatis/generator/mybatis-generator-core/1.4.0/mybatis-generator-core-1.4.0.jar!/org/mybatis/generator/config/xml/mybatis-generator-config_1_0.dtd">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="393">
+          <caret line="151" column="144" selection-start-line="151" selection-start-column="124" selection-end-line="151" selection-end-column="144" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/generatorConfig.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="84" lean-forward="true" selection-start-line="84" selection-end-line="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/service/IChatService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/dao/ApkMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="20" column="48" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/5.2.4.RELEASE/spring-web-5.2.4.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="109" column="34" lean-forward="true" selection-start-line="109" selection-start-column="34" selection-end-line="109" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/domain/Apk.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="780">
+          <caret line="26" column="99" selection-start-line="26" selection-start-column="99" selection-end-line="26" selection-end-column="99" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/domain/ApkWithBLOBs.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/people/user/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13440">
+          <caret line="512" selection-start-line="512" selection-end-line="512" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#updateInfo#0;class#UserController#0" />
+            <element signature="method#sendMsgResult#0;class#UserController#0" />
+            <element signature="method#chatToMsg#0;class#UserController#0" />
+            <element signature="docComment;method#getChatMsg#0;class#UserController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/people/ApkController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="5" column="62" selection-start-line="5" selection-start-column="62" selection-end-line="5" selection-end-column="62" />
+          <folding>
+            <element signature="e#703#704#0" expanded="true" />
+            <element signature="e#749#750#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/service/impl/ApkService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="86">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/social/service/service/IApkService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="6" column="20" selection-start-line="6" selection-start-column="20" selection-end-line="6" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mappers/ApkMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="160" column="82" lean-forward="true" selection-start-line="160" selection-start-column="82" selection-end-line="160" selection-end-column="82" />
         </state>
       </provider>
     </entry>

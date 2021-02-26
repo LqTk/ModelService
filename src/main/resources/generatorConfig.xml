@@ -76,5 +76,9 @@
         enableDeleteByExample="false" enableSelectByExample="fasle" selectByExampleQueryId="fasle"/>-->
         <!--<table tableName="social_report_publish" domainObjectName="ReportPublish" enableCountByExample="false" enableUpdateByExample="false"
         enableDeleteByExample="false" enableSelectByExample="fasle" selectByExampleQueryId="fasle"/>-->
+        <table tableName="social_apk" domainObjectName="Apk" enableCountByExample="false" enableUpdateByExample="false"
+        enableDeleteByExample="false" enableSelectByExample="fasle" selectByExampleQueryId="fasle" delimitIdentifiers="true">
+            <property name="useActualColumnNames" value="true"/>
+        </table>
     </context>
 </generatorConfiguration>

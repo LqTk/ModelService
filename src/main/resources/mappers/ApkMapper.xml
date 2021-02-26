@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.social.service.dao.ApkMapper">
+  <resultMap id="BaseResultMap" type="com.social.service.domain.Apk">
+    <constructor>
+      <idArg column="id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="appCode" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="appVersion" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="appType" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="updateType" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+    </constructor>
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.social.service.domain.ApkWithBLOBs">
+    <constructor>
+      <idArg column="id" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="appCode" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="appVersion" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="appType" javaType="java.lang.String" jdbcType="VARCHAR" />
+      <arg column="updateType" javaType="java.lang.Integer" jdbcType="INTEGER" />
+      <arg column="time" javaType="java.util.Date" jdbcType="TIMESTAMP" />
+      <arg column="appUrl" javaType="java.lang.String" jdbcType="LONGVARCHAR" />
+      <arg column="appDes" javaType="java.lang.String" jdbcType="LONGVARCHAR" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, appCode, appVersion, appType, updateType, time
+  </sql>
+  <sql id="Blob_Column_List">
+    appUrl, appDes
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from "social_apk"
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from "social_apk"
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.social.service.domain.ApkWithBLOBs">
+    insert into "social_apk" (id, appCode, appVersion,
+      appType, updateType, time,
+      appUrl, appDes)
+    values (#{id,jdbcType=VARCHAR}, #{appCode,jdbcType=INTEGER}, #{appVersion,jdbcType=VARCHAR},
+      #{appType,jdbcType=VARCHAR}, #{updateType,jdbcType=INTEGER}, #{time,jdbcType=TIMESTAMP},
+      #{appUrl,jdbcType=LONGVARCHAR}, #{appDes,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.social.service.domain.ApkWithBLOBs">
+    insert into "social_apk"
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="appCode != null">
+        appCode,
+      </if>
+      <if test="appVersion != null">
+        appVersion,
+      </if>
+      <if test="appType != null">
+        appType,
+      </if>
+      <if test="updateType != null">
+        updateType,
+      </if>
+      <if test="time != null">
+        time,
+      </if>
+      <if test="appUrl != null">
+        appUrl,
+      </if>
+      <if test="appDes != null">
+        appDes,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="appCode != null">
+        #{appCode,jdbcType=INTEGER},
+      </if>
+      <if test="appVersion != null">
+        #{appVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="appType != null">
+        #{appType,jdbcType=VARCHAR},
+      </if>
+      <if test="updateType != null">
+        #{updateType,jdbcType=INTEGER},
+      </if>
+      <if test="time != null">
+        #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="appUrl != null">
+        #{appUrl,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="appDes != null">
+        #{appDes,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.social.service.domain.ApkWithBLOBs">
+    update "social_apk"
+    <set>
+      <if test="appCode != null">
+        appCode = #{appCode,jdbcType=INTEGER},
+      </if>
+      <if test="appVersion != null">
+        appVersion = #{appVersion,jdbcType=VARCHAR},
+      </if>
+      <if test="appType != null">
+        appType = #{appType,jdbcType=VARCHAR},
+      </if>
+      <if test="updateType != null">
+        updateType = #{updateType,jdbcType=INTEGER},
+      </if>
+      <if test="time != null">
+        time = #{time,jdbcType=TIMESTAMP},
+      </if>
+      <if test="appUrl != null">
+        appUrl = #{appUrl,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="appDes != null">
+        appDes = #{appDes,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.social.service.domain.ApkWithBLOBs">
+    update "social_apk"
+    set appCode = #{appCode,jdbcType=INTEGER},
+      appVersion = #{appVersion,jdbcType=VARCHAR},
+      appType = #{appType,jdbcType=VARCHAR},
+      updateType = #{updateType,jdbcType=INTEGER},
+      time = #{time,jdbcType=TIMESTAMP},
+      appUrl = #{appUrl,jdbcType=LONGVARCHAR},
+      appDes = #{appDes,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.social.service.domain.Apk">
+    update "social_apk"
+    set appCode = #{appCode,jdbcType=INTEGER},
+      appVersion = #{appVersion,jdbcType=VARCHAR},
+      appType = #{appType,jdbcType=VARCHAR},
+      updateType = #{updateType,jdbcType=INTEGER},
+      time = #{time,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+
+  <select id="selectMaxVersion" parameterType="java.lang.String" resultMap="ResultMapWithBLOBs">
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from social_apk
+    where appCode = (SELECT MAX(appCode) FROM social_apk where appType=#{apkType})
+  </select>
+</mapper>
